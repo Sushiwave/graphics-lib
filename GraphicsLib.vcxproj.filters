@@ -1,0 +1,1056 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{5749bfd7-3376-4a6e-ac44-5d9bd53ea206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{05ae0aab-4e3c-43d1-bc0d-409cfedacf5b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GraphicsLib\Graphics\API\D3D11\D3D11GraphicsAPI.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\D3D11\D3D11AlphaBlender.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\GeometryBuffer\D3D11\D3D11GeometryBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Helper\D3D11\D3D11CreateFunctions.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\D3D11\D3D11MultipleRenderTarget.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\D3D11\D3D11RenderTarget.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\Base\D3D11Shader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\ComputeShader\D3D11ComputeShader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\DomainShader\D3D11DomainShader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\GeometryShader\D3D11GeometryShader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\HullShader\D3D11HullShader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\PixelShader\D3D11PixelShader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\VertexShader\D3D11VertexShader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\Base\D3D11RawBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\Base\D3D11RawBufferEX.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\BufferReader\D3D11RawBufferReader.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\Components\RawBufferType.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\ConstantBuffer\D3D11RawConstantBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\D3D11\Base\D3D11ConstantBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\D3D11\D3D11DynamicConstantBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\D3D11\D3D11ImmutableConstantBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\Base\D3D11StructuredBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\D3D11DefaultStructuredBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\D3D11DynamicStructuredBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\D3D11ImmutableStructuredBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Components\D3D\D3DTexturePrecision.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\Base\D3D11Texture2D.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\Components\RawTexture\Components\D3D11RawTexture2DType.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\Components\RawTexture\D3D11RawTexture2D.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\D3D11DefaultTexture2D.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\D3D11DynamicTexture2D.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\D3D11ImmutableTexture2D.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\D3D11\D3D11TextureSampler.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11ConstantBufferView.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11ShaderResourceView.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11TextureSamplerState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11UnorderedAccessView.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\VertexBuffer\D3D11\D3D11VertexBuffer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\Components\D3D11ShaderReflection.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\D3D11ShaderCodeParser.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\ShaderCompiler\HLSL\D3D11\D3D11ShaderCompiler.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11GraphicsSystemComponents.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11ScreenUpdater.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\System\D3D11\D3D11GraphicsSystem.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Window\API\WINAPI\WINAPIWindowAPI.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Window\Components\WINAPI\WindowHandle\WINAPIWindowHandle.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\Components\WINAPIWindow.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\Components\WINAPIWindowComponents.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\WINAPIWindowSystem.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Projection\Components\ProjectionType.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\AnyModel.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\CoordinateSystem.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiImage.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiCombo.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiSearchBar.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiVector2D.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiVector3D.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiVector4D.hpp" />
+    <ClInclude Include="inc\GraphicsLib\ImGui\ImGui.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Math\Math.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\DepthStencilBuffer.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Window\API\IWindowAPI.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Window\System\Components\WindowInfo.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Window\System\IWindowSystem.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\System\System.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Assert\Assert.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\C++\MultipleInheritableEnableSharedFromThis.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\C++\multiple_inheritable_enable_shared_from_this.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\C++\SFINAE.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\COM\com_ptr.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DataStructure\Array\Array.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DataStructure\Array\Array2.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DataStructure\Array\Array3.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DataStructure\Array\Array4.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DataStructure\HierarchicalTreeStructure.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DesignPattern\Observer\Observer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\DesignPattern\Observer\Subject.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Exception\Base\Exception.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Exception\RuntimeError\Base\RuntimeError.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Exception\RuntimeError\COMRuntimeError.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\File\FileStream.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\ID\ID.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\ID\IDGenerator\StringIDGenerator.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\ID\IIDHolder.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\ImGui\ImGuiVector2D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\ImGui\ImGuiVector3D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\ImGui\ImGuiVector4D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Log\Log.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Math\Math.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Math\Random\Random.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Math\Vector\Vector2D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Math\Vector\Vector3D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\CPPLib\Math\Vector\Vector4D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\DirectXTex\DirectXTex.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\DirectXTex\ScreenGrab.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imconfig.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imgui.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imgui_impl_dx11.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imgui_impl_win32.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imgui_internal.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imstb_rectpack.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imstb_textedit.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGui\imstb_truetype.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGuiCombo.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ThirdParty\ExtendedImGui\ImGuiSearchBar.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Components\Face.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Components\Triangle.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Components\Triangles.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJFace.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJIndex.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJIndices.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJMaterial.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJTriangle.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJTriangles.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertex.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertexDataPool.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertexFormat.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertices.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\API\IGraphicsAPI.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\GPUState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\GPUStateRecorder.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\GPUStateViewer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipeline.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineSRT.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\ShaderCodeParser\Components\ShaderResourceLocationDict.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\ShaderCodeParser\IShaderCodeParser.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\ShaderPool\ShaderPool.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\System\Components\IGraphicsSystemComponents.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\System\Components\IScreenUpdater.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\System\IGraphicsSystem.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\PrimitiveTopology.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Shape.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Scene.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Camera.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\Base\Light.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\Base\PositionableLight.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\DirectionalLight.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\PointLight.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Projection\Projection.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\AlphaBlender.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\AlphaBlenderDescriptor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\BlendFactor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\BlendOperator.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\IAlphaBlender.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\GPUResource.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\IGPUResource.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Components\ComparisonFunction.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\DepthStencilTester.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\IDepthStencilTester.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\GeometryBuffer\IGeometryBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\LightConstantBuffer\LightConstantBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MaterialConstantBuffer\MaterialConstantBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\IMultipleRenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\MultipleRenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\IndexBuffer\IIndexBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\IRenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\RenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\Base\IShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\Base\Shader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\Components\ShaderStage.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\ComputeShader\IComputeShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\DomainShader\IDomainShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\GeometryShader\IGeometryShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\HullShader\IHullShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\PixelShader\IPixelShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\TessellationShader\ITessellationShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\VertexShader\IVertexShader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Components\CullMode.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\IRasterizer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Rasterizer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Base\IShaderResource.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Base\ShaderResource.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\Constant.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\Base\IConstantBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\IDynamicConstantBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\IImmutableConstantBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\Base\IStructuredBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\IDefaultStructuredBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\IDynamicStructuredBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\IImmutableStructuredBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\BoundedBufferLocation.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\BoundedBufferLocationList.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessFlags.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessFlags.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\ShaderResourceType.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Base\ITexture2D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Components\ImageFileFormat.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Components\ImageXY.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Components\TextureFormat.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\IDefaultTexture2D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\IDynamicTexture2D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\IImmutableTexture2D.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureAddressMode.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureFilter.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureSamplerDescriptor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\ITextureSampler.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\Components\ShaderResourceBufferLocation.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\Components\ShaderResourceBufferLocationList.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\IShaderResourceMemoryAccessor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\ShaderResourceMemoryAccessor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\TransformConstantBuffer\Helper\TransformConstantBufferUpdatingHelper.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\TransformConstantBuffer\TransformConstantBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\VertexBuffer\IVertexBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\IDepthStencilBuffer.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\DrawableObject.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Transform.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\RotationMethod.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GraphicsLib\API\API.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJIndex.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJMaterial.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertex.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\API\D3D11\D3D11GraphicsAPI.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\DrawableObject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Base\AlphaBlender.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\AlphaBlenderDescriptor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\D3D11\D3D11AlphaBlender.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Base\Components\BoundedBufferLocation.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Base\GPUResource.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Base\DepthStencilTester.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\GeometryBuffer\D3D11\D3D11GeometryBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Helper\D3D11\D3D11CreateFunctions.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\Base\MultipleRenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\D3D11\D3D11MultipleRenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\Base\Rasterizer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\Base\RenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\D3D11\D3D11RenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\Base\Shader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\Base\D3D11Shader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\ComputeShader\D3D11ComputeShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\DomainShader\D3D11DomainShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\GeometryShader\D3D11GeometryShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\HullShader\D3D11HullShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\PixelShader\D3D11PixelShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Shader\D3D11\VertexShader\D3D11VertexShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Base\ShaderResource.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\Constant.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\Base\D3D11RawBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\Base\D3D11RawBufferEX.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\BufferReader\D3D11RawBufferReader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\Components\D3D11\RawBuffer\ConstantBuffer\D3D11RawConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\D3D11\Base\D3D11ConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\D3D11\D3D11DynamicConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\ConstantBuffer\D3D11\D3D11ImmutableConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\Base\D3D11StructuredBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\D3D11DefaultStructuredBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\D3D11DynamicStructuredBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\D3D11\D3D11ImmutableStructuredBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Components\ImageXY.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\Base\D3D11Texture2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\Components\RawTexture\D3D11RawTexture2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\D3D11DefaultTexture2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\D3D11DynamicTexture2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\D3D11\D3D11ImmutableTexture2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureSamplerDescriptor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\D3D11\D3D11TextureSampler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\Base\ShaderResourceMemoryAccessor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11ConstantBufferView.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11ShaderResourceView.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11TextureSamplerState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11UnorderedAccessView.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\VertexBuffer\D3D11\D3D11VertexBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUState\GPUState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUState\GPUStateRecorder.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUState\GPUStateViewer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipeline.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineSRT.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Camera\Base\Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Group.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Scene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\Components\D3D11ShaderReflection.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\D3D11ShaderCodeParser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\ShaderCompiler\HLSL\D3D11\D3D11ShaderCompiler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\ShaderPool\ShaderPool.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Shape.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Plane.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Sphere.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11GraphicsSystemComponents.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11ScreenUpdater.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\D3D11GraphicsSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\System\System.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Window\API\WINAPI\WINAPIWindowAPI.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Window\Components\WINAPI\WindowHandle\WINAPIWindowHandle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Window\System\Components\WIndowInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Window\System\WINAPI\Components\WINAPIWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Window\System\WINAPI\Components\WINAPIWindowComponents.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Window\System\WINAPI\WINAPIWindowSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\TransformConstantBuffer\TransformConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\TransformConstantBuffer\Helper\TransformConstantBufferUpdatingHelper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MaterialConstantBuffer\MaterialConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Transform\Transform.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\DirectionalLight.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\Base\Light.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\LightConstantBuffer\LightConstantBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\PointLight.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\Base\PositionableLight.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\ImGui\imgui_impl_graphicslib.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Projection\Projection.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Shape\AnyModel.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Box.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\ImGui\ImGuiImage.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp" />
+    <ClCompile Include="src\ThirdParty\CPPLib\DesignPattern\Observer\Observer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\DesignPattern\Observer\Subject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\Exception\RuntimeError\Base\RuntimeError.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\Exception\RuntimeError\COMRuntimeError.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\File\FileStream.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\ID\IDGenerator\StringIDGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\ImGui\ImGuiVector2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\ImGui\ImGuiVector3D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\CPPLib\ImGui\ImGuiVector4D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\ID\ID.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGui\imgui.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGui\imgui_demo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGui\imgui_draw.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGui\imgui_impl_dx11.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGui\imgui_impl_win32.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGui\imgui_widgets.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGuiCombo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGuiSearchBar.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">
+      <Filter>inc</Filter>
+    </None>
+  </ItemGroup>
+</Project>
