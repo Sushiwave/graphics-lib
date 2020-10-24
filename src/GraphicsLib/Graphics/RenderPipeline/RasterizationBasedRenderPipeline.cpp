@@ -36,20 +36,20 @@ namespace cg
 
 	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene)
 	{
-		renderDefault(scene, scene.camera, scene.projection, [](const Scene&){}, [](){});
+		renderDefault(scene, scene.camera, [](const Scene&){}, [](){});
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, const Projection& customProjection)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera)
 	{
-		renderDefault(scene, customCamera, customProjection, [](const Scene&){}, [](){});
+		renderDefault(scene, customCamera, [](const Scene&){}, [](){});
 	}
 
 	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall)
 	{
-		renderDefault(scene, scene.camera, scene.projection, additionalSetCall, additionalDrawCall);
+		renderDefault(scene, scene.camera, additionalSetCall, additionalDrawCall);
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, const Projection& customProjection, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall)
 	{
 		using CBLocation = std::tuple<ShaderStage, int>;
 		const auto& cbLocation = [&](ShaderResourceType resourceType, const std::string& bufferName)
@@ -143,7 +143,7 @@ namespace cg
 			scene.draw(targetRenderingGroupName,
 				[&](const std::shared_ptr<DrawableObject> object)
 				{
-					m_transformConstantBuffer->update(scene, object->getTransformRef(), customCamera, customProjection);
+					m_transformConstantBuffer->update(scene, object->getTransformRef(), customCamera);
 				},
 				[&](const DrawableObject::Part& part)
 				{

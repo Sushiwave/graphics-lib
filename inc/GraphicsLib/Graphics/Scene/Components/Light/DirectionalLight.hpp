@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/Graphics/Scene/Components/Light/Base/Light.hpp>
-#include <GraphicsLib/Graphics/Scene/Components/Projection/Projection.hpp>
+#include <GraphicsLib/Graphics/Scene/Components/Camera/Camera.hpp>
 
 
 
@@ -40,7 +40,7 @@ namespace cg
 			return *std::dynamic_pointer_cast<DirectionConstant_>(m_pDirectionConstant);
 		}
 	public:
-		Projection projection;
+		Camera camera;
 	public:
 		template <typename ColorConstant_, typename DirectionConstant_>
 		DirectionalLight(const Type& type, const std::string& name, const DirectionalLightConstant<ColorConstant_, DirectionConstant_>& directionalLightConstant, const std::shared_ptr<Constant>& mainConstant)

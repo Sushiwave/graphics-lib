@@ -1,4 +1,5 @@
 #pragma once
+#include <GraphicsLib/Graphics/Scene/Components/Camera/Components/Projection/Projection.hpp>
 #include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Transform.hpp>
 
 
@@ -11,6 +12,8 @@ namespace cg
 	{
 	private:
 		std::shared_ptr<Transform> m_transform;
+	public:
+		Projection projection;
 	public:
 		Camera();
 		virtual ~Camera() = default;

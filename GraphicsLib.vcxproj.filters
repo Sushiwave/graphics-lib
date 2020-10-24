@@ -171,7 +171,6 @@
     <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\WINAPIWindowSystem.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Projection\Components\ProjectionType.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Shape\AnyModel.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\CoordinateSystem.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiImage.hpp" />
@@ -450,9 +449,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Projection\Projection.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\AlphaBlender.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -661,6 +657,10 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\RotationMethod.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Components\ProjectionType.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Projection.hpp">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
