@@ -32,7 +32,6 @@ namespace cg
 		std::string m_name;
 	public:
 		Camera camera;
-		Projection projection;
 	public:
 		Scene(const std::string& name);
 		virtual ~Scene() = default;

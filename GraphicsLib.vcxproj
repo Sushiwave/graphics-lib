@@ -262,8 +262,8 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\DirectionalLight.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\PointLight.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Projection\Components\ProjectionType.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Projection\Projection.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Components\ProjectionType.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Projection.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Scene.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\ShaderCodeParser\Components\ShaderResourceLocationDict.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\ShaderCodeParser\IShaderCodeParser.hpp" />

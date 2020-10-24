@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/Graphics/Scene/Components/Light/Base/PositionableLight.hpp>
-#include <GraphicsLib/Graphics/Scene/Components/Projection/Projection.hpp>
+#include <GraphicsLib/Graphics/Scene/Components/Camera/Camera.hpp>
 
 
 
@@ -40,7 +40,7 @@ namespace cg
 			return *std::dynamic_pointer_cast<ShapeConstant_>(m_pShape);
 		}
 	public:
-		Projection projection;
+		Camera camera;
 	public:
 		template <typename ColorConstant_, typename AttenuationConstant_, typename ShapeConstant_>
 		SpotLight(const Type& type, const std::string& name, const SpotLightConstant<ColorConstant_, AttenuationConstant_, ShapeConstant_>& spotLightConstant, const std::shared_ptr<Constant>& mainConstant)

@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/Scene/Components/Projection/Projection.hpp>
+#include <GraphicsLib/Graphics/Scene/Components/Camera/Components/Projection/Projection.hpp>
 #include <GraphicsLib/System/System.hpp>
 
 

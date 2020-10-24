@@ -1,5 +1,4 @@
 #pragma once
-#include <GraphicsLib/Graphics/Scene/Components/Projection/Projection.hpp>
 #include <GraphicsLib/Graphics/Scene/Components/Camera/Camera.hpp>
 #include <GraphicsLib/Graphics/DrawableObject/DrawableObject.hpp>
 #include <GraphicsLib/Graphics/GPUResource/MaterialConstantBuffer/MaterialConstantBuffer.hpp>
