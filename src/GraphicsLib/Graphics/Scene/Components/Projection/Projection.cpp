@@ -8,7 +8,7 @@
 namespace cg
 {
 	Projection::Projection()
-		: m_type(ProjectionType::perspective)
+		: m_matrix([](){ DirectX::XMFLOAT4X4 identity; DirectX::XMStoreFloat4x4(&identity, DirectX::XMMatrixIdentity()); return identity; }())
 	{
 	}
 
