@@ -20,7 +20,7 @@ namespace cg
 	class WavefrontOBJModelLoader
 	{
 	private:
-		using FaceLineParser = std::function<std::string(cpp::FileStreamInput&, const std::string&, wavefrontobj::VertexFormat, int, const wavefrontobj::VertexDataPool&, unsigned int, wavefrontobj::Indices*, unsigned int*, unsigned int*, cpp::Vector3D<float>*, cpp::Vector3D<float>*)>;
+		using FaceLineParser = std::function<std::string(cpp::FileStreamInput&, const std::string&, wavefrontobj::VertexFormat, int, bool, const wavefrontobj::VertexDataPool&, unsigned int, wavefrontobj::Indices*, unsigned int*, unsigned int*, cpp::Vector3D<float>*, cpp::Vector3D<float>*)>;
 	private:
 		static void initializationForFaceLineParsing(wavefrontobj::VertexFormat vertexFormat, int positionDimensionCount, std::shared_ptr<void>* outVertices, std::shared_ptr<void>* outTriangles, wavefrontobj::Indices* outIndices, unsigned int* outBaseIndex, unsigned int* outVertexCount, unsigned int* outTriangleCount, int* outVertexByteSize, FaceLineParser* outFaceLineParser);
 
@@ -29,13 +29,15 @@ namespace cg
 		[[nodiscard]] static int loadPositionDimensionCount(const std::string& line);
 		[[nodiscard]] static bool loadNotation(const std::string& line);
 		template <int dimensionCount_>
-		[[nodiscard]] static auto loadPosition(const std::string& line, bool isExpNotation)
+		[[nodiscard]] static auto loadPosition(const std::string& line, bool leftHanded, bool isExpNotation)
 		{
-			return WavefrontOBJLoadingHelper::loadVector<float, dimensionCount_>(line, "v", " ", true, isExpNotation);
+			auto position = WavefrontOBJLoadingHelper::loadVector<float, dimensionCount_>(line, "v", " ", true, isExpNotation);
+			position[0] *= leftHanded ? -1.0 : 1.0;
+			return position;
 		}
-		[[nodiscard]] static wavefrontobj::Normal3 loadNormal3(const std::string& line, bool isExpNotation);
+		[[nodiscard]] static wavefrontobj::Normal3 loadNormal3(const std::string& line, bool leftHanded, bool isExpNotation);
 		[[nodiscard]] static wavefrontobj::UV2 loadUV2(const std::string& line, bool isExpNotation);
-		[[nodiscard]] static std::vector<wavefrontobj::Index> loadFaceIndex(const std::string& line, wavefrontobj::VertexFormat vertexFormat, int faceVertexCount);
+		[[nodiscard]] static std::vector<wavefrontobj::Index> loadFaceIndex(const std::string& line, wavefrontobj::VertexFormat vertexFormat, int faceVertexCount, bool leftHanded);
 		[[nodiscard]] static std::string loadMaterialKey(const std::string& line);
 		[[nodiscard]] static wavefrontobj::MaterialDict loadMaterial(const std::string& line);
 
@@ -49,11 +51,11 @@ namespace cg
 		[[nodiscard]] static std::string parseObjectLine(cpp::FileStreamInput& fileStream, const std::string& line, std::string* objectName);
 		[[nodiscard]] static std::string parseMaterialLibLine(cpp::FileStreamInput& fileStream, const std::string& line, cg::wavefrontobj::MaterialDict* materialDict);
 		[[nodiscard]] static std::string parseUseMaterialLine(cpp::FileStreamInput& fileStream, const std::string& line, std::string* materialKey);
-		[[nodiscard]] static std::string parsePositionLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexDataPool* vertexDataPool, int* positionDimensionCount);
-		[[nodiscard]] static std::string parseNormalLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexDataPool* vertexDataPool);
+		[[nodiscard]] static std::string parsePositionLine(cpp::FileStreamInput& fileStream, const std::string& line, bool leftHanded, wavefrontobj::VertexDataPool* vertexDataPool, int* positionDimensionCount);
+		[[nodiscard]] static std::string parseNormalLine(cpp::FileStreamInput& fileStream, const std::string& line, bool leftHanded, wavefrontobj::VertexDataPool* vertexDataPool);
 		[[nodiscard]] static std::string parseUVLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexDataPool* vertexDataPool);
 		template <typename Vertex_>
-		[[nodiscard]] static std::string parseFaceLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexFormat vertexFormat, int positionDimensionCount, const wavefrontobj::VertexDataPool& vertexDataPool, unsigned int baseIndex, std::shared_ptr<wavefrontobj::Vertices<Vertex_>> vertices, std::shared_ptr<wavefrontobj::Triangles<Vertex_>> triangles, wavefrontobj::Indices* indices, unsigned int* vertexCount, unsigned int* triangleCount, cpp::Vector3D<float>* minXYZ, cpp::Vector3D<float>* maxXYZ)
+		[[nodiscard]] static std::string parseFaceLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexFormat vertexFormat, int positionDimensionCount, bool leftHanded, const wavefrontobj::VertexDataPool& vertexDataPool, unsigned int baseIndex, std::shared_ptr<wavefrontobj::Vertices<Vertex_>> vertices, std::shared_ptr<wavefrontobj::Triangles<Vertex_>> triangles, wavefrontobj::Indices* indices, unsigned int* vertexCount, unsigned int* triangleCount, cpp::Vector3D<float>* minXYZ, cpp::Vector3D<float>* maxXYZ)
 		{
 			std::unordered_map<unsigned int, Vertex_> vertexDict;
 			
@@ -65,7 +67,7 @@ namespace cg
 				wavefrontobj::Indices faceIndices;
 				wavefrontobj::Face<Vertex_> face;
 				const auto faceVertexCount = loadFaceVertexCount(line_);
-				const auto faceIndex = loadFaceIndex(line_, vertexFormat, faceVertexCount);
+				const auto faceIndex = loadFaceIndex(line_, vertexFormat, faceVertexCount, leftHanded);
 				createFace<Vertex_>(faceIndex, vertexFormat, positionDimensionCount, vertexDataPool, &face);
 				createTriangle<Vertex_>(face, faceIndex, &faceTriangles, &faceIndices);
 
@@ -176,12 +178,12 @@ namespace cg
 			*outTriangles = triangles;
 			*outVertexByteSize = sizeof(Vertex_);
 
-			*outParser = [=](cpp::FileStreamInput& fs, const std::string& l, wavefrontobj::VertexFormat vf, int d, const wavefrontobj::VertexDataPool& vp, unsigned int bi, wavefrontobj::Indices* i, unsigned int* vc, unsigned int* tc, cpp::Vector3D<float>* min, cpp::Vector3D<float>* max)->std::string
+			*outParser = [=](cpp::FileStreamInput& fs, const std::string& l, wavefrontobj::VertexFormat vf, int d, bool lh, const wavefrontobj::VertexDataPool& vp, unsigned int bi, wavefrontobj::Indices* i, unsigned int* vc, unsigned int* tc, cpp::Vector3D<float>* min, cpp::Vector3D<float>* max)->std::string
 			{
-				return parseFaceLine<Vertex_>(fs, l, vf, d, vp, bi, vertices, triangles, i, vc, tc, min, max);
+				return parseFaceLine<Vertex_>(fs, l, vf, d, lh, vp, bi, vertices, triangles, i, vc, tc, min, max);
 			};
 		}
 	public:
-		[[nodiscard]] static std::shared_ptr<WavefrontOBJModel> load(const std::string& filename);
+		[[nodiscard]] static std::shared_ptr<WavefrontOBJModel> load(const std::string& filename, bool leftHanded = false);
 	};
 }
