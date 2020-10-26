@@ -95,9 +95,11 @@ namespace cg
 		return false;
 	}
 
-	wavefrontobj::Normal3 WavefrontOBJModelLoader::loadNormal3(const std::string& line, bool isExpNotation)
+	wavefrontobj::Normal3 WavefrontOBJModelLoader::loadNormal3(const std::string& line, bool leftHanded, bool isExpNotation)
 	{
-		return WavefrontOBJLoadingHelper::loadVector<float, 3>(line, "vn", " ", true, isExpNotation);
+		auto normal = WavefrontOBJLoadingHelper::loadVector<float, 3>(line, "vn", " ", true, isExpNotation);
+		normal[0] *= leftHanded ? -1.0 : 1.0;
+		return normal;
 	}
 
 	wavefrontobj::UV2 WavefrontOBJModelLoader::loadUV2(const std::string& line, bool isExpNotation)
@@ -179,7 +181,7 @@ namespace cg
 		return parseLine(fileStream, line, "usemtl", load);
 	}
 
-	std::string WavefrontOBJModelLoader::parsePositionLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexDataPool* vertexDataPool, int* positionDimensionCount)
+	std::string WavefrontOBJModelLoader::parsePositionLine(cpp::FileStreamInput& fileStream, const std::string& line, bool leftHanded, wavefrontobj::VertexDataPool* vertexDataPool, int* positionDimensionCount)
 	{
 		*positionDimensionCount = loadPositionDimensionCount(line);
 		const auto isExpNotation = loadNotation(line);
@@ -188,23 +190,23 @@ namespace cg
 		{
 			if (*positionDimensionCount == 3)
 			{
-				vertexDataPool->position3DataPool.add(loadPosition<3>(line_, isExpNotation));
+				vertexDataPool->position3DataPool.add(loadPosition<3>(line_, leftHanded, isExpNotation));
 			}
 			else if (*positionDimensionCount == 4)
 			{
-				vertexDataPool->position4DataPool.add(loadPosition<4>(line_, isExpNotation));
+				vertexDataPool->position4DataPool.add(loadPosition<4>(line_, leftHanded, isExpNotation));
 			}
 		};
 		return parseLine(fileStream, line, "v", parse);
 	}
 
-	std::string WavefrontOBJModelLoader::parseNormalLine(cpp::FileStreamInput& fileStream, const std::string& line, wavefrontobj::VertexDataPool* vertexDataPool)
+	std::string WavefrontOBJModelLoader::parseNormalLine(cpp::FileStreamInput& fileStream, const std::string& line, bool leftHanded, wavefrontobj::VertexDataPool* vertexDataPool)
 	{
 		auto isExpNotation = loadNotation(line);
 
 		auto parse = [&](const std::string& line_)
 		{
-			vertexDataPool->normal3DataPool.add(loadNormal3(line_, isExpNotation));
+			vertexDataPool->normal3DataPool.add(loadNormal3(line_, leftHanded, isExpNotation));
 		};
 		return parseLine(fileStream, line, "vn", parse);
 	}
@@ -266,7 +268,7 @@ namespace cg
 		outIndices->clear();
 	}
 
-	std::vector<wavefrontobj::Index> WavefrontOBJModelLoader::loadFaceIndex(const std::string& line, wavefrontobj::VertexFormat vertexFormat, int faceVertexCount)
+	std::vector<wavefrontobj::Index> WavefrontOBJModelLoader::loadFaceIndex(const std::string& line, wavefrontobj::VertexFormat vertexFormat, int faceVertexCount, bool leftHanded)
 	{
 		std::vector<wavefrontobj::Index> indices;
 
@@ -316,7 +318,14 @@ namespace cg
 			--index.normal;
 			--index.uv;
 
-			indices.emplace_back(index);
+			if (leftHanded)
+			{
+				indices.insert(indices.begin(), index);
+			}
+			else
+			{
+				indices.emplace_back(index);
+			}
 		}
 		return indices;
 	}
@@ -331,7 +340,7 @@ namespace cg
 		return wavefrontobj::MaterialLoader::load(mtlFilename);
 	}
 
-	std::shared_ptr<WavefrontOBJModel> WavefrontOBJModelLoader::load(const std::string& filename)
+	std::shared_ptr<WavefrontOBJModel> WavefrontOBJModelLoader::load(const std::string& filename, bool leftHanded)
 	{
 		cpp::FileStreamInput fileStreamInput(filename);
 
@@ -384,10 +393,10 @@ namespace cg
 				switch (line[1])
 				{
 				case ' ':
-					line = parsePositionLine(fileStreamInput, line, &vertexDataPool, &positionDimensionCount);
+					line = parsePositionLine(fileStreamInput, line, leftHanded, &vertexDataPool, &positionDimensionCount);
 					break;
 				case 'n':
-					line = parseNormalLine(fileStreamInput, line, &vertexDataPool);
+					line = parseNormalLine(fileStreamInput, line, leftHanded, &vertexDataPool);
 					break;
 				case 't':
 					line = parseUVLine(fileStreamInput, line, &vertexDataPool);
@@ -405,7 +414,7 @@ namespace cg
 					initializationForFaceLineParsing(vertexFormat, positionDimensionCount, &vertices, &triangles, &indices, &baseIndex, &vertexCount, &triangleCount, &vertexByteSize, &parseFaceLine);
 					shouldInitialize = false;
 				}
-				line = parseFaceLine(fileStreamInput, line, vertexFormat, positionDimensionCount, vertexDataPool, baseIndex, &indices, &vertexCount, &triangleCount, &minXYZRef, &maxXYZ);
+				line = parseFaceLine(fileStreamInput, line, vertexFormat, positionDimensionCount, leftHanded, vertexDataPool, baseIndex, &indices, &vertexCount, &triangleCount, &minXYZRef, &maxXYZ);
 				break;
 			case 'o':
 				line = parseObjectLine(fileStreamInput, line, &groupName);
