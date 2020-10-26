@@ -28,6 +28,11 @@ namespace cg
 		return m_size.y;
 	}
 
+	float WindowInfo::calcAspect() const noexcept
+	{
+		return m_size.x/float(m_size.y);
+	}
+
 	std::string WindowInfo::getTitle() const noexcept
 	{
 		return m_title;
