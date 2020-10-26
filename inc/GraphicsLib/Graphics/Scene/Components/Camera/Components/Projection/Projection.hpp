@@ -30,7 +30,7 @@ namespace cg
 
 
 
-		ProjectionType m_type;
+		ProjectionType m_type = ProjectionType::perspective;
 
 
 

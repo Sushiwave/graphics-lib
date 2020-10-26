@@ -4,6 +4,7 @@
 #include <GraphicsLib/Graphics/3DModel/WavefrontOBJ/Components/WavefrontOBJVertexFormat.hpp>
 #include <GraphicsLib/Graphics/3DModel/WavefrontOBJ/Components/WavefrontOBJVertices.hpp>
 #include <GraphicsLib/Graphics/3DModel/WavefrontOBJ/Components/WavefrontOBJIndices.hpp>
+#include <GraphicsLib/Context.hpp>
 #include <ThirdParty/CPPLib/C++/SFINAE.hpp>
 
 #include <memory>
