@@ -32,7 +32,7 @@ namespace cg
 		[[nodiscard]] static auto loadPosition(const std::string& line, bool leftHanded, bool isExpNotation)
 		{
 			auto position = WavefrontOBJLoadingHelper::loadVector<float, dimensionCount_>(line, "v", " ", true, isExpNotation);
-			position[0] *= leftHanded ? -1.0 : 1.0;
+			position[0] *= leftHanded ? -1.0f : 1.0f;
 			return position;
 		}
 		[[nodiscard]] static wavefrontobj::Normal3 loadNormal3(const std::string& line, bool leftHanded, bool isExpNotation);

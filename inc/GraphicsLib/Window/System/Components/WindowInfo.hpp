@@ -26,6 +26,8 @@ namespace cg
 		[[nodiscard]] int getWidth() const noexcept;
 		[[nodiscard]] int getHeight() const noexcept;
 
+		[[nodiscard]] float calcAspect() const noexcept;
+
 		[[nodiscard]] std::string getTitle() const noexcept;
 
 		bool fullScreen() const noexcept;

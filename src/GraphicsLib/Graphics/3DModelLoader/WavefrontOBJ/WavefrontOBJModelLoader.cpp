@@ -98,7 +98,7 @@ namespace cg
 	wavefrontobj::Normal3 WavefrontOBJModelLoader::loadNormal3(const std::string& line, bool leftHanded, bool isExpNotation)
 	{
 		auto normal = WavefrontOBJLoadingHelper::loadVector<float, 3>(line, "vn", " ", true, isExpNotation);
-		normal[0] *= leftHanded ? -1.0 : 1.0;
+		normal[0] *= leftHanded ? -1.0f : 1.0f;
 		return normal;
 	}
 
