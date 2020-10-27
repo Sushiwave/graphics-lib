@@ -32,15 +32,15 @@ namespace cg
 			std::shared_ptr<ShaderResourceView> m_SRV;
 			std::shared_ptr<UnorderedAccessView> m_UAV;
 
-			bool m_isResolvedTexture;
+			bool m_isResolvedTexture = false;
 
 			cpp::Vector2D<int> m_size;
-			int m_mostDetailedMipLevel;
-			int m_mostRoughedMipLevel;
-			TextureFormat m_format;
+			int m_mostDetailedMipLevel = 0;
+			int m_mostRoughedMipLevel  = 0;
+			TextureFormat m_format = TextureFormat::UNKNOWN;
 
-			CPUAccessFlags m_cpuAccessFlags;
-			GPUAccessFlags m_gpuAccessFlags;
+			CPUAccessFlags m_cpuAccessFlags = CPUAccessFlags::R;
+			GPUAccessFlags m_gpuAccessFlags = GPUAccessFlags::R;
 
 			Resolver m_resolve;
 		private:

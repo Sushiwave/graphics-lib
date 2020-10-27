@@ -33,15 +33,15 @@ namespace cg
 			int loadedElementCount = 0;
 			if (dimensionCount_ == 2)
 			{
-				loadedElementCount = sscanf_s(pLine, pFormat, &vec[0], &vec[1]);
+				loadedElementCount = sscanf_s(pLine, pFormat, &vec[0], &vec.at(1));
 			}
 			else if (dimensionCount_ == 3)
 			{
-				loadedElementCount = sscanf_s(pLine, pFormat, &vec[0], &vec[1], &vec[2]);
+				loadedElementCount = sscanf_s(pLine, pFormat, &vec[0], &vec.at(1), &vec.at(2));
 			}
 			else if (dimensionCount_ == 4)
 			{
-				loadedElementCount = sscanf_s(pLine, pFormat, &vec[0], &vec[1], &vec[2], &vec[3]);
+				loadedElementCount = sscanf_s(pLine, pFormat, &vec[0], &vec.at(1), &vec.at(2), &vec.at(3));
 			}
 			else
 			{
