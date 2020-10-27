@@ -32,9 +32,9 @@ namespace cg
 		public:
 			const std::string name;
 			const wavefrontobj::VertexFormat vertexFormat;
-			const unsigned long long vertexByteSize;
-			const unsigned long long vertexCount;
-			const unsigned long long triangleCount;
+			const unsigned int vertexByteSize;
+			const unsigned int vertexCount;
+			const unsigned int triangleCount;
 
 			const wavefrontobj::Indices indices;
 			const wavefrontobj::Material material;
@@ -51,14 +51,14 @@ namespace cg
 
 				const auto src = std::reinterpret_pointer_cast<wavefrontobj::Vertices<VertexSRC_>>(m_vertices);
 
-				const auto srcSize = src->size();
+				const auto srcSize = static_cast<unsigned int>(src->size());
 				dest->resize(srcSize);
-				const auto destPositionDimensionCount = (*dest)[0].position.size();
+				const auto destPositionDimensionCount = static_cast<int>((*dest)[0].position.size());
 
-				std::function<void(size_t)> copy;
+				std::function<void(unsigned int)> copy;
 				if (destPositionDimensionCount == 3 && m_positionDimensionCount == 4)
 				{
-					copy = [&](size_t i)
+					copy = [&](unsigned int i)
 					{
 						auto& srcPosition = src->at(i).position;
 						offsetPosition(srcPosition);
@@ -68,7 +68,7 @@ namespace cg
 				}
 				else if (destPositionDimensionCount == 4 && m_positionDimensionCount == 3)
 				{
-					copy = [&](size_t i)
+					copy = [&](unsigned int i)
 					{
 						auto& srcPosition = src->at(i).position;
 						offsetPosition(srcPosition);
@@ -79,7 +79,7 @@ namespace cg
 				}
 				else
 				{
-					copy = [&](size_t i)
+					copy = [&](unsigned int i)
 					{
 						auto& srcPosition = src->at(i).position;
 						offsetPosition(srcPosition);
@@ -88,7 +88,7 @@ namespace cg
 					};
 				}
 
-				for (size_t i = 0; i < srcSize; ++i)
+				for (unsigned int i = 0; i < srcSize; ++i)
 				{
 					copy(i);
 				}
@@ -97,9 +97,9 @@ namespace cg
 			void m_copyNormalData(std::vector<VertexDEST_>* dest) const
 			{
 				const auto src = std::reinterpret_pointer_cast<wavefrontobj::Vertices<VertexSRC_>>(m_vertices);
-				const auto srcSize = src->size();
+				const auto srcSize = static_cast<unsigned int>(src->size());
 				dest->resize(srcSize);
-				for (size_t i = 0; i < srcSize; ++i)
+				for (unsigned int i = 0; i < srcSize; ++i)
 				{
 					(*dest)[i].normal = src->at(i).normal;
 				}
@@ -108,9 +108,9 @@ namespace cg
 			void m_copyUVData(std::vector<VertexDEST_>* dest) const
 			{
 				const auto src = std::reinterpret_pointer_cast<wavefrontobj::Vertices<VertexSRC_>>(m_vertices);
-				const auto srcSize = src->size();
+				const auto srcSize = static_cast<unsigned int>(src->size());
 				dest->resize(srcSize);
-				for (size_t i = 0; i < srcSize; ++i)
+				for (unsigned int i = 0; i < srcSize; ++i)
 				{
 					(*dest)[i].uv = src->at(i).uv;
 				}
