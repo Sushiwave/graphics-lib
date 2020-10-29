@@ -1,4 +1,4 @@
-## GraphicsLib 
+# GraphicsLib 
 GraphicsLibはクリエイティブコーディング用のC++グラフィックスライブラリです。
  
 # 概要
