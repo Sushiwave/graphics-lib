@@ -16,7 +16,7 @@ namespace cg
 		: public RasterizationBasedRenderPipeline
 	{
 	protected:
-		const std::shared_ptr<IMultipleRenderTarget> m_multipleRenderTarget;
+		std::shared_ptr<IMultipleRenderTarget> m_multipleRenderTarget;
 
 		GBuffer m_GBuffer;
 	public:
