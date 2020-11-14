@@ -47,9 +47,19 @@ namespace cg
 			return std::make_shared<DepthStencilBuffer>(width, height, format, MSAASampleCount, MSAAQualityLevel);
 		}
 
+		std::shared_ptr<IDepthStencilBuffer> GraphicsAPI::createDepthStencilBuffer(const cpp::Vector2D<int>& size, TextureFormat format, int MSAASampleCount, int MSAAQualityLevel)
+		{
+			return createDepthStencilBuffer(size.x, size.y, format, MSAASampleCount, MSAAQualityLevel);
+		}
+
 		std::shared_ptr<IRenderTarget> GraphicsAPI::createRenderTarget(int width, int height, TextureFormat format, int mostDetailedMip, int mostRoughedMip, int sampleCount)
 		{
 			return std::make_shared<RenderTarget>(width, height, format, mostDetailedMip, mostRoughedMip, sampleCount);
+		}
+
+		std::shared_ptr<IRenderTarget> GraphicsAPI::createRenderTarget(const cpp::Vector2D<int>& size, TextureFormat format, int mostDetailedMip, int mostRoughedMip, int sampleCount)
+		{
+			return createRenderTarget(size.x, size.y, format, mostDetailedMip, mostRoughedMip, sampleCount);
 		}
 
 		std::shared_ptr<IRenderTarget> GraphicsAPI::createRenderTarget(int width, int height, TextureFormat format, int sampleCount)
@@ -57,9 +67,19 @@ namespace cg
 			return std::make_shared<RenderTarget>(width, height, format, sampleCount);
 		}
 
+		std::shared_ptr<IRenderTarget> GraphicsAPI::createRenderTarget(const cpp::Vector2D<int>& size, TextureFormat format, int sampleCount)
+		{
+			return createRenderTarget(size.x, size.y, format, sampleCount);
+		}
+
 		std::shared_ptr<IMultipleRenderTarget> GraphicsAPI::createMultipleRenderTarget(int width, int height, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
 		{
 			return std::make_shared<MultipleRenderTarget>(renderTargetList);
+		}
+
+		std::shared_ptr<IMultipleRenderTarget> GraphicsAPI::createMultipleRenderTarget(const cpp::Vector2D<int>& size, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
+		{
+			return createMultipleRenderTarget(size.x, size.y, renderTargetList);
 		}
 
 		std::shared_ptr<IRasterizer> GraphicsAPI::createRasterizer(CullMode cullMode, bool isWireFrameMode, bool multisampleEnable, bool antialiassedLineEnable, bool frontCounterClockwise, bool depthClipEnable, bool scissorEnable)
@@ -104,6 +124,11 @@ namespace cg
 			}
 		}
 
+		std::shared_ptr<IDynamicTexture2D> GraphicsAPI::createDynamicTexture2D(const cpp::Vector2D<int>& size, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel, int mostRoughedMipLevel)
+		{
+			return createDynamicTexture2D(size.x, size.y, format, pImage, mostDetailedMipLevel, mostRoughedMipLevel);
+		}
+
 		std::shared_ptr<IDefaultTexture2D> GraphicsAPI::createDefaultTexture2D(int width, int height, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel, int mostRoughedMipLevel)
 		{
 			if (mostDetailedMipLevel == 0 && mostRoughedMipLevel == 0)
@@ -116,6 +141,11 @@ namespace cg
 			}
 		}
 
+		std::shared_ptr<IDefaultTexture2D> GraphicsAPI::createDefaultTexture2D(const cpp::Vector2D<int>& size, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel, int mostRoughedMipLevel)
+		{
+			return createDefaultTexture2D(size.x, size.y, format, pImage, mostDetailedMipLevel, mostRoughedMipLevel);
+		}
+
 		std::shared_ptr<IImmutableTexture2D> GraphicsAPI::createImmutableTexture2D(ImageXY image, int width, int height, TextureFormat format, int mostDetailedMipLevel, int mostRoughedMipLevel)
 		{
 			if (mostDetailedMipLevel == 0 && mostRoughedMipLevel == 0)
@@ -126,6 +156,11 @@ namespace cg
 			{
 				return std::make_shared<ImmutableTexture2D>(image, width, height, format, mostDetailedMipLevel, mostRoughedMipLevel);
 			}
+		}
+
+		std::shared_ptr<IImmutableTexture2D> GraphicsAPI::createImmutableTexture2D(ImageXY image, const cpp::Vector2D<int>& size, TextureFormat format, int mostDetailedMipLevel, int mostRoughedMipLevel)
+		{
+			return createImmutableTexture2D(image, size.x, size.y, format, mostDetailedMipLevel, mostRoughedMipLevel);
 		}
 
 		std::shared_ptr<ITextureSampler> GraphicsAPI::createTextureSampler(const TextureSamplerDescriptor& descriptor)

@@ -46,11 +46,15 @@ namespace cg
 	{
 	public:
 		[[nodiscard]] virtual std::shared_ptr<IDepthStencilBuffer> createDepthStencilBuffer(int width, int height, TextureFormat format, int MSAASampleCount = 1, int MSAAQualityLevel = 0) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IDepthStencilBuffer> createDepthStencilBuffer(const cpp::Vector2D<int>& size, TextureFormat format, int MSAASampleCount = 1, int MSAAQualityLevel = 0) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IRenderTarget> createRenderTarget(int width, int height, TextureFormat format, int mostDetailedMip, int mostRoughedMip, int sampleCount = 1) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IRenderTarget> createRenderTarget(const cpp::Vector2D<int>& size, TextureFormat format, int mostDetailedMip, int mostRoughedMip, int sampleCount = 1) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IRenderTarget> createRenderTarget(int width, int height, TextureFormat format, int sampleCount = 1) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IRenderTarget> createRenderTarget(const cpp::Vector2D<int>& size, TextureFormat format, int sampleCount = 1) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTarget> createMultipleRenderTarget(int width, int height, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTarget> createMultipleRenderTarget(const cpp::Vector2D<int>& size, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IRasterizer> createRasterizer(CullMode cullMode = CullMode::none, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) = 0;
 
@@ -63,8 +67,11 @@ namespace cg
 		[[nodiscard]] virtual std::shared_ptr<IImmutableTexture2D> createImmutableTexture2D(const std::string& filename) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IDynamicTexture2D>   createDynamicTexture2D(int width, int height, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel = 0, int mostRoughedMipLevel = 0) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IDynamicTexture2D>   createDynamicTexture2D(const cpp::Vector2D<int>& size, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel = 0, int mostRoughedMipLevel = 0) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IDefaultTexture2D>   createDefaultTexture2D(int width, int height, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel = 0, int mostRoughedMipLevel = 0) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IDefaultTexture2D>   createDefaultTexture2D(const cpp::Vector2D<int>& size, TextureFormat format, ImageXY* pImage, int mostDetailedMipLevel = 0, int mostRoughedMipLevel = 0) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IImmutableTexture2D> createImmutableTexture2D(ImageXY image, int width, int height, TextureFormat format, int mostDetailedMipLevel = 0, int mostRoughedMipLevel = 0) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IImmutableTexture2D> createImmutableTexture2D(ImageXY image, const cpp::Vector2D<int>& size, TextureFormat format, int mostDetailedMipLevel = 0, int mostRoughedMipLevel = 0) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<ITextureSampler> createTextureSampler(const TextureSamplerDescriptor& descriptor = TextureSamplerDescriptor()) = 0;
 
