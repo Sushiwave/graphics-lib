@@ -44,4 +44,14 @@ namespace cg
 	{
 		return m_bufferDict.count(name) == 1;
 	}
+
+
+
+
+
+	GBufferContent::GBufferContent(const std::string& name, std::shared_ptr<ITexture2D> buffer)
+		: name(name),
+		  buffer(buffer)
+	{
+	}
 }
