@@ -15,6 +15,8 @@ namespace cg
 	{
 		std::string name;
 		std::shared_ptr<ITexture2D> buffer;
+
+		GBufferContent(const std::string& name, std::shared_ptr<ITexture2D> buffer);
 	};
 
 	class GBuffer
