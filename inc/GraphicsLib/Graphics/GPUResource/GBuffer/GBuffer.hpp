@@ -27,7 +27,7 @@ namespace cg
 	private:
 		BufferDict m_bufferDict;
 	private:
-		BufferDict m_createBufferDict(const std::vector<GBufferContent>& contents);
+		static BufferDict createBufferDict(const std::vector<GBufferContent>& contents);
 	public:
 		GBuffer() = default;
 		GBuffer(const std::vector<GBufferContent>& contents);
