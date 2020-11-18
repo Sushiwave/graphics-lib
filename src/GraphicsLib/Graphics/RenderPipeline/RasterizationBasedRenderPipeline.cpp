@@ -172,10 +172,6 @@ namespace cg
 	{
 		return m_dictOfShadersSetInPipeline;
 	}
-	void RasterizationBasedRenderPipeline::renderDefault()
-	{
-		renderDefault([](){}, [](){});
-	}
 	void RasterizationBasedRenderPipeline::renderDefault(AdditionalSetCall additionalSetCall, AdditionalDrawCall additionalDrawCall)
 	{
 		static const std::string recordingThreadName = ID().get();
