@@ -46,13 +46,12 @@ namespace cg
 	protected:
 		[[nodiscard]] ShaderDict getDictOfShadersSetInPipeline() const;
 
-		void renderDefault();
-		void renderDefault(AdditionalSetCall additionalSetCall, AdditionalDrawCall additionalDrawCall);
+		void renderDefault(AdditionalSetCall additionalSetCall = []() {}, AdditionalDrawCall additionalDrawCall = []() {});
 
-		void renderDefault(const Scene& scene);
-		void renderDefault(const Scene& scene, const Camera& customCamera);
-		void renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall);
-		void renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall);
+		void renderDefault(const Scene& scene, bool drawSceneObjects);
+		void renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects);
+		void renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects);
+		void renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects);
 	public:
 		RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroup, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, const ShaderDict& shaders) noexcept;
 		virtual ~RasterizationBasedRenderPipeline() = default;
