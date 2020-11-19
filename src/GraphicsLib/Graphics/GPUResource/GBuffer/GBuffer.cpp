@@ -7,12 +7,12 @@
 
 namespace cg
 {
-	GBuffer::BufferDict GBuffer::m_createBufferDict(const std::vector<GBufferContent>& contents)
+	GBuffer::BufferDict GBuffer::createBufferDict(const std::vector<GBufferContent>& contents)
 	{
 		BufferDict bufferDict;
 		for (auto content : contents)
 		{
-			if (exists(content.name) == false)
+			if (bufferDict.count(content.name) == false)
 			{
 				bufferDict.emplace(std::make_pair(content.name, content.buffer));
 			}
@@ -25,7 +25,7 @@ namespace cg
 	}
 
 	GBuffer::GBuffer(const std::vector<GBufferContent>& contents)
-		: m_bufferDict(m_createBufferDict(contents))
+		: m_bufferDict(createBufferDict(contents))
 	{
 	}
 
@@ -43,5 +43,15 @@ namespace cg
 	bool GBuffer::exists(const std::string& name) const noexcept
 	{
 		return m_bufferDict.count(name) == 1;
+	}
+
+
+
+
+
+	GBufferContent::GBufferContent(const std::string& name, std::shared_ptr<ITexture2D> buffer)
+		: name(name),
+		  buffer(buffer)
+	{
 	}
 }

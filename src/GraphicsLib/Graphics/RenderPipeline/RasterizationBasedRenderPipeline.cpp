@@ -34,22 +34,22 @@ namespace cg
 
 
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, bool drawSceneObjects)
 	{
-		renderDefault(scene, scene.camera, [](const Scene&){}, [](){});
+		renderDefault(scene, scene.camera, [](const Scene&){}, [](){}, drawSceneObjects);
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects)
 	{
-		renderDefault(scene, customCamera, [](const Scene&){}, [](){});
+		renderDefault(scene, customCamera, [](const Scene&){}, [](){}, drawSceneObjects);
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects)
 	{
-		renderDefault(scene, scene.camera, additionalSetCall, additionalDrawCall);
+		renderDefault(scene, scene.camera, additionalSetCall, additionalDrawCall, drawSceneObjects);
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects)
 	{
 		using CBLocation = std::tuple<ShaderStage, int>;
 		const auto& cbLocation = [&](ShaderResourceType resourceType, const std::string& bufferName)
@@ -138,43 +138,47 @@ namespace cg
 
 		auto gpuStateViewer = GPUStateViewer::view();
 
-		for(auto targetRenderingGroupName : m_targetRenderingGroupNameList)
-		{ 
-			scene.draw(targetRenderingGroupName,
-				[&](const std::shared_ptr<DrawableObject> object)
-				{
-					m_transformConstantBuffer->update(scene, object->getTransformRef(), customCamera);
-				},
-				[&](const DrawableObject::Part& part)
-				{
-					for (const auto& materialLocation : materialLocations)
+		if (drawSceneObjects)
+		{
+			for (auto targetRenderingGroupName : m_targetRenderingGroupNameList)
+			{
+				scene.draw(targetRenderingGroupName,
+					[&](const std::shared_ptr<DrawableObject> object)
 					{
-						m_materialConstantBuffer->update(std::get<0>(materialLocation), part.material);
-					}
-					for (const auto& materialTexLocation : materialTexLocations)
+						m_transformConstantBuffer->update(scene, object->getTransformRef(), customCamera);
+					},
+					[&](const DrawableObject::Part& part)
 					{
-						const auto& name = std::get<0>(materialTexLocation);
-						const auto type  = std::get<1>(materialTexLocation);
-						const auto unit  = std::get<2>(materialTexLocation);
-					
-						if (gpuStateViewer.shader(type).resource(ShaderResourceType::Texture, GPUAccessFlags::R).unit(unit).isEmpty == false) { continue; }
+						for (const auto& materialLocation : materialLocations)
+						{
+							m_materialConstantBuffer->update(std::get<0>(materialLocation), part.material);
+						}
+						for (const auto& materialTexLocation : materialTexLocations)
+						{
+							const auto& name = std::get<0>(materialTexLocation);
+							const auto type = std::get<1>(materialTexLocation);
+							const auto unit = std::get<2>(materialTexLocation);
 
-						auto tex = part.material.getTexture(name);
-						if (tex == nullptr) { continue; }
+							if (gpuStateViewer.shader(type).resource(ShaderResourceType::Texture, GPUAccessFlags::R).unit(unit).isEmpty == false) { continue; }
 
-						tex->set(type, unit, GPUAccessFlags::R);
-					}
-			});
+							auto tex = part.material.getTexture(name);
+							if (tex == nullptr) { continue; }
+
+							tex->set(type, unit, GPUAccessFlags::R);
+						}
+					});
+			}
 		}
+		else
+		{
+			m_transformConstantBuffer->update(scene, cg::Transform(), scene.camera);
+		}
+
 		additionalDrawCall();
 	}
 	RasterizationBasedRenderPipeline::ShaderDict RasterizationBasedRenderPipeline::getDictOfShadersSetInPipeline() const
 	{
 		return m_dictOfShadersSetInPipeline;
-	}
-	void RasterizationBasedRenderPipeline::renderDefault()
-	{
-		renderDefault([](){}, [](){});
 	}
 	void RasterizationBasedRenderPipeline::renderDefault(AdditionalSetCall additionalSetCall, AdditionalDrawCall additionalDrawCall)
 	{

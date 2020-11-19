@@ -15,6 +15,8 @@ namespace cg
 	{
 		std::string name;
 		std::shared_ptr<ITexture2D> buffer;
+
+		GBufferContent(const std::string& name, std::shared_ptr<ITexture2D> buffer);
 	};
 
 	class GBuffer
@@ -25,7 +27,7 @@ namespace cg
 	private:
 		BufferDict m_bufferDict;
 	private:
-		BufferDict m_createBufferDict(const std::vector<GBufferContent>& contents);
+		static BufferDict createBufferDict(const std::vector<GBufferContent>& contents);
 	public:
 		GBuffer() = default;
 		GBuffer(const std::vector<GBufferContent>& contents);
