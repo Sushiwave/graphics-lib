@@ -117,7 +117,7 @@ namespace ImGui
 
 		using CandidateWithIndex = std::pair<const char*, int>;
 		std::vector<CandidateWithIndex> candidateWithIndexList;
-		auto itemListSize = itemList.size();
+		int itemListSize = static_cast<int>(itemList.size());
 
 		for (int i = 0; i < itemListSize; ++i)
 		{
