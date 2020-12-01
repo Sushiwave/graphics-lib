@@ -11,7 +11,7 @@ namespace ImGui
     {
         bool changed = false;
 
-        const auto listSize = itemList.size();
+        const int listSize = static_cast<int>(itemList.size());
 
         if (ImGui::BeginCombo(label, previewItem.c_str()))
         {
