@@ -93,7 +93,9 @@ namespace ImGui
 
 		if (m_forciblyPulldown)
 		{
-			if (ImGui::GetIO().Framerate <= m_frameCounter*2.0)
+			constexpr float frameCountScale = 2.0;
+			const float waitUntilImGuiBackgroundProcessEnded = ImGui::GetIO().Framerate*frameCountScale;
+			if (waitUntilImGuiBackgroundProcessEnded <= m_frameCounter)
 			{
 				m_forciblyPulldown = false;
 			}
