@@ -20,7 +20,7 @@ namespace cg
 	};
 
 	class GBuffer
-		: GPUResource
+		: public GPUResource
 	{
 	public:
 		using BufferDict = std::unordered_map<std::string, std::shared_ptr<ITexture2D>>;
