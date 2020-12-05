@@ -24,6 +24,7 @@ namespace cg
 	{
 	public:
 		using BufferDict = std::unordered_map<std::string, std::shared_ptr<ITexture2D>>;
+		using GBufferContents = std::vector<GBufferContent>;
 	private:
 		BufferDict m_bufferDict;
 	private:
@@ -36,5 +37,7 @@ namespace cg
 		[[nodiscard]] std::shared_ptr<ITexture2D> get(const std::string& name) const;
 
 		[[nodiscard]] bool exists(const std::string& name) const noexcept;
+
+		[[nodiscard]] GBufferContents getAllContents() const noexcept;
 	};
 }
