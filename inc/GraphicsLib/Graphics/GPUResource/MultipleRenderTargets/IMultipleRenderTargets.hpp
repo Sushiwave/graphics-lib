@@ -16,8 +16,9 @@ namespace cg
 
 
 		[[nodiscard]] virtual cpp::Vector2D<int> getRenderTargetSize(int index) const = 0;
-		[[nodiscard]] virtual std::shared_ptr<ITexture2D> getRenderingResult(int index) = 0;
-
+		[[nodiscard]] virtual std::shared_ptr<ITexture2D> getRenderingResult(int index) const = 0;
+		[[nodiscard]] virtual std::vector<std::shared_ptr<ITexture2D>> getAllRenderingResults() const = 0;
+	
 		virtual void refresh(int unit) = 0;
 		virtual void refreshAll() = 0;
 
