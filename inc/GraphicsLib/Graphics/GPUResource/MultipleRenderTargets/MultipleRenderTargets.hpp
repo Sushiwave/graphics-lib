@@ -21,10 +21,9 @@ namespace cg
 		SetCall m_setCall;
 
 		int m_count;
-
-		std::vector<ID> m_renderingResultIDList;
 	protected:
 		std::vector<std::shared_ptr<IRenderTarget>> m_renderTargetList;
+		std::vector<std::shared_ptr<ITexture2D>> m_renderingResults;
 	public:
 		MultipleRenderTargets() = default;
 		MultipleRenderTargets(const SetCall& setCall, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList);
@@ -35,8 +34,8 @@ namespace cg
 		[[nodiscard]] int getRenderTargetCount() const noexcept override;
 
 		[[nodiscard]] cpp::Vector2D<int> getRenderTargetSize(int index) const override;
-		[[nodiscard]] std::shared_ptr<ITexture2D> getRenderingResult(int index) override;
-
+		[[nodiscard]] std::shared_ptr<ITexture2D> getRenderingResult(int index) const override;
+		[[nodiscard]] std::vector<std::shared_ptr<ITexture2D>> getAllRenderingResults() const override;
 
 
 		void set(std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer) override;

@@ -16,7 +16,7 @@ namespace cg
 		m_count = static_cast<int>(renderTargetList.size());
 		for (const auto& renderTarget : renderTargetList)
 		{
-			m_renderingResultIDList.emplace_back(renderTarget->getRenderingResult()->getID());
+			m_renderingResults.emplace_back(renderTarget->getRenderingResult());
 		}
 	}
 
@@ -85,9 +85,14 @@ namespace cg
 		return m_renderTargetList.at(index)->getSize();
 	}
 
-	std::shared_ptr<ITexture2D> MultipleRenderTargets::getRenderingResult(int index)
+	std::vector<std::shared_ptr<ITexture2D>> MultipleRenderTargets::getAllRenderingResults() const
 	{
-		return m_renderTargetList.at(index)->getRenderingResult();
+		return m_renderingResults;
+	}
+
+	std::shared_ptr<ITexture2D> MultipleRenderTargets::getRenderingResult(int index) const
+	{
+		return m_renderingResults.at(index);
 	}
 
 	int MultipleRenderTargets::getRenderTargetCount() const noexcept
