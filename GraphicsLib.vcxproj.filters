@@ -663,6 +663,8 @@
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\D3D11\D3D11MultipleRenderTargets.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Base\IResolvableTexture2D.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Base\IResolvable.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">

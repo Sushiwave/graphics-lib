@@ -226,6 +226,8 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureFilter.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureSamplerDescriptor.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\ITextureSampler.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Base\IResolvable.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Base\IResolvableTexture2D.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Base\ITexture2D.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Components\ImageFileFormat.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Components\ImageXY.hpp" />
