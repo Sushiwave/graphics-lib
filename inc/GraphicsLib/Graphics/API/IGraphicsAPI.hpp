@@ -13,7 +13,7 @@
 #include <GraphicsLib/Graphics/GPUResource/DepthStencilBuffer/IDepthStencilBuffer.hpp>
 #include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/IDepthStencilTester.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RenderTarget/IRenderTarget.hpp>
-#include <GraphicsLib/Graphics/GPUResource/MultipleRenderTarget/IMultipleRenderTarget.hpp>
+#include <GraphicsLib/Graphics/GPUResource/MultipleRenderTargets/IMultipleRenderTargets.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Rasterizer/IRasterizer.hpp>
 #include <GraphicsLib/Graphics/GPUResource/AlphaBlender/IAlphaBlender.hpp>
 
@@ -53,8 +53,8 @@ namespace cg
 		[[nodiscard]] virtual std::shared_ptr<IRenderTarget> createRenderTarget(int width, int height, TextureFormat format, int sampleCount = 1) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IRenderTarget> createRenderTarget(const cpp::Vector2D<int>& size, TextureFormat format, int sampleCount = 1) = 0;
 
-		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTarget> createMultipleRenderTarget(int width, int height, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
-		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTarget> createMultipleRenderTarget(const cpp::Vector2D<int>& size, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(int width, int height, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IRasterizer> createRasterizer(CullMode cullMode = CullMode::none, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) = 0;
 
