@@ -6,7 +6,7 @@
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Texture/Texture2D/Components/TextureFormat.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Rasterizer/Components/CullMode.hpp>
 
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/CPUAccessFlags.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/CPUAccessType.hpp>
 
 #include <GraphicsLib/Graphics/GPUResource/Shader/Components/ShaderStage.hpp>
 

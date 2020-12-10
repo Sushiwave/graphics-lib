@@ -7,7 +7,7 @@
 
 namespace cg
 {
-	enum class CPUAccessFlags
+	enum class CPUAccessType
 		: UINT
 	{
 		none = 0,

@@ -20,7 +20,7 @@ namespace cg
 			(
 				id,
 				ShaderResourceType::ConstantBuffer,
-				GPUAccessFlags::R,
+				GPUAccessType::R,
 				{
 					{ ShaderStage::vs, D3D11SetConstantBuffers(VS) },
 					{ ShaderStage::hs, D3D11SetConstantBuffers(HS) },

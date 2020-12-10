@@ -37,8 +37,8 @@ namespace cg
 		void depthStencilBufferReleased() const noexcept;
 		void shaderSet(ShaderStage stage, const ID& id) const noexcept;
 		void shaderReleased(ShaderStage stage) const noexcept;
-		void shaderResourceReleased(ShaderStage stage, ShaderResourceType resourceType, GPUAccessFlags usage, int unitIndex) const noexcept;
-		void shaderResourceSet(ShaderStage stage, ShaderResourceType resourceType, GPUAccessFlags usage, int unitIndex, const ID& id) const noexcept;
+		void shaderResourceReleased(ShaderStage stage, ShaderResourceType resourceType, GPUAccessType usage, int unitIndex) const noexcept;
+		void shaderResourceSet(ShaderStage stage, ShaderResourceType resourceType, GPUAccessType usage, int unitIndex, const ID& id) const noexcept;
 
 
 

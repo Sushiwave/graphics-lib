@@ -6,7 +6,7 @@
 
 namespace cg
 {
-	enum class GPUAccessFlags
+	enum class GPUAccessType
 	{
 		none,
 		R,

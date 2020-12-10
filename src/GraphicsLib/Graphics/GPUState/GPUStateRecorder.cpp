@@ -179,7 +179,7 @@ namespace cg
 		}
 	}
 
-	void GPUStateRecorder::shaderResourceReleased(ShaderStage stage, ShaderResourceType resourceType, GPUAccessFlags usage, int unitIndex) const noexcept
+	void GPUStateRecorder::shaderResourceReleased(ShaderStage stage, ShaderResourceType resourceType, GPUAccessType usage, int unitIndex) const noexcept
 	{
 		for (auto& record : m_records)
 		{
@@ -188,7 +188,7 @@ namespace cg
 		}
 	}
 
-	void GPUStateRecorder::shaderResourceSet(ShaderStage stage, ShaderResourceType resourceType, GPUAccessFlags usage, int unitIndex, const ID& id) const noexcept
+	void GPUStateRecorder::shaderResourceSet(ShaderStage stage, ShaderResourceType resourceType, GPUAccessType usage, int unitIndex, const ID& id) const noexcept
 	{
 		for (auto& record : m_records)
 		{

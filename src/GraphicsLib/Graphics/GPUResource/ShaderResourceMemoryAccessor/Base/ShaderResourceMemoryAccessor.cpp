@@ -33,14 +33,14 @@ namespace cg
 
 		for (auto stage : ShaderStageAll)
 		{
-			dict.emplace(stage, std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessFlags, std::unordered_map<int, ShaderResourceBufferLocationListRef>>>());
+			dict.emplace(stage, std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessType, std::unordered_map<int, ShaderResourceBufferLocationListRef>>>());
 			for (auto resourceType : ShaderResourceTypeAll)
 			{
-				dict[stage].emplace(resourceType, std::unordered_map<GPUAccessFlags, std::unordered_map<int, ShaderResourceBufferLocationListRef>>());
+				dict[stage].emplace(resourceType, std::unordered_map<GPUAccessType, std::unordered_map<int, ShaderResourceBufferLocationListRef>>());
 				const auto empty = std::unordered_map<int, ShaderResourceBufferLocationListRef>();
-				dict[stage][resourceType].emplace(GPUAccessFlags::none, empty);
-				dict[stage][resourceType].emplace(GPUAccessFlags::R, empty);
-				dict[stage][resourceType].emplace(GPUAccessFlags::RW, empty);
+				dict[stage][resourceType].emplace(GPUAccessType::none, empty);
+				dict[stage][resourceType].emplace(GPUAccessType::R, empty);
+				dict[stage][resourceType].emplace(GPUAccessType::RW, empty);
 			}
 		}
 
@@ -75,7 +75,7 @@ namespace cg
 	{
 	#ifdef CONTEXT_D3D11
 		{ ShaderResourceType::ConstantBuffer,
-			{{ GPUAccessFlags::R,
+			{{ GPUAccessType::R,
 				{{ ShaderStage::vs, D3D11ReleaseConstantBuffers(VS) },
 				 { ShaderStage::hs, D3D11ReleaseConstantBuffers(HS) },
 				 { ShaderStage::ds, D3D11ReleaseConstantBuffers(DS) },
@@ -85,11 +85,11 @@ namespace cg
 			}}
 		},
 		{ ShaderResourceType::Texture,
-			{{ GPUAccessFlags::R,  shaderResourceViewReleaseCallDB  },
-			 { GPUAccessFlags::RW, unorderedAccessViewReleaseCallDB }}
+			{{ GPUAccessType::R,  shaderResourceViewReleaseCallDB  },
+			 { GPUAccessType::RW, unorderedAccessViewReleaseCallDB }}
 		},
 		{ ShaderResourceType::TextureSampler, {
-			{{ GPUAccessFlags::R,
+			{{ GPUAccessType::R,
 				{{ ShaderStage::vs, D3D11ReleaseSamplers(VS) },
 				 { ShaderStage::hs, D3D11ReleaseSamplers(HS) },
 				 { ShaderStage::ds, D3D11ReleaseSamplers(DS) },
@@ -99,8 +99,8 @@ namespace cg
 			}}
 		}},
 		{ ShaderResourceType::StructuredBuffer,
-			{{ GPUAccessFlags::R,  shaderResourceViewReleaseCallDB  },
-			 { GPUAccessFlags::RW, unorderedAccessViewReleaseCallDB }}
+			{{ GPUAccessType::R,  shaderResourceViewReleaseCallDB  },
+			 { GPUAccessType::RW, unorderedAccessViewReleaseCallDB }}
 		},
 	#endif
 	};
@@ -109,10 +109,10 @@ namespace cg
 
 
 
-	ShaderResourceMemoryAccessor::ShaderResourceMemoryAccessor(const ID& id, ShaderResourceType type, GPUAccessFlags gpuAccessFlags, const SetCallDB& setCallDB)
+	ShaderResourceMemoryAccessor::ShaderResourceMemoryAccessor(const ID& id, ShaderResourceType type, GPUAccessType gpuAccessType, const SetCallDB& setCallDB)
 		: GPUResource(id),
 	  	  m_type(type),
-		  m_gpuAccessFlags(gpuAccessFlags),
+		  m_gpuAccessType(gpuAccessType),
 		  m_setCallDB(setCallDB),
 		  m_managedShaderResourceBufferLocationListRef(std::make_shared<ShaderResourceBufferLocationList>())
 	{
@@ -122,15 +122,15 @@ namespace cg
 
 	void ShaderResourceMemoryAccessor::set(ShaderStage stage, int unitIndex, const ID& resourceID)
 	{
-		if (resourceID == GPUStateViewer::view().shader(stage).resource(m_type, m_gpuAccessFlags).unit(unitIndex).id) { return; }
+		if (resourceID == GPUStateViewer::view().shader(stage).resource(m_type, m_gpuAccessType).unit(unitIndex).id) { return; }
 
 
 
-		GPUStateRecorder::main.shaderResourceSet(stage, m_type, m_gpuAccessFlags, unitIndex, resourceID);
+		GPUStateRecorder::main.shaderResourceSet(stage, m_type, m_gpuAccessType, unitIndex, resourceID);
 
 
 
-		const auto avoidSimultaneousReadingAndWritingToShaderResources = [&](ShaderResourceType accessorType, GPUAccessFlags usage)
+		const auto avoidSimultaneousReadingAndWritingToShaderResources = [&](ShaderResourceType accessorType, GPUAccessType usage)
 		{
 			for (auto stage : ShaderStageAll)
 			{
@@ -147,13 +147,13 @@ namespace cg
 				}
 			}
 		};
-		if (m_gpuAccessFlags == GPUAccessFlags::R)
+		if (m_gpuAccessType == GPUAccessType::R)
 		{
-			avoidSimultaneousReadingAndWritingToShaderResources(m_type, GPUAccessFlags::RW);
+			avoidSimultaneousReadingAndWritingToShaderResources(m_type, GPUAccessType::RW);
 		}
-		else if (m_gpuAccessFlags == GPUAccessFlags::RW)
+		else if (m_gpuAccessType == GPUAccessType::RW)
 		{
-			avoidSimultaneousReadingAndWritingToShaderResources(m_type, GPUAccessFlags::R);
+			avoidSimultaneousReadingAndWritingToShaderResources(m_type, GPUAccessType::R);
 		}
 		
 		const auto avoidSimultaneousReadingAndWritingToRenderTargetRelatedResources = [&](GPUState::StateOfBufferBoundedBySeveralResources state, std::string resourceName)
@@ -183,11 +183,11 @@ namespace cg
 
 
 
-		auto location = BoundedBufferLocation(stage, unitIndex, m_gpuAccessFlags);
+		auto location = BoundedBufferLocation(stage, unitIndex, m_gpuAccessType);
 		m_managedShaderResourceBufferLocationListRef->emplace_back(location);
-		m_dictForUpdatingShaderResourceBufferLocationList.at(stage).at(m_type).at(m_gpuAccessFlags).emplace(unitIndex, m_managedShaderResourceBufferLocationListRef);
+		m_dictForUpdatingShaderResourceBufferLocationList.at(stage).at(m_type).at(m_gpuAccessType).emplace(unitIndex, m_managedShaderResourceBufferLocationListRef);
 	}
-	void ShaderResourceMemoryAccessor::release(ShaderStage stage, ShaderResourceType resourceType, int unitIndex, GPUAccessFlags usage)
+	void ShaderResourceMemoryAccessor::release(ShaderStage stage, ShaderResourceType resourceType, int unitIndex, GPUAccessType usage)
 	{
 		if (GPUStateViewer::view().shader(stage).resource(resourceType, usage).isValidated(unitIndex) == false) { return; }
 

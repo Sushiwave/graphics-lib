@@ -13,7 +13,7 @@ namespace cg
 		{
 		}
 		RawConstantBuffer::RawConstantBuffer(unsigned int byteStride, const ID& memoryAccessorID, const void* pData)
-			: RawBuffer(RawBufferType::ConstantBuffer, 1, byteStride, GPUAccessFlags::R, CPUAccessFlags::W, pData)
+			: RawBuffer(RawBufferType::ConstantBuffer, 1, byteStride, GPUAccessType::R, CPUAccessType::W, pData)
 		{
 			m_CBV = std::make_shared<ConstantBufferView>(memoryAccessorID, m_buffer);
 		}

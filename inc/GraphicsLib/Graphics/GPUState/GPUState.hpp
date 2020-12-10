@@ -3,7 +3,7 @@
 #include <GraphicsLib/Context.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Shader/Components/ShaderStage.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/ShaderResourceType.hpp>
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessFlags.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 
 #include <unordered_map>
 
@@ -65,12 +65,12 @@ namespace cg
 				[[nodiscard]] UnitState& unit(int index);
 			};
 		private:
-			std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessFlags, ShaderResourceBufferState>> m_resource;
+			std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessType, ShaderResourceBufferState>> m_resource;
 		public:
 			ShaderBufferState() noexcept;
 			virtual ~ShaderBufferState() = default;
 
-			[[nodiscard]] ShaderResourceBufferState& resource(ShaderResourceType type, GPUAccessFlags usage);
+			[[nodiscard]] ShaderResourceBufferState& resource(ShaderResourceType type, GPUAccessType usage);
 		};
 	private:
 		std::unordered_map<ShaderStage, ShaderBufferState> m_shader;

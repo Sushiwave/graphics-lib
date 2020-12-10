@@ -21,7 +21,7 @@ namespace cg
 			  (
 				  id,
 				  type,
-				  GPUAccessFlags::R,
+				  GPUAccessType::R,
 				  {
 					  { ShaderStage::vs, D3D11SetShaderResources(VS) },
 					  { ShaderStage::hs, D3D11SetShaderResources(HS) },

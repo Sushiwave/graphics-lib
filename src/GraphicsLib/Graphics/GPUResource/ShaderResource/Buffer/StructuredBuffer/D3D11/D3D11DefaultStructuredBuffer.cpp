@@ -9,7 +9,7 @@ namespace cg
 	namespace d3d11
 	{
 		DefaultStructuredBuffer::DefaultStructuredBuffer(unsigned int byteStride, unsigned int elementCount, const void* pData, bool isByteAddressBuffer)
-			: StructuredBuffer(byteStride, elementCount, CPUAccessFlags::W, GPUAccessFlags::RW, pData, isByteAddressBuffer)
+			: StructuredBuffer(byteStride, elementCount, CPUAccessType::W, GPUAccessType::RW, pData, isByteAddressBuffer)
 		{
 		}
 
@@ -18,19 +18,19 @@ namespace cg
 			m_buffer.update(constant.getP().get());
 		}
 
-		void DefaultStructuredBuffer::set(ShaderStage stage, int unit, GPUAccessFlags usage)
+		void DefaultStructuredBuffer::set(ShaderStage stage, int unit, GPUAccessType usage)
 		{
 			std::shared_ptr<IShaderResourceMemoryAccessor> accessor;
 			switch (usage)
 			{
-			case GPUAccessFlags::R:
+			case GPUAccessType::R:
 				accessor = m_buffer.getSRV();
 				break;
-			case GPUAccessFlags::RW:
+			case GPUAccessType::RW:
 				accessor = m_buffer.getUAV();
 				break;
 			default:
-				Assert(false, "The given GPUAccessFlags is not supported.");
+				Assert(false, "The given GPUAccessType is not supported.");
 				return;
 			}
 

@@ -16,13 +16,13 @@ namespace cg
 		RawBuffer::RawBuffer() noexcept
 		{
 		}
-		RawBuffer::RawBuffer(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessFlags gpuAccessFlags, CPUAccessFlags cpuAccessFlags, const void* pData)
+		RawBuffer::RawBuffer(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessType gpuAccessType, CPUAccessType cpuAccessType, const void* pData)
 			: m_bufferType(bufferType),
 			  m_byteWidth(elementCount*byteStride),
 			  m_byteStride(byteStride),
 			  m_elementCount(elementCount),
-			  m_cpuAccessFlags(cpuAccessFlags),
-			  m_gpuAccessFlags(gpuAccessFlags)
+			  m_cpuAccessType(cpuAccessType),
+			  m_gpuAccessType(gpuAccessType)
 		{
 			auto pDevice = Device::getDevice().Get();
 			auto hr = D3D11CreateFunctions::createBuffer(
@@ -30,9 +30,9 @@ namespace cg
 				pData,
 				m_byteWidth,
 				byteStride,
-				cpuAccessFlags,
-				gpuAccessFlags,
-				gpuAccessFlags == GPUAccessFlags::RW,
+				cpuAccessType,
+				gpuAccessType,
+				gpuAccessType == GPUAccessType::RW,
 				m_bufferType,
 				m_buffer.ReleaseAndGetAddressOf()
 			);
@@ -45,7 +45,7 @@ namespace cg
 		{
 			Assert(m_id != src.m_id,
 				"The source and destination resources must be different resources.");
-			Assert((m_gpuAccessFlags == GPUAccessFlags::R && m_cpuAccessFlags == CPUAccessFlags::none) == false,
+			Assert((m_gpuAccessType == GPUAccessType::R && m_cpuAccessType == CPUAccessType::none) == false,
 				"Immutable resources are not allowed to perform copy operations.");
 			Assert(m_byteStride == src.m_byteStride && m_elementCount == src.m_elementCount,
 				"The source and destination resources must have same size.");
@@ -54,9 +54,9 @@ namespace cg
 		}
 		void RawBuffer::update(const void* pData)
 		{
-			if ((static_cast<int>(m_cpuAccessFlags) & static_cast<int>(CPUAccessFlags::W)) == 0) { return; }
+			if ((static_cast<int>(m_cpuAccessType) & static_cast<int>(CPUAccessType::W)) == 0) { return; }
 
-			if (m_gpuAccessFlags == GPUAccessFlags::RW)
+			if (m_gpuAccessType == GPUAccessType::RW)
 			{
 				Device::getDeviceContext()->UpdateSubresource(m_buffer.Get(), 0, nullptr, pData, 0, 0);
 			}

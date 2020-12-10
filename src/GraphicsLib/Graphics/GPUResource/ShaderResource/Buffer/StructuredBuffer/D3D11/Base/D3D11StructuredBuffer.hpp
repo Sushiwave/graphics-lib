@@ -18,7 +18,7 @@ namespace cg
 		protected:
 			RawBufferEX m_buffer;
 		public:
-			StructuredBuffer(unsigned int byteStride, unsigned int elementCount, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, const void* pData = nullptr, bool isByteAddressBuffer = false);
+			StructuredBuffer(unsigned int byteStride, unsigned int elementCount, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, const void* pData = nullptr, bool isByteAddressBuffer = false);
 			virtual ~StructuredBuffer() = default;
 
 			void read(void* result) override;

@@ -159,12 +159,12 @@ namespace cg
 							const auto type = std::get<1>(materialTexLocation);
 							const auto unit = std::get<2>(materialTexLocation);
 
-							if (gpuStateViewer.shader(type).resource(ShaderResourceType::Texture, GPUAccessFlags::R).unit(unit).isEmpty == false) { continue; }
+							if (gpuStateViewer.shader(type).resource(ShaderResourceType::Texture, GPUAccessType::R).unit(unit).isEmpty == false) { continue; }
 
 							auto tex = part.material.getTexture(name);
 							if (tex == nullptr) { continue; }
 
-							tex->set(type, unit, GPUAccessFlags::R);
+							tex->set(type, unit, GPUAccessType::R);
 						}
 					});
 			}

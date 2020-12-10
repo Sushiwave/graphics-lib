@@ -45,7 +45,7 @@ namespace cg
 			  m_byteStride(byteStride)
 		{
 			Assert(0 < vertexCount, "vertexCount must be greater than 0.");
-			auto hr = D3D11CreateFunctions::createBuffer(Device::getDevice().Get(), vertices, vertexCount * byteStride, byteStride, CPUAccessFlags::none, GPUAccessFlags::R, false, RawBufferType::VertexBuffer, m_vertexBuffer.ReleaseAndGetAddressOf());
+			auto hr = D3D11CreateFunctions::createBuffer(Device::getDevice().Get(), vertices, vertexCount * byteStride, byteStride, CPUAccessType::none, GPUAccessType::R, false, RawBufferType::VertexBuffer, m_vertexBuffer.ReleaseAndGetAddressOf());
 			if(FAILED(hr))
 			{
 				throw COM_RUNTIME_ERROR(hr, "Failed to create VertexBuffer.");

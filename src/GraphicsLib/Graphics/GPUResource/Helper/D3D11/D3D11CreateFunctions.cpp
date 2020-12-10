@@ -10,18 +10,18 @@ namespace cg
 {
 	namespace d3d11
 	{
-		void D3D11CreateFunctions::createBufferDesc(UINT byteWidth, UINT byteStride, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool enableUnorderedAccess, RawBufferType bufferType, D3D11_BUFFER_DESC* out)
+		void D3D11CreateFunctions::createBufferDesc(UINT byteWidth, UINT byteStride, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool enableUnorderedAccess, RawBufferType bufferType, D3D11_BUFFER_DESC* out)
 		{
 			ZeroMemory(out, sizeof(D3D11_BUFFER_DESC));
 
-			checkUsage(cpuAccessFlags, gpuAccessFlags, &out->Usage);
+			checkUsage(cpuAccessType, gpuAccessType, &out->Usage);
 			checkBufferBindFlags(bufferType, out->Usage, enableUnorderedAccess, &out->BindFlags);
 			checkBufferMiscFlags(bufferType, &out->MiscFlags);
 
 			out->StructureByteStride = (bufferType == RawBufferType::VertexBuffer || bufferType == RawBufferType::IndexBuffer || bufferType == RawBufferType::StructuredBuffer) ? byteStride : 0;
 
 			out->ByteWidth = byteWidth;
-			out->CPUAccessFlags = static_cast<UINT>(cpuAccessFlags);
+			out->CPUAccessFlags = static_cast<UINT>(cpuAccessType);
 		}
 
 		HRESULT D3D11CreateFunctions::createBuffer(ID3D11Device* pDevice, const void* pData, const D3D11_BUFFER_DESC& bufferDesc, ID3D11Buffer** out)
@@ -41,10 +41,10 @@ namespace cg
 			return pDevice->CreateBuffer(&bufferDesc, pSubresourceData, out);
 		}
 
-		HRESULT D3D11CreateFunctions::createBuffer(ID3D11Device* pDevice, const void* pData, UINT byteWidth, UINT byteStride, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool enableUnorderedAccess, RawBufferType bufferType, ID3D11Buffer** out)
+		HRESULT D3D11CreateFunctions::createBuffer(ID3D11Device* pDevice, const void* pData, UINT byteWidth, UINT byteStride, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool enableUnorderedAccess, RawBufferType bufferType, ID3D11Buffer** out)
 		{
 			D3D11_BUFFER_DESC bufferDesc;
-			createBufferDesc(byteWidth, byteStride, cpuAccessFlags, gpuAccessFlags, enableUnorderedAccess, bufferType, &bufferDesc);
+			createBufferDesc(byteWidth, byteStride, cpuAccessType, gpuAccessType, enableUnorderedAccess, bufferType, &bufferDesc);
 			return createBuffer(pDevice, pData, bufferDesc, out);
 		}
 
@@ -219,10 +219,10 @@ namespace cg
 			return pDevice->CreateDepthStencilState(&desc, out);
 		}
 
-		void D3D11CreateFunctions::createTexture2DDesc(ID3D11Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, UINT mostDetailedMip, UINT mostRoughedMip, bool useMipMap, UINT sampleCount, UINT qualityLevels, RawTexture2DType type, D3D11_TEXTURE2D_DESC* out)
+		void D3D11CreateFunctions::createTexture2DDesc(ID3D11Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, UINT mostDetailedMip, UINT mostRoughedMip, bool useMipMap, UINT sampleCount, UINT qualityLevels, RawTexture2DType type, D3D11_TEXTURE2D_DESC* out)
 		{
 			D3D11_USAGE usage;
-			checkTexture2DUsage(type, cpuAccessFlags, gpuAccessFlags, &usage);
+			checkTexture2DUsage(type, cpuAccessType, gpuAccessType, &usage);
 
 			UINT bindFlags;
 			checkTexture2DBindFlags(type, usage, sampleCount, qualityLevels, &bindFlags);
@@ -238,7 +238,7 @@ namespace cg
 			out->SampleDesc.Quality = qualityLevels;
 			out->Usage = usage;
 			out->BindFlags = bindFlags;
-			out->CPUAccessFlags = static_cast<UINT>(cpuAccessFlags);
+			out->CPUAccessFlags = static_cast<UINT>(cpuAccessType);
 			out->MipLevels = mipLevels;
 
 			if (useMipMap)
@@ -247,7 +247,7 @@ namespace cg
 			}
 		}
 
-		void D3D11CreateFunctions::createTexture2DDesc(ID3D11Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, UINT mostDetailedMip, UINT mostRoughedMip, bool useMipMap, UINT sampleCount, RawTexture2DType type, D3D11_TEXTURE2D_DESC* out)
+		void D3D11CreateFunctions::createTexture2DDesc(ID3D11Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, UINT mostDetailedMip, UINT mostRoughedMip, bool useMipMap, UINT sampleCount, RawTexture2DType type, D3D11_TEXTURE2D_DESC* out)
 		{
 			UINT qualityLevels;
 			auto hr = checkMSAAQualityLevels(pDevice, sampleCount, format, &qualityLevels);
@@ -256,7 +256,7 @@ namespace cg
 				sampleCount = 1;
 				qualityLevels = 0;
 			}
-			createTexture2DDesc(pDevice, width, height, format, cpuAccessFlags, gpuAccessFlags, mostDetailedMip, mostRoughedMip, useMipMap, sampleCount, qualityLevels, type, out);
+			createTexture2DDesc(pDevice, width, height, format, cpuAccessType, gpuAccessType, mostDetailedMip, mostRoughedMip, useMipMap, sampleCount, qualityLevels, type, out);
 		}
 
 
@@ -265,16 +265,16 @@ namespace cg
 			return pDevice->CreateTexture2D(&desc, pData, out);
 		}
 
-		HRESULT D3D11CreateFunctions::createTexture2D(ID3D11Device* pDevice, DirectX::ScratchImage& scratchImage, RawTexture2DType type, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool forceSRGB, ID3D11Texture2D** out)
+		HRESULT D3D11CreateFunctions::createTexture2D(ID3D11Device* pDevice, DirectX::ScratchImage& scratchImage, RawTexture2DType type, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool forceSRGB, ID3D11Texture2D** out)
 		{
 			D3D11_USAGE usage;
-			checkTexture2DUsage(type, cpuAccessFlags, gpuAccessFlags, &usage);
+			checkTexture2DUsage(type, cpuAccessType, gpuAccessType, &usage);
 
 			UINT bindFlags;
 			checkTexture2DBindFlags(type, usage, 1, 0, &bindFlags, true);
 
 			ID3D11Resource* pResource;
-			auto hr = DirectX::CreateTextureEx(pDevice, scratchImage.GetImages(), scratchImage.GetImageCount(), scratchImage.GetMetadata(), usage, bindFlags, static_cast<UINT>(cpuAccessFlags), 0, forceSRGB, &pResource);
+			auto hr = DirectX::CreateTextureEx(pDevice, scratchImage.GetImages(), scratchImage.GetImageCount(), scratchImage.GetMetadata(), usage, bindFlags, static_cast<UINT>(cpuAccessType), 0, forceSRGB, &pResource);
 
 			hr = pResource->QueryInterface(IID_ID3D11Texture2D, reinterpret_cast<void**>(out));
 
@@ -295,7 +295,7 @@ namespace cg
 
 			RawTexture2DType type = RawTexture2DType::Texture;
 
-			D3D11CreateFunctions::createTexture2DDesc(pDevice, desc.Width, desc.Height, format, CPUAccessFlags::none, GPUAccessFlags::RW, mostDetailedMip, mostDetailedMip - desc.MipLevels + 1, desc.MiscFlags == D3D11_RESOURCE_MISC_GENERATE_MIPS, 1, type, &resolveTexDesc);
+			D3D11CreateFunctions::createTexture2DDesc(pDevice, desc.Width, desc.Height, format, CPUAccessType::none, GPUAccessType::RW, mostDetailedMip, mostDetailedMip - desc.MipLevels + 1, desc.MiscFlags == D3D11_RESOURCE_MISC_GENERATE_MIPS, 1, type, &resolveTexDesc);
 			return D3D11CreateFunctions::createTexture2D(pDevice, resolveTexDesc, nullptr, out);
 		}
 
@@ -756,12 +756,12 @@ namespace cg
 			}
 		}
 
-		void D3D11CreateFunctions::checkTexture2DUsage(RawTexture2DType type, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, D3D11_USAGE* out)
+		void D3D11CreateFunctions::checkTexture2DUsage(RawTexture2DType type, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, D3D11_USAGE* out)
 		{
 			switch (type)
 			{
 			case RawTexture2DType::Texture:
-				checkUsage(cpuAccessFlags, gpuAccessFlags, out);
+				checkUsage(cpuAccessType, gpuAccessType, out);
 				break;
 			default:
 				*out = D3D11_USAGE_DEFAULT;
@@ -769,55 +769,55 @@ namespace cg
 			}
 		}
 
-		void D3D11CreateFunctions::checkUsage(CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, D3D11_USAGE* out)
+		void D3D11CreateFunctions::checkUsage(CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, D3D11_USAGE* out)
 		{
-			switch (cpuAccessFlags)
+			switch (cpuAccessType)
 			{
-			case CPUAccessFlags::R:
-			case CPUAccessFlags::RW:
-				switch (gpuAccessFlags)
+			case CPUAccessType::R:
+			case CPUAccessType::RW:
+				switch (gpuAccessType)
 				{
-				case GPUAccessFlags::none:
+				case GPUAccessType::none:
 					*out = D3D11_USAGE_STAGING;
 					break;
 				default:
-					Assert(false, "CPU-readable resources cannot be accessed by the GPU. If CPUAccessFlags is ""R"" or ""RW"", specify ""none"" for GPUAccessFlags.");
+					Assert(false, "CPU-readable resources cannot be accessed by the GPU. If CPUAccessType is ""R"" or ""RW"", specify ""none"" for GPUAccessType.");
 					break;
 				}
 				break;
 
-			case CPUAccessFlags::none:
-				switch (gpuAccessFlags)
+			case CPUAccessType::none:
+				switch (gpuAccessType)
 				{
-				case GPUAccessFlags::R:
+				case GPUAccessType::R:
 					*out = D3D11_USAGE_IMMUTABLE;
 					break;
-				case GPUAccessFlags::RW:
+				case GPUAccessType::RW:
 					*out = D3D11_USAGE_DEFAULT;
 					break;
 				default:
-					Assert(false, "There are no resources that are not accessible by the CPU or GPU. If CPUAccessFlags is ""none"", GPUAAccessFlags is set to ""R"" or ""RW"".");
+					Assert(false, "There are no resources that are not accessible by the CPU or GPU. If CPUAccessType is ""none"", GPUAAccessFlags is set to ""R"" or ""RW"".");
 					break;
 				}
 				break;
 
-			case CPUAccessFlags::W:
-				switch (gpuAccessFlags)
+			case CPUAccessType::W:
+				switch (gpuAccessType)
 				{
-				case GPUAccessFlags::R:
+				case GPUAccessType::R:
 					*out = D3D11_USAGE_DYNAMIC;
 					break;
-				case GPUAccessFlags::RW:
+				case GPUAccessType::RW:
 					*out = D3D11_USAGE_DEFAULT;
 					break;
-				case GPUAccessFlags::none:
+				case GPUAccessType::none:
 					*out = D3D11_USAGE_STAGING;
 					break;
 				}
 				break;
 
 			default:
-				Assert(false, "The given CPUAccessFlags is not supported.");
+				Assert(false, "The given CPUAccessType is not supported.");
 				break;
 			}
 		}
