@@ -9,7 +9,7 @@ namespace cg
 		}
 		void ImmutableStructuredBuffer::set(ShaderStage stage, int unit)
 		{
-			m_buffer.getSRV()->set(stage, unit);
+			m_buffer.getSRV()->set(stage, unit, getID());
 		}
 	}
 }

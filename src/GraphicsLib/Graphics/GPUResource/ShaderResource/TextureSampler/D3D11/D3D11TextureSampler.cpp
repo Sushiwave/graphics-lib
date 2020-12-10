@@ -25,7 +25,7 @@ namespace cg
 		}
 		void TextureSampler::set(ShaderStage stage, int unit)
 		{
-			m_state->set(stage, unit);
+			m_state->set(stage, unit, getID());
 		}
 		BoundedBufferLocationList TextureSampler::getBoundedBufferLocationList() const
 		{

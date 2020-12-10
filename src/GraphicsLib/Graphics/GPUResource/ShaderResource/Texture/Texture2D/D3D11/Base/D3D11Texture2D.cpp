@@ -72,7 +72,7 @@ namespace cg
             }
 
             Assert(accessor, "This resource does not support write operations from the GPU.");
-            accessor->set(stage, unit);
+            accessor->set(stage, unit, getID());
         }
 
         BoundedBufferLocationList Texture2D::getBoundedBufferLocationList() const

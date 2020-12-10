@@ -69,10 +69,10 @@ namespace cg
 		}
 
 		auto& gpuStateRecorder = GPUStateRecorder::main;
-		gpuStateRecorder.renderTargetSet(selfID, m_count);
+		gpuStateRecorder.multipleRenderTargetSet(this);
 		if (depthStencilBuffer)
 		{
-			gpuStateRecorder.depthStencilBufferSet(depthStencilBuffer->getID());
+			gpuStateRecorder.depthStencilBufferSet(depthStencilBuffer.get());
 		}
 		else
 		{

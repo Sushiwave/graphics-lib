@@ -39,7 +39,7 @@ namespace cg
 	{
 		if (isValidated(unitIndex) == false)
 		{
-			m_unit.emplace(unitIndex, State());
+			m_unitStateDict.emplace(unitIndex, UnitState());
 			m_validatedUnitIndexList.emplace_back(unitIndex);
 		}
 	}
@@ -48,14 +48,14 @@ namespace cg
 	{
 		if (isValidated(unitIndex))
 		{
-			m_unit.erase(unitIndex);
+			m_unitStateDict.erase(unitIndex);
 			m_validatedUnitIndexList.erase(std::find(m_validatedUnitIndexList.begin(), m_validatedUnitIndexList.end(), unitIndex));
 		}
 	}
 
 	bool GPUState::ShaderBufferState::ShaderResourceBufferState::isValidated(int index) const noexcept
 	{
-		return m_unit.count(index) == 1;
+		return m_unitStateDict.count(index) == 1;
 	}
 
 	std::vector<int> GPUState::ShaderBufferState::ShaderResourceBufferState::validatedUnitIndexList() const noexcept
@@ -63,8 +63,8 @@ namespace cg
 		return m_validatedUnitIndexList;
 	}
 
-	GPUState::State& GPUState::ShaderBufferState::ShaderResourceBufferState::unit(int index)
+	GPUState::ShaderBufferState::ShaderResourceBufferState::UnitState& GPUState::ShaderBufferState::ShaderResourceBufferState::unit(int index)
 	{
-		return m_unit[index];
+		return m_unitStateDict[index];
 	}
 }

@@ -8,6 +8,15 @@
 
 namespace cg
 {
+	const auto emplace = [](GPUState::StateOfBufferBoundedBySeveralResources& state, std::shared_ptr<cg::ITexture2D> texture)
+	{
+		if (texture) { state.boundedResourceIDList.emplace_back(texture->getID()); }
+	};
+
+
+
+
+
 	const ID GPUStateRecorder::m_mainRecordingThreadName = ID();
 
 	const GPUStateRecorder GPUStateRecorder::main = []()
@@ -81,14 +90,34 @@ namespace cg
 		}
 	}
 
-	void GPUStateRecorder::renderTargetSet(const ID& id, int count) const noexcept
+	void GPUStateRecorder::multipleRenderTargetSet(const cg::IMultipleRenderTargets* multipleRenderTargets) const noexcept
 	{
 		for (auto& record : m_records)
 		{
 			auto& state = record.second.renderTarget;
 			state.isEmpty = false;
-			state.id = id;
-			state.count = count;
+			state.id = multipleRenderTargets->getID();
+			state.count = multipleRenderTargets->getRenderTargetCount();
+			state.boundedResourceIDList.clear();
+			const auto renderingResults = multipleRenderTargets->getAllRenderingResults();
+			for (auto renderingResult : renderingResults)
+			{
+				emplace(state, renderingResult);
+			}
+		}
+	}
+
+	void GPUStateRecorder::renderTargetSet(const cg::IRenderTarget* renderTarget) const noexcept
+	{
+		for (auto& record : m_records)
+		{
+			auto& state = record.second.renderTarget;
+			state.isEmpty = false;
+			state.id = renderTarget->getID();
+			state.count = 1;
+			state.boundedResourceIDList.clear();
+			emplace(state, renderTarget->getRenderingResult());
+			emplace(state, renderTarget->getRenderingResultMS());
 		}
 	}
 
@@ -100,16 +129,22 @@ namespace cg
 			state.isEmpty = true;
 			state.id = ID();
 			state.count = 0;
+			state.boundedResourceIDList.clear();
 		}
 	}
 
-	void GPUStateRecorder::depthStencilBufferSet(const ID& id) const noexcept
+	void GPUStateRecorder::depthStencilBufferSet(const cg::IDepthStencilBuffer* depthStencilBuffer) const noexcept
 	{
 		for (auto& record : m_records)
 		{
 			auto& state = record.second.depthStencilBuffer;
 			state.isEmpty = false;
-			state.id = id;
+			state.id = depthStencilBuffer->getID();
+			state.boundedResourceIDList.clear();
+			emplace(state, depthStencilBuffer->getDepthBufferTexture());
+			emplace(state, depthStencilBuffer->getDepthBufferTextureMS());
+			emplace(state, depthStencilBuffer->getStencilBufferTexture());
+			emplace(state, depthStencilBuffer->getStencilBufferTextureMS());
 		}
 	}
 
@@ -120,6 +155,7 @@ namespace cg
 			auto& state = record.second.depthStencilBuffer;
 			state.isEmpty = true;
 			state.id = ID();
+			state.boundedResourceIDList.clear();
 		}
 	}
 

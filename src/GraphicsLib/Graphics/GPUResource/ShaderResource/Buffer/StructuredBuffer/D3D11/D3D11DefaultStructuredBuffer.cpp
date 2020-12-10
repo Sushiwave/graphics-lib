@@ -34,7 +34,7 @@ namespace cg
 				return;
 			}
 
-			accessor->set(stage, unit);
+			accessor->set(stage, unit, getID());
 		}
 		void DefaultStructuredBuffer::copy(std::shared_ptr<IStructuredBuffer> src)
 		{
