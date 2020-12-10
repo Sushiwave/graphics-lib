@@ -40,7 +40,7 @@ namespace cg
 		ShaderResourceMemoryAccessor(const ID& id, ShaderResourceType type, GPUAccessFlags gpuAccessFlags, const SetCallDB& setCallDB);
 		virtual ~ShaderResourceMemoryAccessor() = default;
 
-		void set(ShaderStage stage, int unit) override;
+		void set(ShaderStage stage, int unit, const ID& resourceID) override;
 		static void release(ShaderStage stage, ShaderResourceType resourceType, int unit, GPUAccessFlags usage);
 
 		[[nodiscard]] ShaderResourceBufferLocationList getManagedShaderResourceBufferLocationList() const;

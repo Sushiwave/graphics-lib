@@ -10,7 +10,7 @@ namespace cg
 		}
 		void ConstantBuffer::set(ShaderStage stage, int unit)
 		{
-			m_buffer.getCBV()->set(stage, unit);
+			m_buffer.getCBV()->set(stage, unit, getID());
 		}
 		void ConstantBuffer::read(void* result)
 		{

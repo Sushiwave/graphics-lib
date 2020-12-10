@@ -21,8 +21,19 @@ namespace cg
 			bool isEmpty = true;
 			ID id = ID("");
 		};
+		struct StateOfBufferBoundedBySeveralResources
+			: GPUState::State
+		{
+			using BoundedResourceIDList = std::vector<ID>;
+
+			BoundedResourceIDList boundedResourceIDList;
+		};
+		struct DepthStencilBufferState
+			: public GPUState::StateOfBufferBoundedBySeveralResources
+		{				
+		};
 		struct RenderTargetBufferState
-			: public GPUState::State
+			: public GPUState::StateOfBufferBoundedBySeveralResources
 		{
 			int count = 0;
 		};
@@ -33,9 +44,14 @@ namespace cg
 			class ShaderResourceBufferState
 			{
 			public:
-				using UnitState = std::unordered_map<int, State>;
+				class UnitState
+					: public GPUState::State
+				{
+				};
+			public:
+				using UnitStateDict = std::unordered_map<int, UnitState>;
 			private:
-				UnitState m_unit;
+				UnitStateDict m_unitStateDict;
 				std::vector<int> m_validatedUnitIndexList;
 			public:
 				virtual ~ShaderResourceBufferState() = default;
@@ -46,7 +62,7 @@ namespace cg
 
 				[[nodiscard]] std::vector<int> validatedUnitIndexList() const noexcept;
 
-				[[nodiscard]] State& unit(int index);
+				[[nodiscard]] UnitState& unit(int index);
 			};
 		private:
 			std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessFlags, ShaderResourceBufferState>> m_resource;
@@ -64,7 +80,7 @@ namespace cg
 		State blender;
 
 		RenderTargetBufferState renderTarget;
-		State depthStencilBuffer;
+		DepthStencilBufferState depthStencilBuffer;
 	public:
 		GPUState() noexcept;
 		virtual ~GPUState() = default;

@@ -18,7 +18,7 @@ namespace cg
 		}
 		void DynamicStructuredBuffer::set(ShaderStage stage, int unit)
 		{
-			m_buffer.getSRV()->set(stage, unit);
+			m_buffer.getSRV()->set(stage, unit, getID());
 		}
 		void DynamicStructuredBuffer::copy(std::shared_ptr<IStructuredBuffer> src)
 		{

@@ -2,6 +2,8 @@
 #include <GraphicsLib/Graphics/GPUState/GPUStateRecorder.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateViewer.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RenderTarget/RenderTarget.hpp>
+#include <ThirdParty/CPPLib/Log/Log.hpp>
 
 
 
@@ -118,19 +120,17 @@ namespace cg
 
 
 
-	void ShaderResourceMemoryAccessor::set(ShaderStage stage, int unitIndex)
+	void ShaderResourceMemoryAccessor::set(ShaderStage stage, int unitIndex, const ID& resourceID)
 	{
-		auto selfID = getID();
-
-		if (selfID == GPUStateViewer::view().shader(stage).resource(m_type, m_gpuAccessFlags).unit(unitIndex).id) { return; }
+		if (resourceID == GPUStateViewer::view().shader(stage).resource(m_type, m_gpuAccessFlags).unit(unitIndex).id) { return; }
 
 
 
-		GPUStateRecorder::main.shaderResourceSet(stage, m_type, m_gpuAccessFlags, unitIndex, selfID);
+		GPUStateRecorder::main.shaderResourceSet(stage, m_type, m_gpuAccessFlags, unitIndex, resourceID);
 
 
 
-		const auto releaseBoundedResource = [&](ShaderResourceType accessorType, GPUAccessFlags usage)
+		const auto avoidSimultaneousReadingAndWritingToShaderResources = [&](ShaderResourceType accessorType, GPUAccessFlags usage)
 		{
 			for (auto stage : ShaderStageAll)
 			{
@@ -140,7 +140,7 @@ namespace cg
 				for (auto index : validatedUnitIndexList)
 				{
 					const auto& unitState = bufferState.unit(index);
-					if (unitState.id == selfID)
+					if (unitState.id == resourceID)
 					{
 						ShaderResourceMemoryAccessor::release(stage, accessorType, index, usage);
 					}
@@ -149,11 +149,32 @@ namespace cg
 		};
 		if (m_gpuAccessFlags == GPUAccessFlags::R)
 		{
-			releaseBoundedResource(m_type, GPUAccessFlags::RW);
+			avoidSimultaneousReadingAndWritingToShaderResources(m_type, GPUAccessFlags::RW);
 		}
 		else if (m_gpuAccessFlags == GPUAccessFlags::RW)
 		{
-			releaseBoundedResource(m_type, GPUAccessFlags::R);
+			avoidSimultaneousReadingAndWritingToShaderResources(m_type, GPUAccessFlags::R);
+		}
+		
+		const auto avoidSimultaneousReadingAndWritingToRenderTargetRelatedResources = [&](GPUState::StateOfBufferBoundedBySeveralResources state, std::string resourceName)
+		{
+			if (state.isEmpty == false)
+			{
+				for (auto id : state.boundedResourceIDList)
+				{
+					if (id == resourceID)
+					{
+						RenderTarget::release();
+						LogEX("Released a render target buffer from the pipeline to avoid simultaneous reading and writing to [ "+resourceName+": "+id.get()+" ].");
+						return true;
+					}
+				}
+			}
+			return false;
+		};
+		if (avoidSimultaneousReadingAndWritingToRenderTargetRelatedResources(GPUStateViewer::view().depthStencilBuffer, "Depth Stencil Buffer") == false)
+		{
+			avoidSimultaneousReadingAndWritingToRenderTargetRelatedResources(GPUStateViewer::view().renderTarget, "Render Target");
 		}
 
 
