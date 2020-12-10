@@ -15,10 +15,9 @@ namespace cg
 {
 	namespace d3d11
 	{
-		UnorderedAccessView::UnorderedAccessView(const ID& id, ShaderResourceType type, const cpp::com_ptr<ID3D11UnorderedAccessView>& cpD3DUAV)
+		UnorderedAccessView::UnorderedAccessView(ShaderResourceType type, const cpp::com_ptr<ID3D11UnorderedAccessView>& cpD3DUAV)
 			: ShaderResourceMemoryAccessor
 			(
-				id,
 				type,
 				GPUAccessType::RW,
 				{ { ShaderStage::cs, D3D11SetUnorderedAccessViews(CS) } }

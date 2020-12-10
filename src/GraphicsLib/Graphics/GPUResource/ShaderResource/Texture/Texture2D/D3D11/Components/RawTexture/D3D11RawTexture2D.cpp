@@ -60,7 +60,7 @@ namespace cg
 					throw COM_RUNTIME_ERROR(hr, "Failed to create ShaderResourceView.");
 				}
 			
-				m_SRV = std::make_shared<ShaderResourceView>(m_id, ShaderResourceType::Texture, cpSRV);
+				m_SRV = std::make_shared<ShaderResourceView>(ShaderResourceType::Texture, cpSRV);
 
 				if (desc.BindFlags & D3D11_BIND_UNORDERED_ACCESS)
 				{
@@ -71,7 +71,7 @@ namespace cg
 						throw COM_RUNTIME_ERROR(hr, "Failed to create UnorderedAccessView.");
 					}
 
-					m_UAV = std::make_shared<UnorderedAccessView>(m_id, ShaderResourceType::Texture, cpUAV);
+					m_UAV = std::make_shared<UnorderedAccessView>(ShaderResourceType::Texture, cpUAV);
 				}
 			}
 		}

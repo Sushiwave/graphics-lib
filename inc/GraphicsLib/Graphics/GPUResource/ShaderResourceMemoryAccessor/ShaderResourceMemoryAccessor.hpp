@@ -37,7 +37,7 @@ namespace cg
 		static ShaderResourceBufferLocationListRefDict m_dictForUpdatingShaderResourceBufferLocationList;
 	public:
 		ShaderResourceMemoryAccessor() = default;
-		ShaderResourceMemoryAccessor(const ID& id, ShaderResourceType type, GPUAccessType gpuAccessType, const SetCallDB& setCallDB);
+		ShaderResourceMemoryAccessor(ShaderResourceType type, GPUAccessType gpuAccessType, const SetCallDB& setCallDB);
 		virtual ~ShaderResourceMemoryAccessor() = default;
 
 		void set(ShaderStage stage, int unit, const ID& resourceID) override;

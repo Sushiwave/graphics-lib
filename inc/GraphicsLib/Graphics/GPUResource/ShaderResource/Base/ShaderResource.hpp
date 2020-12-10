@@ -15,7 +15,6 @@ namespace cg
 	{
 	public:
 		ShaderResource() = default;
-		ShaderResource(const ID& id);
 		virtual ~ShaderResource() = default;
 
 
