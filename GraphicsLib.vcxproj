@@ -219,8 +219,8 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Buffer\StructuredBuffer\IImmutableStructuredBuffer.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\BoundedBufferLocation.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\BoundedBufferLocationList.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessFlags.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessFlags.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessType.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessType.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\ShaderResourceType.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureAddressMode.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\TextureSampler\Components\TextureFilter.hpp" />

@@ -20,7 +20,7 @@ namespace cg
 			(
 				id,
 				type,
-				GPUAccessFlags::RW,
+				GPUAccessType::RW,
 				{ { ShaderStage::cs, D3D11SetUnorderedAccessViews(CS) } }
 			)
 		{

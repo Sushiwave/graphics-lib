@@ -20,7 +20,7 @@ namespace cg
 		{
 			Assert(0 < indexCount, "indexCount must be greater than 0.");
 
-			auto hr = D3D11CreateFunctions::createBuffer(Device::getDevice().Get(), indices, indexCount * byteStride, byteStride, CPUAccessFlags::none, GPUAccessFlags::R, false, RawBufferType::IndexBuffer, m_indexBuffer.ReleaseAndGetAddressOf());
+			auto hr = D3D11CreateFunctions::createBuffer(Device::getDevice().Get(), indices, indexCount * byteStride, byteStride, CPUAccessType::none, GPUAccessType::R, false, RawBufferType::IndexBuffer, m_indexBuffer.ReleaseAndGetAddressOf());
 			if(FAILED(hr))
 			{
 				throw COM_RUNTIME_ERROR(hr, "Failed to create IndexBuffer.");

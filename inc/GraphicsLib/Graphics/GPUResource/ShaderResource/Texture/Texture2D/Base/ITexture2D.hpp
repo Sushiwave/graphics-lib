@@ -1,6 +1,6 @@
 #pragma once
 #include <ThirdParty/CPPLib/Math/Vector/Vector2D.hpp>
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessFlags.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Base/IShaderResource.hpp>
 #include <ThirdParty/CPPLib/Math/Vector/Vector4D.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Texture/Texture2D/Components/ImageFileFormat.hpp>
@@ -26,7 +26,7 @@ namespace cg
 
 		[[nodiscard]] virtual bool isResolvedTexture() const = 0;
 
-		virtual void set(ShaderStage stage, int unit, GPUAccessFlags usage) = 0;
+		virtual void set(ShaderStage stage, int unit, GPUAccessType usage) = 0;
 
 		virtual void saveTo(const std::string& filename, ImageFileFormat format) = 0;
 	};

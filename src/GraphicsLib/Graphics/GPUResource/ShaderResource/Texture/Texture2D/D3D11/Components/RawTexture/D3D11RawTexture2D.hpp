@@ -2,8 +2,8 @@
 #include <ThirdParty/CPPLib/COM/com_ptr.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Texture/Texture2D/Components/TextureFormat.hpp>
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/CPUAccessFlags.hpp>
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessFlags.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/CPUAccessType.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Base/ShaderResource.hpp>
 #include <ThirdParty/CPPLib/Math/Vector/Vector4D.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Texture/Texture2D/Components/ImageXY.hpp>
@@ -39,19 +39,19 @@ namespace cg
 			int m_mostRoughedMipLevel  = 0;
 			TextureFormat m_format = TextureFormat::UNKNOWN;
 
-			CPUAccessFlags m_cpuAccessFlags = CPUAccessFlags::R;
-			GPUAccessFlags m_gpuAccessFlags = GPUAccessFlags::R;
+			CPUAccessType m_cpuAccessType = CPUAccessType::R;
+			GPUAccessType m_gpuAccessType = GPUAccessType::R;
 
 			Resolver m_resolve;
 		private:
 			template <typename T>
 			void m_write(const ImageXY& image, int dimension, bool isFloatingPoint)
 			{
-				if ((static_cast<int>(m_cpuAccessFlags) & static_cast<int>(CPUAccessFlags::W)) == 0) { return; }
+				if ((static_cast<int>(m_cpuAccessType) & static_cast<int>(CPUAccessType::W)) == 0) { return; }
 
 				auto byteStride = sizeof(T);
 
-				if (m_gpuAccessFlags == GPUAccessFlags::RW)
+				if (m_gpuAccessType == GPUAccessType::RW)
 				{
 					auto rowPitch = static_cast<UINT>(m_size.x*dimension*byteStride);
 					Device::getDeviceContext()->UpdateSubresource(m_textureBuffer.Get(), 0, nullptr, image.create1DArray<T>(dimension, isFloatingPoint).get(), rowPitch, 0);
@@ -71,15 +71,15 @@ namespace cg
 				}
 			}
 		private:
-			RawTexture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, int mostDetailedMipLevel, int mostRoughedMipLevel, bool useMipMap, const ImageXY* pImage);
+			RawTexture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, int mostDetailedMipLevel, int mostRoughedMipLevel, bool useMipMap, const ImageXY* pImage);
 		public:
 			RawTexture2D() = default;
 			RawTexture2D(const std::string& filename, bool forceSRGB = false);
-			RawTexture2D(const std::string& filename, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool forceSRGB = false);
+			RawTexture2D(const std::string& filename, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool forceSRGB = false);
 			RawTexture2D(int width, int height, TextureFormat format, const ImageXY* pImage = nullptr);
-			RawTexture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, const ImageXY* pImage = nullptr);
+			RawTexture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, const ImageXY* pImage = nullptr);
 			RawTexture2D(int width, int height, TextureFormat format, int mostDetailedMipLevel, int mostRoughedMipLevel, const ImageXY* pImage = nullptr);
-			RawTexture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, int mostDetailedMipLevel, int mostRoughedMipLevel, const ImageXY* pImage = nullptr);
+			RawTexture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, int mostDetailedMipLevel, int mostRoughedMipLevel, const ImageXY* pImage = nullptr);
 
 			RawTexture2D(cpp::com_ptr<ID3D11Texture2D> textureBuffer, int mostDetailedMipLevel);
 			RawTexture2D(cpp::com_ptr<ID3D11Texture2D> textureBuffer, TextureFormat format, int mostDetailedMipLevel);

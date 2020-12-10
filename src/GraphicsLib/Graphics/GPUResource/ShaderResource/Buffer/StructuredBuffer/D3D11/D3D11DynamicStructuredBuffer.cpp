@@ -9,7 +9,7 @@ namespace cg
 	namespace d3d11
 	{
 		DynamicStructuredBuffer::DynamicStructuredBuffer(unsigned int byteStride, unsigned int elementCount, const void* pData, bool isByteAddressBuffer)
-			: StructuredBuffer(byteStride, elementCount, CPUAccessFlags::W, GPUAccessFlags::R, pData, isByteAddressBuffer)
+			: StructuredBuffer(byteStride, elementCount, CPUAccessType::W, GPUAccessType::R, pData, isByteAddressBuffer)
 		{
 		}
 		void DynamicStructuredBuffer::update(const Constant& constant)

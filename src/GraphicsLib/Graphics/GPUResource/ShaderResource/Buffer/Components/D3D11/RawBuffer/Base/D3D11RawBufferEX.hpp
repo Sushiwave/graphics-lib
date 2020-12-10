@@ -17,7 +17,7 @@ namespace cg
 			std::shared_ptr<IShaderResourceMemoryAccessor> m_SRV;
 			std::shared_ptr<IShaderResourceMemoryAccessor> m_UAV;
 		public:
-			RawBufferEX(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessFlags gpuAccessFlags, CPUAccessFlags cpuAccessFlags, const ID& memoryAccessorID, const void* pData = nullptr);
+			RawBufferEX(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessType gpuAccessType, CPUAccessType cpuAccessType, const ID& memoryAccessorID, const void* pData = nullptr);
 			virtual ~RawBufferEX() = default;
 
 			[[nodiscard]] std::shared_ptr<IShaderResourceMemoryAccessor> getSRV() const noexcept;

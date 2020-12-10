@@ -20,7 +20,7 @@ namespace cg
 			(
 				id,
 				ShaderResourceType::TextureSampler,
-				GPUAccessFlags::R,
+				GPUAccessType::R,
 				{
 					{ ShaderStage::vs, D3D11SetSamplers(VS) },
 					{ ShaderStage::hs, D3D11SetSamplers(HS) },

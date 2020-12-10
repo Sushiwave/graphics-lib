@@ -6,7 +6,7 @@
 
 namespace cg
 {
-	BoundedBufferLocation::BoundedBufferLocation(ShaderStage stage, int unit, GPUAccessFlags usage) noexcept
+	BoundedBufferLocation::BoundedBufferLocation(ShaderStage stage, int unit, GPUAccessType usage) noexcept
 		: stage(stage),
 		  unit(unit),
 		  usage(usage)

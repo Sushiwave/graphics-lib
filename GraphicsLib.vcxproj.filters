@@ -572,12 +572,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\BoundedBufferLocationList.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessFlags.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessFlags.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\ShaderResourceType.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -665,6 +659,12 @@
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Base\IResolvableTexture2D.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Base\IResolvable.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessType.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessType.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">

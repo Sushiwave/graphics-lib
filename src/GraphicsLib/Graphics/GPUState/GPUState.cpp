@@ -10,14 +10,14 @@ namespace cg
 	{
 		for (auto resourceType : ShaderResourceTypeAll)
 		{
-			std::unordered_map<GPUAccessFlags, ShaderResourceBufferState> dict;
-			dict.emplace(GPUAccessFlags::R, ShaderResourceBufferState());
-			dict.emplace(GPUAccessFlags::RW, ShaderResourceBufferState());
+			std::unordered_map<GPUAccessType, ShaderResourceBufferState> dict;
+			dict.emplace(GPUAccessType::R, ShaderResourceBufferState());
+			dict.emplace(GPUAccessType::RW, ShaderResourceBufferState());
 			m_resource.emplace(resourceType, dict);
 		}
 	}
 
-	GPUState::ShaderBufferState::ShaderResourceBufferState& GPUState::ShaderBufferState::resource(ShaderResourceType type, GPUAccessFlags usage)
+	GPUState::ShaderBufferState::ShaderResourceBufferState& GPUState::ShaderBufferState::resource(ShaderResourceType type, GPUAccessType usage)
 	{
 		return m_resource[type][usage];
 	}
