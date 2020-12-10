@@ -28,7 +28,7 @@ namespace cg
 			RawBufferType m_bufferType;
 		public:
 			RawBuffer() noexcept;
-			RawBuffer(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessType gpuAccessFalgs, CPUAccessType cpuAccessType, const void* pData = nullptr);
+			RawBuffer(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessType gpuAccessFlags, CPUAccessType cpuAccessType, const void* pData = nullptr);
 			virtual ~RawBuffer() = default;
 
 			
