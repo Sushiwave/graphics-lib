@@ -11,8 +11,4 @@ namespace cg
 		  m_multipleRenderTarget(mrt)
 	{
 	}
-	GBuffer RenderPipelineMRT::getGBuffer() const
-	{
-		return m_GBuffer;
-	}
 }
