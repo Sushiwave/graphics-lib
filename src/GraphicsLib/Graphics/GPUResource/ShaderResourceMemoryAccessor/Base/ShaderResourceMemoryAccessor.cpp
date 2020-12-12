@@ -109,8 +109,8 @@ namespace cg
 
 
 
-	ShaderResourceMemoryAccessor::ShaderResourceMemoryAccessor(const ID& id, ShaderResourceType type, GPUAccessType gpuAccessType, const SetCallDB& setCallDB)
-		: GPUResource(id),
+	ShaderResourceMemoryAccessor::ShaderResourceMemoryAccessor(ShaderResourceType type, GPUAccessType gpuAccessType, const SetCallDB& setCallDB)
+		: GPUResource(),
 	  	  m_type(type),
 		  m_gpuAccessType(gpuAccessType),
 		  m_setCallDB(setCallDB),

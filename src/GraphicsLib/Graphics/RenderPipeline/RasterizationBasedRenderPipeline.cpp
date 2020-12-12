@@ -34,22 +34,12 @@ namespace cg
 
 
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, bool drawSceneObjects)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall, const AdditionalDrawCall& additionalDrawCall)
 	{
-		renderDefault(scene, scene.camera, [](const Scene&){}, [](){}, drawSceneObjects);
+		renderDefault(scene, scene.camera, drawSceneObjects, additionalSetCall, additionalDrawCall);
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects)
-	{
-		renderDefault(scene, customCamera, [](const Scene&){}, [](){}, drawSceneObjects);
-	}
-
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects)
-	{
-		renderDefault(scene, scene.camera, additionalSetCall, additionalDrawCall, drawSceneObjects);
-	}
-
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall, const AdditionalDrawCall& additionalDrawCall)
 	{
 		using CBLocation = std::tuple<ShaderStage, int>;
 		const auto& cbLocation = [&](ShaderResourceType resourceType, const std::string& bufferName)

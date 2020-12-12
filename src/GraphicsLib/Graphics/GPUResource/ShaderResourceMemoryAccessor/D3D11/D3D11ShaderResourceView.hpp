@@ -20,7 +20,7 @@ namespace cg
 		public:
 			ShaderResourceView() = default;
 			virtual ~ShaderResourceView() = default;
-			ShaderResourceView(const ID& id, ShaderResourceType type, const cpp::com_ptr<ID3D11ShaderResourceView>& cpD3DSRV);
+			ShaderResourceView(ShaderResourceType type, const cpp::com_ptr<ID3D11ShaderResourceView>& cpD3DSRV);
 
 			void generateMipMaps();
 

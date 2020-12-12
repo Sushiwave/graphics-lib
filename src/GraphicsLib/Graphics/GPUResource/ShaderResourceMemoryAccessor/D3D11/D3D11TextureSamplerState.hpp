@@ -18,7 +18,7 @@ namespace cg
 		public:
 			TextureSamplerState() = default;
 			virtual ~TextureSamplerState() = default;
-			TextureSamplerState(const ID& id, const cpp::com_ptr<ID3D11SamplerState>& cpD3DSampler);
+			TextureSamplerState(const cpp::com_ptr<ID3D11SamplerState>& cpD3DSampler);
 		};
 	}
 }
