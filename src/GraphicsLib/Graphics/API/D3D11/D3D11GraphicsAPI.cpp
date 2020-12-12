@@ -72,14 +72,24 @@ namespace cg
 			return createRenderTarget(size.x, size.y, format, sampleCount);
 		}
 
-		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(int width, int height, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
+		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
 		{
 			return std::make_shared<MultipleRenderTargets>(renderTargetList);
 		}
 
-		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
+		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(int width, int height, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount)
 		{
-			return createMultipleRenderTargets(size.x, size.y, renderTargetList);
+			std::vector<std::shared_ptr<cg::IRenderTarget>> renderTargetList;
+			for (const auto format : renderTargetFormatList)
+			{
+				renderTargetList.emplace_back(createRenderTarget(width, height, format, sampleCount));
+			}
+			return createMultipleRenderTargets(renderTargetList);
+		}
+
+		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount)
+		{
+			return createMultipleRenderTargets(size.x, size.y, renderTargetFormatList, sampleCount);
 		}
 
 		std::shared_ptr<IRasterizer> GraphicsAPI::createRasterizer(CullMode cullMode, bool isWireFrameMode, bool multisampleEnable, bool antialiassedLineEnable, bool frontCounterClockwise, bool depthClipEnable, bool scissorEnable)
