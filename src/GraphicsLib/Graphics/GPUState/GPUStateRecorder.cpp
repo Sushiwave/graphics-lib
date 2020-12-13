@@ -90,7 +90,7 @@ namespace cg
 		}
 	}
 
-	void GPUStateRecorder::multipleRenderTargetSet(const cg::IMultipleRenderTargets* multipleRenderTargets) const noexcept
+	void GPUStateRecorder::multipleRenderTargetsSet(const cg::IMultipleRenderTargets* multipleRenderTargets) const noexcept
 	{
 		for (auto& record : m_records)
 		{

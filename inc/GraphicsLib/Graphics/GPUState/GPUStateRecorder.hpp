@@ -30,7 +30,7 @@ namespace cg
 		void depthStencilTesterReleased() const noexcept;
 		void blenderSet(const ID& id) const noexcept;
 		void blenderReleased() const noexcept;
-		void multipleRenderTargetSet(const cg::IMultipleRenderTargets* multipleRenderTargets) const noexcept;
+		void multipleRenderTargetsSet(const cg::IMultipleRenderTargets* multipleRenderTargets) const noexcept;
 		void renderTargetSet(const cg::IRenderTarget* renderTarget) const noexcept;
 		void renderTargetReleased() const noexcept;
 		void depthStencilBufferSet(const cg::IDepthStencilBuffer* depthStencilBuffer) const noexcept;
