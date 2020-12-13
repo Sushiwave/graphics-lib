@@ -21,11 +21,11 @@ namespace cg
 			{
 				throw COM_RUNTIME_ERROR(hr, "Failed to create TextureSamplerState");
 			}
-			m_state = std::make_shared<TextureSamplerState>(getID(), samplerState);
+			m_state = std::make_shared<TextureSamplerState>(samplerState);
 		}
 		void TextureSampler::set(ShaderStage stage, int unit)
 		{
-			m_state->set(stage, unit);
+			m_state->set(stage, unit, getID());
 		}
 		BoundedBufferLocationList TextureSampler::getBoundedBufferLocationList() const
 		{

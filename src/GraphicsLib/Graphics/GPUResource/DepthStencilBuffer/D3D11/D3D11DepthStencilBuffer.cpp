@@ -64,8 +64,8 @@ namespace cg
 				{
 					if (auto resolvedTextureSafe = resolvedTextureWeak.lock())
 					{
-						textureMS->set(ShaderStage::cs, inputBufferLocation, GPUAccessFlags::R);
-						resolvedTextureSafe->set(ShaderStage::cs, outputBufferLocation, GPUAccessFlags::RW);
+						textureMS->set(ShaderStage::cs, inputBufferLocation, GPUAccessType::R);
+						resolvedTextureSafe->set(ShaderStage::cs, outputBufferLocation, GPUAccessType::RW);
 
 						computeShader->set();
 						computeShader->dispatch(threadGroupCount.x, threadGroupCount.y, threadGroupCount.z);
@@ -101,7 +101,7 @@ namespace cg
 
 			::DXGI_FORMAT d3dDepthStencilBufferFormat;
 			D3D11CreateFunctions::checkDepthStencilBufferFormat(d3dFormat, &d3dDepthStencilBufferFormat);
-			D3D11CreateFunctions::createTexture2DDesc(pDevice, size.x, size.y, d3dDepthStencilBufferFormat, CPUAccessFlags::none, GPUAccessFlags::RW, 0, 0, false, sampleCount, qualityLevel, RawTexture2DType::DepthStencil, &desc);
+			D3D11CreateFunctions::createTexture2DDesc(pDevice, size.x, size.y, d3dDepthStencilBufferFormat, CPUAccessType::none, GPUAccessType::RW, 0, 0, false, sampleCount, qualityLevel, RawTexture2DType::DepthStencil, &desc);
 			const auto hr = D3D11CreateFunctions::createTexture2D(pDevice, desc, nullptr, depthStencilBuffer.ReleaseAndGetAddressOf());
 			if (FAILED(hr))
 			{
@@ -203,7 +203,7 @@ namespace cg
 
 			DXGI_FORMAT d3dDepthStencilBufferFormat;
 			D3D11CreateFunctions::checkDepthStencilBufferFormat(d3dFormat, &d3dDepthStencilBufferFormat);
-			D3D11CreateFunctions::createTexture2DDesc(pDevice, width, height, d3dDepthStencilBufferFormat, CPUAccessFlags::none, GPUAccessFlags::RW, 0, 0, false, sampleCount, qualityLevel, RawTexture2DType::DepthStencil, &desc);
+			D3D11CreateFunctions::createTexture2DDesc(pDevice, width, height, d3dDepthStencilBufferFormat, CPUAccessType::none, GPUAccessType::RW, 0, 0, false, sampleCount, qualityLevel, RawTexture2DType::DepthStencil, &desc);
 			auto hr = D3D11CreateFunctions::createTexture2D(pDevice, desc, nullptr, depthStencilBuffer.ReleaseAndGetAddressOf());
 			if(FAILED(hr))
 			{

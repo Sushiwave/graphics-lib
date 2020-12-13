@@ -15,12 +15,11 @@ namespace cg
 {
 	namespace d3d11
 	{
-		ConstantBufferView::ConstantBufferView(const ID& id, const cpp::com_ptr<ID3D11Buffer>& cpD3DBuffer)
+		ConstantBufferView::ConstantBufferView(const cpp::com_ptr<ID3D11Buffer>& cpD3DBuffer)
 			: ShaderResourceMemoryAccessor
 			(
-				id,
 				ShaderResourceType::ConstantBuffer,
-				GPUAccessFlags::R,
+				GPUAccessType::R,
 				{
 					{ ShaderStage::vs, D3D11SetConstantBuffers(VS) },
 					{ ShaderStage::hs, D3D11SetConstantBuffers(HS) },

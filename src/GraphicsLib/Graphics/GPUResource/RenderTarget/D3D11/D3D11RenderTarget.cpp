@@ -37,7 +37,7 @@ namespace cg
 			auto pDevice = Device::getDevice().Get();
 			D3D11_TEXTURE2D_DESC desc;
 
-			D3D11CreateFunctions::createTexture2DDesc(pDevice, width, height, static_cast<DXGI_FORMAT>(format), CPUAccessFlags::none, GPUAccessFlags::RW, mostDetailedMip, mostRoughedMip, useMipMap, sampleCount, RawTexture2DType::RenderTarget, &desc);
+			D3D11CreateFunctions::createTexture2DDesc(pDevice, width, height, static_cast<DXGI_FORMAT>(format), CPUAccessType::none, GPUAccessType::RW, mostDetailedMip, mostRoughedMip, useMipMap, sampleCount, RawTexture2DType::RenderTarget, &desc);
 			auto hr = D3D11CreateFunctions::createTexture2D(pDevice, desc, nullptr, buffer.ReleaseAndGetAddressOf());
 			if(FAILED(hr))
 			{
@@ -55,7 +55,7 @@ namespace cg
 			cpp::com_ptr<ID3D11Texture2D> buffer;
 			D3D11_TEXTURE2D_DESC resolveTexDesc;
 			auto pDevice = Device::getDevice().Get();
-			D3D11CreateFunctions::createTexture2DDesc(pDevice, desc.Width, desc.Height, desc.Format, CPUAccessFlags::none, GPUAccessFlags::RW, mostDetailedMip, mostDetailedMip - desc.MipLevels + 1, desc.MiscFlags == D3D11_RESOURCE_MISC_GENERATE_MIPS, 1, RawTexture2DType::RenderTarget, &resolveTexDesc);
+			D3D11CreateFunctions::createTexture2DDesc(pDevice, desc.Width, desc.Height, desc.Format, CPUAccessType::none, GPUAccessType::RW, mostDetailedMip, mostDetailedMip - desc.MipLevels + 1, desc.MiscFlags == D3D11_RESOURCE_MISC_GENERATE_MIPS, 1, RawTexture2DType::RenderTarget, &resolveTexDesc);
 			auto hr = D3D11CreateFunctions::createTexture2D(pDevice, resolveTexDesc, nullptr, buffer.ReleaseAndGetAddressOf());
 			if(FAILED(hr))
 			{

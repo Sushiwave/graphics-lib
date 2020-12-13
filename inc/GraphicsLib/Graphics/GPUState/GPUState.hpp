@@ -3,7 +3,7 @@
 #include <GraphicsLib/Context.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Shader/Components/ShaderStage.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/ShaderResourceType.hpp>
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessFlags.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 
 #include <unordered_map>
 
@@ -21,8 +21,19 @@ namespace cg
 			bool isEmpty = true;
 			ID id = ID("");
 		};
+		struct StateOfBufferBoundedBySeveralResources
+			: GPUState::State
+		{
+			using BoundedResourceIDList = std::vector<ID>;
+
+			BoundedResourceIDList boundedResourceIDList;
+		};
+		struct DepthStencilBufferState
+			: public GPUState::StateOfBufferBoundedBySeveralResources
+		{				
+		};
 		struct RenderTargetBufferState
-			: public GPUState::State
+			: public GPUState::StateOfBufferBoundedBySeveralResources
 		{
 			int count = 0;
 		};
@@ -33,9 +44,14 @@ namespace cg
 			class ShaderResourceBufferState
 			{
 			public:
-				using UnitState = std::unordered_map<int, State>;
+				class UnitState
+					: public GPUState::State
+				{
+				};
+			public:
+				using UnitStateDict = std::unordered_map<int, UnitState>;
 			private:
-				UnitState m_unit;
+				UnitStateDict m_unitStateDict;
 				std::vector<int> m_validatedUnitIndexList;
 			public:
 				virtual ~ShaderResourceBufferState() = default;
@@ -46,15 +62,15 @@ namespace cg
 
 				[[nodiscard]] std::vector<int> validatedUnitIndexList() const noexcept;
 
-				[[nodiscard]] State& unit(int index);
+				[[nodiscard]] UnitState& unit(int index);
 			};
 		private:
-			std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessFlags, ShaderResourceBufferState>> m_resource;
+			std::unordered_map<ShaderResourceType, std::unordered_map<GPUAccessType, ShaderResourceBufferState>> m_resource;
 		public:
 			ShaderBufferState() noexcept;
 			virtual ~ShaderBufferState() = default;
 
-			[[nodiscard]] ShaderResourceBufferState& resource(ShaderResourceType type, GPUAccessFlags usage);
+			[[nodiscard]] ShaderResourceBufferState& resource(ShaderResourceType type, GPUAccessType usage);
 		};
 	private:
 		std::unordered_map<ShaderStage, ShaderBufferState> m_shader;
@@ -64,7 +80,7 @@ namespace cg
 		State blender;
 
 		RenderTargetBufferState renderTarget;
-		State depthStencilBuffer;
+		DepthStencilBufferState depthStencilBuffer;
 	public:
 		GPUState() noexcept;
 		virtual ~GPUState() = default;

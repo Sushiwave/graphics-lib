@@ -14,7 +14,6 @@ namespace cg
 		ID m_id;
 	public:
 		GPUResource() = default;
-		GPUResource(const ID& id);
 		virtual ~GPUResource() = default;
 
 		[[nodiscard]] ID getID() const noexcept override;

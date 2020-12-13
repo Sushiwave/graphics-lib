@@ -11,7 +11,7 @@ namespace cg
 	namespace d3d11
 	{
 		RawBufferReader::RawBufferReader(unsigned int byteStride, unsigned int elementCount)
-			: RawBuffer(RawBufferType::Reader, elementCount, byteStride, GPUAccessFlags::none, CPUAccessFlags::RW, nullptr)
+			: RawBuffer(RawBufferType::Reader, elementCount, byteStride, GPUAccessType::none, CPUAccessType::RW, nullptr)
 		{
 		}
 		void RawBufferReader::read(ID3D11Buffer* pBuffer, void* result)

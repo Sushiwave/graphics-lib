@@ -34,22 +34,12 @@ namespace cg
 
 
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, bool drawSceneObjects)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall, const AdditionalDrawCall& additionalDrawCall)
 	{
-		renderDefault(scene, scene.camera, [](const Scene&){}, [](){}, drawSceneObjects);
+		renderDefault(scene, scene.camera, drawSceneObjects, additionalSetCall, additionalDrawCall);
 	}
 
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects)
-	{
-		renderDefault(scene, customCamera, [](const Scene&){}, [](){}, drawSceneObjects);
-	}
-
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects)
-	{
-		renderDefault(scene, scene.camera, additionalSetCall, additionalDrawCall, drawSceneObjects);
-	}
-
-	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects)
+	void RasterizationBasedRenderPipeline::renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall, const AdditionalDrawCall& additionalDrawCall)
 	{
 		using CBLocation = std::tuple<ShaderStage, int>;
 		const auto& cbLocation = [&](ShaderResourceType resourceType, const std::string& bufferName)
@@ -159,12 +149,12 @@ namespace cg
 							const auto type = std::get<1>(materialTexLocation);
 							const auto unit = std::get<2>(materialTexLocation);
 
-							if (gpuStateViewer.shader(type).resource(ShaderResourceType::Texture, GPUAccessFlags::R).unit(unit).isEmpty == false) { continue; }
+							if (gpuStateViewer.shader(type).resource(ShaderResourceType::Texture, GPUAccessType::R).unit(unit).isEmpty == false) { continue; }
 
 							auto tex = part.material.getTexture(name);
 							if (tex == nullptr) { continue; }
 
-							tex->set(type, unit, GPUAccessFlags::R);
+							tex->set(type, unit, GPUAccessType::R);
 						}
 					});
 			}
@@ -175,6 +165,18 @@ namespace cg
 		}
 
 		additionalDrawCall();
+	}
+	std::shared_ptr<IDepthStencilBuffer> RasterizationBasedRenderPipeline::accessToDepthStencilBuffer() const
+	{
+		return m_depthStencilBuffer;
+	}
+	std::shared_ptr<IRasterizer> RasterizationBasedRenderPipeline::accessToRasterizer() const
+	{
+		return m_rasterizer;
+	}
+	std::shared_ptr<IAlphaBlender> RasterizationBasedRenderPipeline::accessToAlphaBlender() const
+	{
+		return m_alphaBlender;
 	}
 	RasterizationBasedRenderPipeline::ShaderDict RasterizationBasedRenderPipeline::getDictOfShadersSetInPipeline() const
 	{
@@ -202,7 +204,7 @@ namespace cg
 
 		additionalDrawCall();
 	}
-	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, const ShaderDict& shaders) noexcept
+	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, std::shared_ptr<IRasterizer> rasterizer, std::shared_ptr<IAlphaBlender> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
 		: RenderPipeline(name),
 		  m_targetRenderingGroupNameList(targetRenderingGroupNameList),
 		  m_dictOfShadersSetInPipeline(shaders),
@@ -210,7 +212,9 @@ namespace cg
 		  m_transformConstantBuffer(transformConstantBuffer),
 		  m_lightConstantBuffer(lightConstantBuffer),
 		  m_depthStencilTester(depthStencilTester),
-		  m_depthStencilBuffer(depthStencilBuffer)
+		  m_depthStencilBuffer(depthStencilBuffer),
+		  m_rasterizer(rasterizer),
+		  m_alphaBlender(alphaBlender)
 	{
 	}
 }

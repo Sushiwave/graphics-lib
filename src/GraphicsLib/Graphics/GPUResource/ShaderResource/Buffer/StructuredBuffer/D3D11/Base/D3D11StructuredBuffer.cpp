@@ -9,8 +9,8 @@ namespace cg
 {
 	namespace d3d11
 	{
-		StructuredBuffer::StructuredBuffer(unsigned int byteStride, unsigned int elementCount, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, const void* pData, bool isByteAddressBuffer)
-			: m_buffer(isByteAddressBuffer ? RawBufferType::ByteAddressBuffer : RawBufferType::StructuredBuffer, elementCount, byteStride, gpuAccessFlags, cpuAccessFlags, getID(), pData)
+		StructuredBuffer::StructuredBuffer(unsigned int byteStride, unsigned int elementCount, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, const void* pData, bool isByteAddressBuffer)
+			: m_buffer(isByteAddressBuffer ? RawBufferType::ByteAddressBuffer : RawBufferType::StructuredBuffer, elementCount, byteStride, gpuAccessType, cpuAccessType, pData)
 		{
 		}
 		void StructuredBuffer::read(void* result)

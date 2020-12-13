@@ -9,15 +9,15 @@ namespace cg
 	namespace d3d11
 	{
 		DynamicTexture2D::DynamicTexture2D(const std::string& filename, bool forceSRGB)
-			: Texture2D(filename, CPUAccessFlags::W, GPUAccessFlags::R, forceSRGB)
+			: Texture2D(filename, CPUAccessType::W, GPUAccessType::R, forceSRGB)
 		{
 		}
 		DynamicTexture2D::DynamicTexture2D(int width, int height, TextureFormat format, ImageXY* pImage)
-			: Texture2D(width, height, format, CPUAccessFlags::W, GPUAccessFlags::R, pImage)
+			: Texture2D(width, height, format, CPUAccessType::W, GPUAccessType::R, pImage)
 		{
 		}
 		DynamicTexture2D::DynamicTexture2D(int width, int height, TextureFormat format, int mostDetailedMipLevel, int mostRoughedMipLevel, ImageXY* pImage)
-			: Texture2D(width, height, format, CPUAccessFlags::W, GPUAccessFlags::R, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
+			: Texture2D(width, height, format, CPUAccessType::W, GPUAccessType::R, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
 		{
 		}
 		DynamicTexture2D::DynamicTexture2D(const RawTexture2D& rawTexture)

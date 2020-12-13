@@ -18,9 +18,9 @@ namespace cg
 			RawTexture2D m_texture;
 		public:
 			Texture2D() noexcept = default;
-			Texture2D(const std::string& filename, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool forceSRGB = false);
-			Texture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, ImageXY* pImage = nullptr);
-			Texture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, int mostDetailedMipLevel, int mostRoughedMipLevel, ImageXY* pImage = nullptr);
+			Texture2D(const std::string& filename, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool forceSRGB = false);
+			Texture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, ImageXY* pImage = nullptr);
+			Texture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, int mostDetailedMipLevel, int mostRoughedMipLevel, ImageXY* pImage = nullptr);
 
 			Texture2D(const RawTexture2D& rawTexture);
 
@@ -37,7 +37,7 @@ namespace cg
 
 			void saveTo(const std::string& filename, ImageFileFormat format) override;
 
-			void set(ShaderStage stage, int unit, GPUAccessFlags usage) override;
+			void set(ShaderStage stage, int unit, GPUAccessType usage) override;
 
 			[[nodiscard]] BoundedBufferLocationList getBoundedBufferLocationList() const override;
 

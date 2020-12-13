@@ -18,7 +18,7 @@ namespace cg
 			virtual ~DefaultStructuredBuffer() = default;
 
 			void update(const Constant& constant) override;
-			void set(ShaderStage stage, int unit, GPUAccessFlags usage) override;
+			void set(ShaderStage stage, int unit, GPUAccessType usage) override;
 			void copy(std::shared_ptr<IStructuredBuffer> src);
 		};
 	}

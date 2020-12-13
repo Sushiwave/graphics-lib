@@ -18,7 +18,7 @@ namespace cg
 		public:
 			UnorderedAccessView() = default;
 			virtual ~UnorderedAccessView() = default;
-			UnorderedAccessView(const ID& id, ShaderResourceType type, const cpp::com_ptr<ID3D11UnorderedAccessView>& cpD3DUAV);
+			UnorderedAccessView(ShaderResourceType type, const cpp::com_ptr<ID3D11UnorderedAccessView>& cpD3DUAV);
 		};
 	}
 }

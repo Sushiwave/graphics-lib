@@ -18,7 +18,7 @@ namespace cg
 		public:
 			ConstantBufferView() = default;
 			virtual ~ConstantBufferView() = default;
-			ConstantBufferView(const ID& id, const cpp::com_ptr<ID3D11Buffer>& cpD3DBuffer);
+			ConstantBufferView(const cpp::com_ptr<ID3D11Buffer>& cpD3DBuffer);
 		};
 	}
 }

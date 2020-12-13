@@ -16,12 +16,11 @@ namespace cg
 {
 	namespace d3d11
 	{
-		ShaderResourceView::ShaderResourceView(const ID& id, ShaderResourceType type, const cpp::com_ptr<ID3D11ShaderResourceView>& cpD3DSRV)
+		ShaderResourceView::ShaderResourceView(ShaderResourceType type, const cpp::com_ptr<ID3D11ShaderResourceView>& cpD3DSRV)
 			: ShaderResourceMemoryAccessor
 			  (
-				  id,
 				  type,
-				  GPUAccessFlags::R,
+				  GPUAccessType::R,
 				  {
 					  { ShaderStage::vs, D3D11SetShaderResources(VS) },
 					  { ShaderStage::hs, D3D11SetShaderResources(HS) },

@@ -45,6 +45,16 @@ namespace cg
 		return m_bufferDict.count(name) == 1;
 	}
 
+	GBuffer::GBufferContents GBuffer::getAllContents() const noexcept
+	{
+		GBufferContents contents;
+		for (auto pair : m_bufferDict)
+		{
+			contents.emplace_back(GBufferContent(pair.first, pair.second));
+		}
+		return contents;
+	}
+
 
 
 

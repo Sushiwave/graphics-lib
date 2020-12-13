@@ -9,16 +9,16 @@ namespace cg
 {
     namespace d3d11
     {
-        Texture2D::Texture2D(const std::string& filename, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool forceSRGB)
-            : m_texture(filename, cpuAccessFlags, gpuAccessFlags, forceSRGB)
+        Texture2D::Texture2D(const std::string& filename, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool forceSRGB)
+            : m_texture(filename, cpuAccessType, gpuAccessType, forceSRGB)
         {
         }
-        Texture2D::Texture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, ImageXY* pImage)
-            : m_texture(width, height, format, cpuAccessFlags, gpuAccessFlags, pImage)
+        Texture2D::Texture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, ImageXY* pImage)
+            : m_texture(width, height, format, cpuAccessType, gpuAccessType, pImage)
         {
         }
-        Texture2D::Texture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, int mostDetailedMipLevel, int mostRoughedMipLevel, ImageXY* pImage)
-            : m_texture(width, height, format, cpuAccessFlags, gpuAccessFlags, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
+        Texture2D::Texture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, int mostDetailedMipLevel, int mostRoughedMipLevel, ImageXY* pImage)
+            : m_texture(width, height, format, cpuAccessType, gpuAccessType, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
         {
         }
         Texture2D::Texture2D(const RawTexture2D& rawTexture)
@@ -55,16 +55,16 @@ namespace cg
             m_texture.saveTo(filename, format);
         }
 
-        void Texture2D::set(ShaderStage stage, int unit, GPUAccessFlags usage)
+        void Texture2D::set(ShaderStage stage, int unit, GPUAccessType usage)
         {
             std::shared_ptr<IShaderResourceMemoryAccessor> accessor;
 
             switch (usage)
             {
-            case GPUAccessFlags::R:
+            case GPUAccessType::R:
                 accessor = m_texture.getSRV();
                 break;
-            case GPUAccessFlags::RW:
+            case GPUAccessType::RW:
                 accessor = m_texture.getUAV();
                 break;
             default:
@@ -72,7 +72,7 @@ namespace cg
             }
 
             Assert(accessor, "This resource does not support write operations from the GPU.");
-            accessor->set(stage, unit);
+            accessor->set(stage, unit, getID());
         }
 
         BoundedBufferLocationList Texture2D::getBoundedBufferLocationList() const

@@ -31,22 +31,22 @@ namespace cg
 		
 			desc.Format = static_cast<DXGI_FORMAT>(format);
 
-			m_cpuAccessFlags = static_cast<CPUAccessFlags>(desc.CPUAccessFlags);
+			m_cpuAccessType = static_cast<CPUAccessType>(desc.CPUAccessFlags);
 			m_size = cpp::Vector2D<int>(desc.Width, desc.Height);
 			m_mostDetailedMipLevel = mostDetailedMipLevel;
 			m_mostRoughedMipLevel = m_mostDetailedMipLevel+desc.MipLevels-1;
-			m_cpuAccessFlags = static_cast<CPUAccessFlags>(desc.CPUAccessFlags);
+			m_cpuAccessType = static_cast<CPUAccessType>(desc.CPUAccessFlags);
 
 			switch (desc.Usage)
 			{
 			case D3D11_USAGE_STAGING:
-				m_gpuAccessFlags = GPUAccessFlags::none;
+				m_gpuAccessType = GPUAccessType::none;
 				break;
 			case D3D11_USAGE_IMMUTABLE:
-				m_gpuAccessFlags = GPUAccessFlags::R;
+				m_gpuAccessType = GPUAccessType::R;
 				break;
 			default:
-				m_gpuAccessFlags = GPUAccessFlags::RW;
+				m_gpuAccessType = GPUAccessType::RW;
 				break;
 			}
 
@@ -60,7 +60,7 @@ namespace cg
 					throw COM_RUNTIME_ERROR(hr, "Failed to create ShaderResourceView.");
 				}
 			
-				m_SRV = std::make_shared<ShaderResourceView>(m_id, ShaderResourceType::Texture, cpSRV);
+				m_SRV = std::make_shared<ShaderResourceView>(ShaderResourceType::Texture, cpSRV);
 
 				if (desc.BindFlags & D3D11_BIND_UNORDERED_ACCESS)
 				{
@@ -71,7 +71,7 @@ namespace cg
 						throw COM_RUNTIME_ERROR(hr, "Failed to create UnorderedAccessView.");
 					}
 
-					m_UAV = std::make_shared<UnorderedAccessView>(m_id, ShaderResourceType::Texture, cpUAV);
+					m_UAV = std::make_shared<UnorderedAccessView>(ShaderResourceType::Texture, cpUAV);
 				}
 			}
 		}
@@ -88,7 +88,7 @@ namespace cg
 			: RawTexture2D(textureBuffer, isResolvedTexture, static_cast<TextureFormat>(D3D11CreateFunctions::fetchTexture2DDescFrom(textureBuffer.Get()).Format), mostDetailedMipLevel, resolver)
 		{
 		}
-		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, int mostDetailedMipLevel, int mostRoughedMipLevel, bool useMipMap, const ImageXY* pImage)
+		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, int mostDetailedMipLevel, int mostRoughedMipLevel, bool useMipMap, const ImageXY* pImage)
 			: RawTexture2D([&]()
 			  {
 				  D3D11_SUBRESOURCE_DATA* pData = nullptr;
@@ -145,7 +145,7 @@ namespace cg
 				  D3D11_TEXTURE2D_DESC desc;
 				  auto pDevice = Device::getDevice().Get();
 				  cpp::com_ptr<ID3D11Texture2D> textureBuffer;
-				  D3D11CreateFunctions::createTexture2DDesc(pDevice, width, height, static_cast<DXGI_FORMAT>(format), cpuAccessFlags, gpuAccessFlags, mostDetailedMipLevel, mostRoughedMipLevel, useMipMap, 1, RawTexture2DType::Texture, &desc);
+				  D3D11CreateFunctions::createTexture2DDesc(pDevice, width, height, static_cast<DXGI_FORMAT>(format), cpuAccessType, gpuAccessType, mostDetailedMipLevel, mostRoughedMipLevel, useMipMap, 1, RawTexture2DType::Texture, &desc);
 				  
 				  auto hr = D3D11CreateFunctions::createTexture2D(pDevice, desc, pData, textureBuffer.ReleaseAndGetAddressOf());
 				  if(FAILED(hr))
@@ -158,7 +158,7 @@ namespace cg
 			  mostDetailedMipLevel)
 		{
 		}
-		RawTexture2D::RawTexture2D(const std::string& filename, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, bool forceSRGB)
+		RawTexture2D::RawTexture2D(const std::string& filename, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, bool forceSRGB)
 			: RawTexture2D([&]()
 						{
 						   auto pDevice = Device::getDevice().Get();
@@ -170,7 +170,7 @@ namespace cg
 						   {
 						 	   throw COM_RUNTIME_ERROR(hr, "Failed to create ScratchImage from " + filename + ".");
 						   }
-						   hr = D3D11CreateFunctions::createTexture2D(pDevice, scratchImage, RawTexture2DType::Texture, cpuAccessFlags, gpuAccessFlags, forceSRGB, textureBuffer.ReleaseAndGetAddressOf());
+						   hr = D3D11CreateFunctions::createTexture2D(pDevice, scratchImage, RawTexture2DType::Texture, cpuAccessType, gpuAccessType, forceSRGB, textureBuffer.ReleaseAndGetAddressOf());
 						   if(FAILED(hr))
 						   {
 							   throw COM_RUNTIME_ERROR(hr, "Failed to create a buffer for Texture2D from " + filename + ".");
@@ -182,24 +182,24 @@ namespace cg
 		{
 		}
 		RawTexture2D::RawTexture2D(const std::string& filename, bool forceSRGB)
-			: RawTexture2D(filename, CPUAccessFlags::none, GPUAccessFlags::RW, forceSRGB)
+			: RawTexture2D(filename, CPUAccessType::none, GPUAccessType::RW, forceSRGB)
 		{
 		}
 		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, const ImageXY* pImage)
-			: RawTexture2D(width, height, format, CPUAccessFlags::none, GPUAccessFlags::RW, 0, 0, false, pImage)
+			: RawTexture2D(width, height, format, CPUAccessType::none, GPUAccessType::RW, 0, 0, false, pImage)
 		{
 		}
-		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, const ImageXY* pImage)
-			: RawTexture2D(width , height, format, cpuAccessFlags, gpuAccessFlags, 0, 0, false, pImage)
+		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, const ImageXY* pImage)
+			: RawTexture2D(width , height, format, cpuAccessType, gpuAccessType, 0, 0, false, pImage)
 		{
 		}
 		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, int mostDetailedMipLevel, int mostRoughedMipLevel, const ImageXY* pImage)
-			: RawTexture2D(width, height, format, CPUAccessFlags::none, GPUAccessFlags::RW, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
+			: RawTexture2D(width, height, format, CPUAccessType::none, GPUAccessType::RW, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
 		{
 		}
 
-		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, CPUAccessFlags cpuAccessFlags, GPUAccessFlags gpuAccessFlags, int mostDetailedMipLevel, int mostRoughedMipLevel, const ImageXY* pImage)
-			: RawTexture2D(width, height, format, cpuAccessFlags, gpuAccessFlags, mostDetailedMipLevel, mostRoughedMipLevel, true, pImage)
+		RawTexture2D::RawTexture2D(int width, int height, TextureFormat format, CPUAccessType cpuAccessType, GPUAccessType gpuAccessType, int mostDetailedMipLevel, int mostRoughedMipLevel, const ImageXY* pImage)
+			: RawTexture2D(width, height, format, cpuAccessType, gpuAccessType, mostDetailedMipLevel, mostRoughedMipLevel, true, pImage)
 		{
 		}
 
@@ -250,7 +250,7 @@ namespace cg
 		void RawTexture2D::copy(const RawTexture2D& src)
 		{
 			Assert(m_id != src.m_id, "The source and destination resources must be different resources.");
-			Assert((m_gpuAccessFlags == GPUAccessFlags::R && m_cpuAccessFlags == CPUAccessFlags::none) == false, "Immutable resources are not allowed to perform copy operations.");
+			Assert((m_gpuAccessType == GPUAccessType::R && m_cpuAccessType == CPUAccessType::none) == false, "Immutable resources are not allowed to perform copy operations.");
 			Assert(m_size == src.m_size, "The source and destination resources must have identical dimensions.");
 			Assert(D3D11CreateFunctions::checkCompatibilityBetweenTwoTextureFormats(static_cast<DXGI_FORMAT>(m_format), static_cast<DXGI_FORMAT>(src.m_format)), "The source and destination resources must have compatible formats.");
 
@@ -259,7 +259,7 @@ namespace cg
 
 		void RawTexture2D::write(const ImageXY& image)
 		{
-			if ((static_cast<int>(m_cpuAccessFlags) & static_cast<int>(CPUAccessFlags::W)) == 0) { return; }
+			if ((static_cast<int>(m_cpuAccessType) & static_cast<int>(CPUAccessType::W)) == 0) { return; }
 
 			auto dxgiFormat = static_cast<DXGI_FORMAT>(m_format);
 			auto dimension = D3D11CreateFunctions::checkTextureColorDimension(dxgiFormat);

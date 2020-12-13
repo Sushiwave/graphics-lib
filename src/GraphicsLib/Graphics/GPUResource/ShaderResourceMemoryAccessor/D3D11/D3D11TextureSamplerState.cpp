@@ -15,12 +15,11 @@ namespace cg
 {
 	namespace d3d11
 	{
-		TextureSamplerState::TextureSamplerState(const ID& id, const cpp::com_ptr<ID3D11SamplerState>& cpD3DSampler)
+		TextureSamplerState::TextureSamplerState(const cpp::com_ptr<ID3D11SamplerState>& cpD3DSampler)
 			: ShaderResourceMemoryAccessor
 			(
-				id,
 				ShaderResourceType::TextureSampler,
-				GPUAccessFlags::R,
+				GPUAccessType::R,
 				{
 					{ ShaderStage::vs, D3D11SetSamplers(VS) },
 					{ ShaderStage::hs, D3D11SetSamplers(HS) },

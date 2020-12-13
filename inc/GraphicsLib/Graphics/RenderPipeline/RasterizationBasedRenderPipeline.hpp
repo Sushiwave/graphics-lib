@@ -38,22 +38,23 @@ namespace cg
 		std::shared_ptr<LightConstantBuffer>     m_lightConstantBuffer;
 
 		std::shared_ptr<IDepthStencilTester> m_depthStencilTester;
-	protected:
 		std::shared_ptr<IDepthStencilBuffer> m_depthStencilBuffer;
-
-		std::shared_ptr<IRasterizer>         m_rasterizer;
-		std::shared_ptr<IAlphaBlender>       m_alphaBlender;
+		
+		std::shared_ptr<IRasterizer>   m_rasterizer;
+		std::shared_ptr<IAlphaBlender> m_alphaBlender;
+	protected:
+		[[nodiscard]] std::shared_ptr<IDepthStencilBuffer> accessToDepthStencilBuffer() const;
+		[[nodiscard]] std::shared_ptr<IRasterizer> accessToRasterizer() const;
+		[[nodiscard]] std::shared_ptr<IAlphaBlender> accessToAlphaBlender() const;
 	protected:
 		[[nodiscard]] ShaderDict getDictOfShadersSetInPipeline() const;
 
 		void renderDefault(AdditionalSetCall additionalSetCall = []() {}, AdditionalDrawCall additionalDrawCall = []() {});
 
-		void renderDefault(const Scene& scene, bool drawSceneObjects);
-		void renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects);
-		void renderDefault(const Scene& scene, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects);
-		void renderDefault(const Scene& scene, const Camera& customCamera, AdditionalSetCallScene additionalSetCall, AdditionalDrawCall additionalDrawCall, bool drawSceneObjects);
+		void renderDefault(const Scene& scene, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall = [](const Scene&){}, const AdditionalDrawCall& additionalDrawCall = [](){});
+		void renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall = [](const Scene&){}, const AdditionalDrawCall& additionalDrawCall = [](){});
 	public:
-		RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroup, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, const ShaderDict& shaders) noexcept;
+		RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, std::shared_ptr<IRasterizer> rasterizer, std::shared_ptr<IAlphaBlender> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept;
 		virtual ~RasterizationBasedRenderPipeline() = default;
 	};
 }

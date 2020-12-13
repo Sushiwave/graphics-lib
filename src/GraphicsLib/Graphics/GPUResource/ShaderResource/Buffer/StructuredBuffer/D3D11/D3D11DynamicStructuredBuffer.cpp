@@ -9,7 +9,7 @@ namespace cg
 	namespace d3d11
 	{
 		DynamicStructuredBuffer::DynamicStructuredBuffer(unsigned int byteStride, unsigned int elementCount, const void* pData, bool isByteAddressBuffer)
-			: StructuredBuffer(byteStride, elementCount, CPUAccessFlags::W, GPUAccessFlags::R, pData, isByteAddressBuffer)
+			: StructuredBuffer(byteStride, elementCount, CPUAccessType::W, GPUAccessType::R, pData, isByteAddressBuffer)
 		{
 		}
 		void DynamicStructuredBuffer::update(const Constant& constant)
@@ -18,7 +18,7 @@ namespace cg
 		}
 		void DynamicStructuredBuffer::set(ShaderStage stage, int unit)
 		{
-			m_buffer.getSRV()->set(stage, unit);
+			m_buffer.getSRV()->set(stage, unit, getID());
 		}
 		void DynamicStructuredBuffer::copy(std::shared_ptr<IStructuredBuffer> src)
 		{

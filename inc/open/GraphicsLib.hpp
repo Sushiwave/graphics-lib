@@ -36,3 +36,5 @@
 #include "../ThirdParty/CPPLib/Math/Math.hpp"
 
 #include "../ThirdParty/CPPLib/Exception/RuntimeError/COMRuntimeError.hpp"
+
+#include "../GraphicsLib/Graphics/GPUResource/GBuffer/GBuffer.hpp"

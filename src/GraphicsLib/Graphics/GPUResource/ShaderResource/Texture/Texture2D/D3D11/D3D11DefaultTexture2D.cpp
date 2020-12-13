@@ -9,15 +9,15 @@ namespace cg
 	namespace d3d11
 	{
 		DefaultTexture2D::DefaultTexture2D(const std::string& filename, bool forceSRGB)
-			: Texture2D(filename, CPUAccessFlags::W, GPUAccessFlags::RW, forceSRGB)
+			: Texture2D(filename, CPUAccessType::W, GPUAccessType::RW, forceSRGB)
 		{
 		}
 		DefaultTexture2D::DefaultTexture2D(int width, int height, TextureFormat format, ImageXY* pImage)
-			: Texture2D(width, height, format, CPUAccessFlags::W, GPUAccessFlags::RW, pImage)
+			: Texture2D(width, height, format, CPUAccessType::W, GPUAccessType::RW, pImage)
 		{
 		}
 		DefaultTexture2D::DefaultTexture2D(int width, int height, TextureFormat format, int mostDetailedMipLevel, int mostRoughedMipLevel, ImageXY* pImage)
-			: Texture2D(width, height, format, CPUAccessFlags::W, GPUAccessFlags::RW, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
+			: Texture2D(width, height, format, CPUAccessType::W, GPUAccessType::RW, mostDetailedMipLevel, mostRoughedMipLevel, pImage)
 		{
 		}
 		DefaultTexture2D::DefaultTexture2D(const RawTexture2D& rawTexture)

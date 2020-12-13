@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Buffer/StructuredBuffer/Base/IStructuredBuffer.hpp>
-#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessFlags.hpp>
+#include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Buffer/Components/Constant.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Shader/Components/ShaderStage.hpp>
 

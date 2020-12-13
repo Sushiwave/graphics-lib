@@ -14,7 +14,7 @@ namespace cg
 			std::shared_ptr<IShaderResourceMemoryAccessor> m_CBV;
 		public:
 			RawConstantBuffer() noexcept;
-			RawConstantBuffer(unsigned int byteStride, const ID& memoryAccessorID, const void* pData = nullptr);
+			RawConstantBuffer(unsigned int byteStride, const void* pData = nullptr);
 			virtual ~RawConstantBuffer() = default;
 
 

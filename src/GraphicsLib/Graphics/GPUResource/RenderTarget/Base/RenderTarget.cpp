@@ -110,7 +110,7 @@ namespace cg
 		bool hasRenderTargetChanged = selfID != gpuState.renderTarget.id;
 
 
-
+		
 		if (hasDepthStencilChanged || hasRenderTargetChanged)
 		{
 			releaseBoundedTexture(m_renderingResult);
@@ -130,10 +130,10 @@ namespace cg
 
 
 			auto& gpuStateRecorder = GPUStateRecorder::main;
-			gpuStateRecorder.renderTargetSet(selfID, 1);
+			gpuStateRecorder.renderTargetSet(this);
 			if (depthStencilBuffer)
 			{
-				gpuStateRecorder.depthStencilBufferSet(depthStencilBuffer->getID());
+				gpuStateRecorder.depthStencilBufferSet(depthStencilBuffer.get());
 			}
 			else
 			{

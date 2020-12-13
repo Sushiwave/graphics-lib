@@ -6,8 +6,4 @@
 
 namespace cg
 {
-	ShaderResource::ShaderResource(const ID& id)
-		: GPUResource(id)
-	{
-	}
 }

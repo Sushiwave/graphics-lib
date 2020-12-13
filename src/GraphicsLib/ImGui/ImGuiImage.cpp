@@ -35,7 +35,7 @@ namespace ImGui
 		ImGui::Image(renderTarget->getRenderingResult(), size);
 	}
 
-	void Image(std::shared_ptr<cg::IMultipleRenderTarget> mrt, int index, const ImVec2& size)
+	void Image(std::shared_ptr<cg::IMultipleRenderTargets> mrt, int index, const ImVec2& size)
 	{
 		if (mrt->getID() == cg::GPUStateViewer::view().renderTarget.id)
 		{

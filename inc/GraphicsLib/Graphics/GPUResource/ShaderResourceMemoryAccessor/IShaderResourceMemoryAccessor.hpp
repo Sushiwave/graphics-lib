@@ -15,7 +15,7 @@ namespace cg
 		: public virtual IGPUResource
 	{
 	public:
-		virtual void set(ShaderStage stage, int unit) = 0;
+		virtual void set(ShaderStage stage, int unit, const ID& resourceID) = 0;
 
 		[[nodiscard]] virtual ShaderResourceBufferLocationList getManagedShaderResourceBufferLocationList() const = 0;
 	};

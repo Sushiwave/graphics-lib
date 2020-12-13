@@ -3,7 +3,7 @@
 #include <Graphics/GPUResource/DepthStencilBuffer/D3D11/D3D11DepthStencilBuffer.hpp>
 #include <Graphics/GPUResource/RenderTarget/D3D11/D3D11RenderTarget.hpp>
 #include <Graphics/GPUResource/ShaderResource/TextureSampler/D3D11/D3D11TextureSampler.hpp>
-#include <Graphics/GPUResource/MultipleRenderTarget/D3D11/D3D11MultipleRenderTarget.hpp>
+#include <Graphics/GPUResource/MultipleRenderTargets/D3D11/D3D11MultipleRenderTargets.hpp>
 
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Base/D3D11Texture2D.hpp>
 #include <Graphics/GPUResource/DepthStencilTester/D3D11/D3D11DepthStencilTester.hpp>
@@ -72,14 +72,24 @@ namespace cg
 			return createRenderTarget(size.x, size.y, format, sampleCount);
 		}
 
-		std::shared_ptr<IMultipleRenderTarget> GraphicsAPI::createMultipleRenderTarget(int width, int height, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
+		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
 		{
-			return std::make_shared<MultipleRenderTarget>(renderTargetList);
+			return std::make_shared<MultipleRenderTargets>(renderTargetList);
 		}
 
-		std::shared_ptr<IMultipleRenderTarget> GraphicsAPI::createMultipleRenderTarget(const cpp::Vector2D<int>& size, const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList)
+		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(int width, int height, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount)
 		{
-			return createMultipleRenderTarget(size.x, size.y, renderTargetList);
+			std::vector<std::shared_ptr<cg::IRenderTarget>> renderTargetList;
+			for (const auto format : renderTargetFormatList)
+			{
+				renderTargetList.emplace_back(createRenderTarget(width, height, format, sampleCount));
+			}
+			return createMultipleRenderTargets(renderTargetList);
+		}
+
+		std::shared_ptr<IMultipleRenderTargets> GraphicsAPI::createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount)
+		{
+			return createMultipleRenderTargets(size.x, size.y, renderTargetFormatList, sampleCount);
 		}
 
 		std::shared_ptr<IRasterizer> GraphicsAPI::createRasterizer(CullMode cullMode, bool isWireFrameMode, bool multisampleEnable, bool antialiassedLineEnable, bool frontCounterClockwise, bool depthClipEnable, bool scissorEnable)

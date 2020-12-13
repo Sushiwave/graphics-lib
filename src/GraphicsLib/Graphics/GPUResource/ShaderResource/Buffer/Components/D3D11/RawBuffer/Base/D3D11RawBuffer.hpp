@@ -21,14 +21,14 @@ namespace cg
 			unsigned int m_byteStride;
 			unsigned int m_elementCount;
 
-			CPUAccessFlags m_cpuAccessFlags;
-			GPUAccessFlags m_gpuAccessFlags;
+			CPUAccessType m_cpuAccessType;
+			GPUAccessType m_gpuAccessType;
 		protected:
 			cpp::com_ptr<ID3D11Buffer> m_buffer;
 			RawBufferType m_bufferType;
 		public:
 			RawBuffer() noexcept;
-			RawBuffer(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessFlags gpuAccessFalgs, CPUAccessFlags cpuAccessFlags, const void* pData = nullptr);
+			RawBuffer(const RawBufferType bufferType, unsigned int elementCount, unsigned int byteStride, GPUAccessType gpuAccessFlags, CPUAccessType cpuAccessType, const void* pData = nullptr);
 			virtual ~RawBuffer() = default;
 
 			

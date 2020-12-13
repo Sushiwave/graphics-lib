@@ -33,9 +33,6 @@
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\D3D11\D3D11MultipleRenderTarget.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.hpp">
       <Filter>src</Filter>
     </ClInclude>
@@ -491,12 +488,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MaterialConstantBuffer\MaterialConstantBuffer.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\IMultipleRenderTarget.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\MultipleRenderTarget.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\IndexBuffer\IIndexBuffer.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -581,12 +572,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\BoundedBufferLocationList.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessFlags.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessFlags.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\ShaderResourceType.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -661,6 +646,23 @@
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Components\ProjectionType.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Projection.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\IMultipleRenderTargets.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\MultipleRenderTargets.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\D3D11\D3D11MultipleRenderTargets.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Texture2D\Base\IResolvableTexture2D.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Texture\Base\IResolvable.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\GPUAccessType.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessType.hpp">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -738,12 +740,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\Base\MultipleRenderTarget.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTarget\D3D11\D3D11MultipleRenderTarget.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\Base\Rasterizer.cpp">
@@ -1045,6 +1041,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ThirdParty\ExtendedImGui\ImGuiSearchBar.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\Base\MultipleRenderTargets.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\D3D11\D3D11MultipleRenderTargets.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
