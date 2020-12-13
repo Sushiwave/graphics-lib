@@ -166,6 +166,18 @@ namespace cg
 
 		additionalDrawCall();
 	}
+	std::shared_ptr<IDepthStencilBuffer> RasterizationBasedRenderPipeline::accessToDepthStencilBuffer() const
+	{
+		return m_depthStencilBuffer;
+	}
+	std::shared_ptr<IRasterizer> RasterizationBasedRenderPipeline::accessToRasterizer() const
+	{
+		return m_rasterizer;
+	}
+	std::shared_ptr<IAlphaBlender> RasterizationBasedRenderPipeline::accessToAlphaBlender() const
+	{
+		return m_alphaBlender;
+	}
 	RasterizationBasedRenderPipeline::ShaderDict RasterizationBasedRenderPipeline::getDictOfShadersSetInPipeline() const
 	{
 		return m_dictOfShadersSetInPipeline;
@@ -192,7 +204,7 @@ namespace cg
 
 		additionalDrawCall();
 	}
-	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, const ShaderDict& shaders) noexcept
+	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, std::shared_ptr<IRasterizer> rasterizer, std::shared_ptr<IAlphaBlender> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
 		: RenderPipeline(name),
 		  m_targetRenderingGroupNameList(targetRenderingGroupNameList),
 		  m_dictOfShadersSetInPipeline(shaders),
@@ -200,7 +212,9 @@ namespace cg
 		  m_transformConstantBuffer(transformConstantBuffer),
 		  m_lightConstantBuffer(lightConstantBuffer),
 		  m_depthStencilTester(depthStencilTester),
-		  m_depthStencilBuffer(depthStencilBuffer)
+		  m_depthStencilBuffer(depthStencilBuffer),
+		  m_rasterizer(rasterizer),
+		  m_alphaBlender(alphaBlender)
 	{
 	}
 }
