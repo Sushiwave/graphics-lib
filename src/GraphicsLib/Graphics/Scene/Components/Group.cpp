@@ -45,7 +45,7 @@ namespace cg
 
 
 
-	void DrawableObjectGroup::add(const std::shared_ptr<DrawableObject>& objectRef)
+	void DrawableObjectGroup::add(std::shared_ptr<DrawableObject> objectRef)
 	{
 		if (objectRef == nullptr) { return; }
 

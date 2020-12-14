@@ -45,7 +45,7 @@ namespace cg
 
 
 
-		void add(const std::shared_ptr<DrawableObject>& objectRef);
+		void add(std::shared_ptr<DrawableObject> objectRef);
 		void remove(const cg::ID& objectID);
 		void removeAll();
 
