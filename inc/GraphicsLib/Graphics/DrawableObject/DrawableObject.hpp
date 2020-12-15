@@ -5,6 +5,7 @@
 #include <ThirdParty/CPPLib/DesignPattern/Observer/Subject.hpp>
 #include <GraphicsLib/ID/IIDHolder.hpp>
 #include <GraphicsLib/Graphics/Transform/Transform.hpp>
+#include <GraphicsLib/Graphics/Transform/Transformable.hpp>
 
 
 
@@ -14,6 +15,7 @@ namespace cg
 {
 	class DrawableObject
 		: public cpp::Subject,
+		  public Transformable,
 		  public IIDHolder 
 	{
 	public:
@@ -39,10 +41,7 @@ namespace cg
 
 		std::string m_renderingGroupName;
 		std::shared_ptr<Shape> m_shape;
-		std::shared_ptr<Transform> m_transform;
 	public:
-		Transform* const transform;
-
 		const Parts parts;
 
 		int instanceCount = 0;

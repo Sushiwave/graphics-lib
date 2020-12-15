@@ -40,7 +40,7 @@ namespace cg
 
 	void TransformConstantBufferHelper::storeInvV(DirectX::XMFLOAT4X4* invV, const Camera& camera)
 	{
-		DirectX::XMStoreFloat4x4(invV, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&camera.getTransformRef().createWorldMatrix())));
+		DirectX::XMStoreFloat4x4(invV, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&camera.transform->createWorldMatrix())));
 	}
 
 	void TransformConstantBufferHelper::storeP(DirectX::XMFLOAT4X4* p, const Camera& camera)

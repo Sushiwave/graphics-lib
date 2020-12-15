@@ -277,6 +277,7 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\System\Components\IGraphicsSystemComponents.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\System\Components\IScreenUpdater.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\System\IGraphicsSystem.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transformable.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGui.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiCombo.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiImage.hpp" />
@@ -385,6 +386,7 @@
     <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\WINAPIWindowSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\ImGui\ImGuiImage.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Shape\AnyModel.cpp" />

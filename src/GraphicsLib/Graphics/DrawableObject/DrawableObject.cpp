@@ -7,10 +7,9 @@
 namespace cg
 {
 	DrawableObject::DrawableObject(const std::string& name, const std::shared_ptr<Shape>& shape, const Parts& parts)
-		: m_name(name),
+		: Transformable(shape),
+		  m_name(name),
 		  m_shape(shape),
-		  m_transform(std::make_shared<Transform>(shape)),
-		  transform(m_transform.get()),
 		  parts(parts)
 	{
 	}
@@ -28,7 +27,7 @@ namespace cg
 	
 	void DrawableObject::tweakTransform(const std::function<void(Transform&)>& operation) const
 	{
-		operation(*m_transform);
+		operation(*transform);
 	}
 	
 	ID DrawableObject::getID() const noexcept

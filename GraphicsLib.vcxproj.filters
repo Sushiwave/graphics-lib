@@ -665,6 +665,7 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transformable.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">
@@ -1049,6 +1050,7 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transform.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">

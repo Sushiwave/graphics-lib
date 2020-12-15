@@ -1,6 +1,7 @@
 #pragma once
 #include <GraphicsLib/Graphics/Transform/Transform.hpp>
 #include <GraphicsLib/Graphics/Scene/Components/Light/Base/Light.hpp>
+#include <GraphicsLib/Graphics/Transform/Transformable.hpp>
 
 
 
@@ -30,10 +31,10 @@ namespace cg
 
 
 	class PositionableLight
-		: public Light
+		: public Light,
+		  public Transformable
 	{
 	private:
-		std::shared_ptr<Transform> m_transform;
 		std::shared_ptr<Constant> m_pAttenuation;
 	protected:
 		template <typename AttenuationConstant_>
@@ -45,13 +46,9 @@ namespace cg
 		template <typename ColorConstant_, typename AttenuationConstant_>
 		PositionableLight(const Type& type, const std::string& name, const PositionableLightConstant<ColorConstant_, AttenuationConstant_>& positionableLightConstant, const std::shared_ptr<Constant>& mainConstant)
 			: Light(type, name, positionableLightConstant, mainConstant),
-			  m_pAttenuation(std::make_shared<AttenuationConstant_>(positionableLightConstant.getAttenuationConstant())),
-			  m_transform(std::make_shared<Transform>())
+			  m_pAttenuation(std::make_shared<AttenuationConstant_>(positionableLightConstant.getAttenuationConstant()))
 		{
 		}
 		virtual ~PositionableLight() = default;
-
-		void tweakTransform(const std::function<void(Transform&)>& operation) const;
-		[[nodiscard]] Transform& getTransformRef() const noexcept;
  	};
 }
