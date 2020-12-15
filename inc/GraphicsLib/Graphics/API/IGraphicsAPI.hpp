@@ -55,7 +55,7 @@ namespace cg
 
 		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(const std::vector<std::shared_ptr<IRenderTarget>>& renderTargetList) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(int width, int height, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) = 0;
-		[[nodiscrad]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IRasterizer> createRasterizer(CullMode cullMode = CullMode::none, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) = 0;
 
