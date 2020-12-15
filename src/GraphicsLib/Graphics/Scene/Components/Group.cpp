@@ -36,7 +36,7 @@ namespace cg
 		const auto renderingGroup = m_renderingGroupDictSearchWithObjectID.at(objectIDSTR);
 		const auto managedObject = renderingGroup->at(objectIDSTR);
 		renderingGroup->erase(objectIDSTR);
-		add(managedObject.lock());
+		add(managedObject);
 	}
 	bool DrawableObjectGroup::objectExists(const cg::ID& objectID) const noexcept
 	{
@@ -80,7 +80,7 @@ namespace cg
 
 		const auto& renderingGroup = m_renderingGroupDictSearchWithObjectID.at(objectIDSTR);
 
-		removeSelfFromSubject(renderingGroup->at(objectIDSTR).lock().get());
+		removeSelfFromSubject(renderingGroup->at(objectIDSTR).get());
 
 		m_renderingGroupDictSearchWithObjectID.erase(objectIDSTR);
 		renderingGroup->erase(objectIDSTR);
@@ -93,7 +93,7 @@ namespace cg
 			auto& renderingGroup = *pair.second;
 			for (auto& managedObject : renderingGroup)
 			{
-				removeSelfFromSubject(managedObject.second.lock().get());
+				removeSelfFromSubject(managedObject.second.get());
 			}
 		}
 
@@ -116,9 +116,9 @@ namespace cg
 		const auto& group = *m_renderingGroupDictSearchWithRenderPipelineName.at(renderingGroupName);
 		if (group.empty()) { return; }
 
-		for (auto objectWeak : group)
+		for (auto pair : group)
 		{
-			const auto object = objectWeak.second.lock();
+			auto object = pair.second;
 			if (object == nullptr) { continue; }
 
 			operationPerObject(object);
