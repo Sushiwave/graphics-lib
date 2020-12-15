@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Transform.hpp>
+#include <GraphicsLib/Graphics/Transform/Transform.hpp>
 #include <GraphicsLib/Graphics/Shape/Base/Shape.hpp>
 
 
@@ -57,18 +57,10 @@ namespace cg
 
 	Transform& Transform::operator=(Transform& other)
 	{
-		if (auto safeObservedShape = m_observedShape.lock())
-		{
-			removeSelfFromSubject(safeObservedShape.get());
-		}
-		if (auto otherObservedShape = other.m_observedShape.lock())
-		{
-			other.removeSelfFromSubject(otherObservedShape.get());
-			if (auto safeObservedShape = m_observedShape.lock())
-			{
-				other.addSelfToSubject(safeObservedShape.get());
-			}
-		}
+		removeSelfFromSubject(m_observedShape.get());
+		
+		other.removeSelfFromSubject(other.m_observedShape.get());
+		other.addSelfToSubject(m_observedShape.get());
 	
 		m_id = other.m_id;
 		m_positionLocal = other.m_positionLocal;
@@ -271,11 +263,8 @@ namespace cg
 			m_observedShape = shape;
 			m_addSelfToSubjectDelay = [&]()
 			{
-				if (auto safeShape = m_observedShape.lock())
-				{
-					addSelfToSubject(safeShape.get());
-					m_shapeSize = safeShape->getSize();
-				}
+				addSelfToSubject(m_observedShape.get());
+				m_shapeSize = m_observedShape->getSize();
 			};
 			m_isShapeSizeChanged = true;
 		}

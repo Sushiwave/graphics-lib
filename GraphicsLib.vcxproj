@@ -174,9 +174,9 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\API\IGraphicsAPI.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\CoordinateSystem.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\RotationMethod.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Transform.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\CoordinateSystem.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\RotationMethod.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\DrawableObject.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\AlphaBlender.hpp" />
@@ -406,7 +406,7 @@
     <ClCompile Include="src\GraphicsLib\Graphics\API\D3D11\D3D11GraphicsAPI.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Transform\Transform.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transform.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\DrawableObject.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Base\AlphaBlender.cpp" />

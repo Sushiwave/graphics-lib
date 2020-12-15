@@ -4,7 +4,7 @@
 #include <GraphicsLib/Graphics/GPUResource/GeometryBuffer/IGeometryBuffer.hpp>
 #include <ThirdParty/CPPLib/DesignPattern/Observer/Subject.hpp>
 #include <GraphicsLib/ID/IIDHolder.hpp>
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Transform.hpp>
+#include <GraphicsLib/Graphics/Transform/Transform.hpp>
 
 
 
@@ -41,6 +41,8 @@ namespace cg
 		std::shared_ptr<Shape> m_shape;
 		std::shared_ptr<Transform> m_transform;
 	public:
+		Transform* const transform;
+
 		const Parts parts;
 
 		int instanceCount = 0;
@@ -67,7 +69,6 @@ namespace cg
 
 		[[nodiscard]] ID getID() const noexcept override;
 		[[nodiscard]] std::string getName() const noexcept;
-		[[nodiscard]] Transform& getTransformRef() const noexcept;
 		template <typename Shape_>
 		[[nodiscard]] Shape_ getShape() const
 		{

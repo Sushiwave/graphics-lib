@@ -169,7 +169,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Shape\AnyModel.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\CoordinateSystem.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiImage.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiCombo.hpp" />
     <ClInclude Include="inc\GraphicsLib\ImGui\ImGuiSearchBar.hpp" />
@@ -632,18 +631,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\IDepthStencilBuffer.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\DrawableObject.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Transform.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Transform\Components\RotationMethod.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Components\ProjectionType.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Components\Projection\Projection.hpp">
       <Filter>inc</Filter>
@@ -663,6 +650,19 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessType.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\DrawableObject.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\CoordinateSystem.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\RotationMethod.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -958,9 +958,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MaterialConstantBuffer\MaterialConstantBuffer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Transform\Transform.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\DirectionalLight.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1047,6 +1044,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\D3D11\D3D11MultipleRenderTargets.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transform.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

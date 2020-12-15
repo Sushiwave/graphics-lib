@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/Graphics/Scene/Components/Camera/Components/Projection/Projection.hpp>
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Transform.hpp>
+#include <GraphicsLib/Graphics/Transform/Transform.hpp>
 
 
 

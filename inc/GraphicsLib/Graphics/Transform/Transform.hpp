@@ -1,7 +1,7 @@
 #pragma once
 #include <ThirdParty/CPPLib/Math/Vector/Vector3D.hpp>
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Components/RotationMethod.hpp>
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Components/CoordinateSystem.hpp>
+#include <GraphicsLib/Graphics/Transform/Components/RotationMethod.hpp>
+#include <GraphicsLib/Graphics/Transform/Components/CoordinateSystem.hpp>
 #include <ThirdParty/CPPLib/DataStructure/HierarchicalTreeStructure.hpp>
 #include <GraphicsLib/ID/IIDHolder.hpp>
 #include <ThirdParty/CPPLib/DesignPattern/Observer/Observer.hpp>
@@ -105,7 +105,7 @@ namespace cg
 
 	private:
 		//Subject
-		mutable std::weak_ptr<Shape> m_observedShape;
+		mutable std::shared_ptr<Shape> m_observedShape;
 
 		mutable bool m_isAddedSelfToSubject = false;
 		mutable std::function<void()> m_addSelfToSubjectDelay = []() {};

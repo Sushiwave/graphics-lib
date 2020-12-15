@@ -1,5 +1,5 @@
 #pragma once
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Transform.hpp>
+#include <GraphicsLib/Graphics/Transform/Transform.hpp>
 #include <ThirdParty/CPPLib/Math/Vector/Vector3D.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Buffer/Components/Constant.hpp>
 

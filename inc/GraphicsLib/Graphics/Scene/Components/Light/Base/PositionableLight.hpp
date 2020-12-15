@@ -1,5 +1,5 @@
 #pragma once
-#include <GraphicsLib/Graphics/DrawableObject/Components/Transform/Transform.hpp>
+#include <GraphicsLib/Graphics/Transform/Transform.hpp>
 #include <GraphicsLib/Graphics/Scene/Components/Light/Base/Light.hpp>
 
 
