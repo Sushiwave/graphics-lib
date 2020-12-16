@@ -57,11 +57,6 @@ namespace cg
 
 	Transform& Transform::operator=(Transform& other)
 	{
-		removeSelfFromSubject(m_observedShape.get());
-		
-		other.removeSelfFromSubject(other.m_observedShape.get());
-		other.addSelfToSubject(m_observedShape.get());
-	
 		m_id = other.m_id;
 		m_positionLocal = other.m_positionLocal;
 		m_centerLocal = other.m_centerLocal;
