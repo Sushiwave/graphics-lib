@@ -36,5 +36,8 @@
 /Debug
 /Release
 /x64
+/ThirdParty/DirectXTex/Bin
+/lib
+/installer
 
 

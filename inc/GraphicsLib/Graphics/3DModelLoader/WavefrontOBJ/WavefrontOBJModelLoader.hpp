@@ -185,5 +185,6 @@ namespace cg
 		}
 	public:
 		[[nodiscard]] static std::shared_ptr<WavefrontOBJModel> load(const std::string& filename, bool leftHanded = false);
+		[[nodiscard]] static void loadAsync(const std::string& filename, std::function<void(std::shared_ptr<WavefrontOBJModel> model)> processingAfterLoading, bool leftHanded = false);
 	};
 }

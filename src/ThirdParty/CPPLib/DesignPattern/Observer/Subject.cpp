@@ -38,7 +38,10 @@ namespace cpp
 	{
 		for (auto observer : m_observerDict)
 		{
-			observer.second->update(const_cast<Subject*>(this));
+			if(const auto safeObserver = observer.second.lock())
+			{
+				safeObserver->update(const_cast<Subject*>(this));
+			}
 		}
 	}
 }

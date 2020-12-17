@@ -15,7 +15,7 @@ namespace cpp
 	private:
 		friend class Observer;
 	private:
-		std::unordered_map<Observer::ID::Type, std::shared_ptr<Observer>> m_observerDict;
+		std::unordered_map<Observer::ID::Type, std::weak_ptr<Observer>> m_observerDict;
 	private:
 		void addObserver(const Observer::ID& id, std::shared_ptr<Observer> observer);
 		void removeObserver(const Observer::ID& id);

@@ -4,7 +4,7 @@
 #include <ThirdParty/CPPLib/Exception/RuntimeError/Base/RuntimeError.hpp>
 
 #include <algorithm>
-
+#include <thread>
 
 
 
@@ -459,5 +459,14 @@ namespace cg
 
 
 		return model;
+	}
+	void WavefrontOBJModelLoader::loadAsync(const std::string& filename, std::function<void(std::shared_ptr<WavefrontOBJModel>model)> processingAfterLoading, bool leftHanded)
+	{
+		std::thread loadingThread([=]()
+		{
+			const auto model = load(filename, leftHanded);
+			processingAfterLoading(model);
+		});	
+		loadingThread.detach();
 	}
 }

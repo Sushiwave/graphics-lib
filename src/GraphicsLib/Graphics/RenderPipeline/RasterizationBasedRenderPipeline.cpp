@@ -135,7 +135,7 @@ namespace cg
 				scene.draw(targetRenderingGroupName,
 					[&](const std::shared_ptr<DrawableObject> object)
 					{
-						m_transformConstantBuffer->update(scene, object->getTransformRef(), customCamera);
+						m_transformConstantBuffer->update(scene, *object->transform, customCamera);
 					},
 					[&](const DrawableObject::Part& part)
 					{

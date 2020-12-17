@@ -16,7 +16,7 @@ namespace cg
 	public:
 		using OperationPerObject = std::function<void(std::shared_ptr<DrawableObject>)>;
 		using OperationPerObjectPart = std::function<void(const DrawableObject::Part&)>;
-		using DrawableObjectDict = std::unordered_map<ID::Type, std::weak_ptr<DrawableObject>>;
+		using DrawableObjectDict = std::unordered_map<ID::Type, std::shared_ptr<DrawableObject>>;
 	private:
 		using RenderingGroup = std::shared_ptr<DrawableObjectDict>;
 		using RenderingGroupDictSearchWithRenderPipelineName = std::unordered_map<std::string, RenderingGroup>;
@@ -45,7 +45,7 @@ namespace cg
 
 
 
-		void add(const std::shared_ptr<DrawableObject>& objectRef);
+		void add(std::shared_ptr<DrawableObject> objectRef);
 		void remove(const cg::ID& objectID);
 		void removeAll();
 
