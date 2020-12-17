@@ -890,9 +890,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Camera\Base\Camera.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Group.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Scene.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1051,6 +1048,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">
