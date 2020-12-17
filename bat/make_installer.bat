@@ -10,6 +10,9 @@ cd %~dp0..\
 
 
 
+if EXIST installer (
+	rd /s/q installer
+)
 mkdir installer\inc
 mkdir installer\lib
 mkdir installer\template
