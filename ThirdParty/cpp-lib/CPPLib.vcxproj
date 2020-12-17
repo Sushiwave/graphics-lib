@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\CPPLib\DesignPattern\Observer\Observer.cpp" />
+    <ClCompile Include="src\CPPLib\DesignPattern\Observer\Subject.cpp" />
+    <ClCompile Include="src\CPPLib\Exception\RuntimeError\Base\RuntimeError.cpp" />
+    <ClCompile Include="src\CPPLib\Exception\RuntimeError\COMRuntimeError.cpp" />
+    <ClCompile Include="src\CPPLib\File\FileStream.cpp" />
+    <ClCompile Include="src\CPPLib\ID\IDGenerator\StringIDGenerator.cpp" />
+    <ClCompile Include="src\CPPLib\ImGui\ImGuiVector2D.cpp" />
+    <ClCompile Include="src\CPPLib\ImGui\ImGuiVector3D.cpp" />
+    <ClCompile Include="src\CPPLib\ImGui\ImGuiVector4D.cpp" />
+    <ClCompile Include="src\ThirdParty\ImGui\imgui.cpp" />
+    <ClCompile Include="src\ThirdParty\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="src\ThirdParty\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="src\ThirdParty\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="src\ThirdParty\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\ThirdParty\ImGui\imgui_widgets.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\CPPLib\Assert\Assert.hpp" />
+    <ClInclude Include="inc\CPPLib\C++\MultipleInheritableEnableSharedFromThis.hpp" />
+    <ClInclude Include="inc\CPPLib\C++\multiple_inheritable_enable_shared_from_this.hpp" />
+    <ClInclude Include="inc\CPPLib\C++\SFINAE.hpp" />
+    <ClInclude Include="inc\CPPLib\COM\com_ptr.hpp" />
+    <ClInclude Include="inc\CPPLib\DataStructure\Array\Array.hpp" />
+    <ClInclude Include="inc\CPPLib\DataStructure\Array\Array2.hpp" />
+    <ClInclude Include="inc\CPPLib\DataStructure\Array\Array3.hpp" />
+    <ClInclude Include="inc\CPPLib\DataStructure\Array\Array4.hpp" />
+    <ClInclude Include="inc\CPPLib\DataStructure\HierarchicalTreeStructure.hpp" />
+    <ClInclude Include="inc\CPPLib\DesignPattern\Observer\Observer.hpp" />
+    <ClInclude Include="inc\CPPLib\DesignPattern\Observer\Subject.hpp" />
+    <ClInclude Include="inc\CPPLib\Exception\Base\Exception.hpp" />
+    <ClInclude Include="inc\CPPLib\Exception\RuntimeError\Base\RuntimeError.hpp" />
+    <ClInclude Include="inc\CPPLib\Exception\RuntimeError\COMRuntimeError.hpp" />
+    <ClInclude Include="inc\CPPLib\File\FileStream.hpp" />
+    <ClInclude Include="inc\CPPLib\ID\IDGenerator\StringIDGenerator.hpp" />
+    <ClInclude Include="inc\CPPLib\ID\SimpleStringID.hpp" />
+    <ClInclude Include="inc\CPPLib\ImGui\ImGuiVector2D.hpp" />
+    <ClInclude Include="inc\CPPLib\ImGui\ImGuiVector3D.hpp" />
+    <ClInclude Include="inc\CPPLib\ImGui\ImGuiVector4D.hpp" />
+    <ClInclude Include="inc\CPPLib\Log\Log.hpp" />
+    <ClInclude Include="inc\CPPLib\Math\Math.hpp" />
+    <ClInclude Include="inc\CPPLib\Math\Random\Random.hpp" />
+    <ClInclude Include="inc\CPPLib\Math\Vector\Vector2D.hpp" />
+    <ClInclude Include="inc\CPPLib\Math\Vector\Vector3D.hpp" />
+    <ClInclude Include="inc\CPPLib\Math\Vector\Vector4D.hpp" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imconfig.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imgui.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imgui_internal.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imstb_textedit.h" />
+    <ClInclude Include="inc\ThirdParty\ImGui\imstb_truetype.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{dbc1d00a-e329-47b7-9e96-961aa7b9d1e6}</ProjectGuid>
+    <RootNamespace>CPPLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <OutDir>.\lib\x86\Debug\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <OutDir>.\lib\x86\Release\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <OutDir>.\lib\x64\Debug\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <OutDir>.\lib\x64\Release\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
