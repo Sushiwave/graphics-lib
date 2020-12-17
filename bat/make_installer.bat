@@ -16,6 +16,12 @@ mkdir installer\template
 
 
 
+if EXIST lib (
+	rd /s/q lib
+)
+
+
+
 echo @echo off> installer\install.bat
 echo echo Installing...>> installer\install.bat
 echo set graphics_lib_=%%USERPROFILE%%\Documents\GraphicsLib>> installer\install.bat
