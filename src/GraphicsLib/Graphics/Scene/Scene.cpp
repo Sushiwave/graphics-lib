@@ -16,7 +16,7 @@ namespace cg
 		return m_name;
 	}
 
-	bool Scene::objectExists(const std::string& name) const noexcept
+	bool Scene::objectGroupExists(const std::string& name) const noexcept
 	{
 		return m_objectGroupDict.count(name) == 1;
 	}
@@ -24,7 +24,7 @@ namespace cg
 	void Scene::addObjectGroup(const std::shared_ptr<DrawableObjectGroup>& group)
 	{
 		const auto& name = group->name();
-		if (objectExists(name)) 
+		if (objectGroupExists(name)) 
 		{
 			LogEX("A group named \"%s\" already exists.", name.c_str());
 			return; 
@@ -34,7 +34,7 @@ namespace cg
 	}
 	void Scene::removeObjectGroup(const std::string& groupName)
 	{
-		if (objectExists(groupName) == false) 
+		if (objectGroupExists(groupName) == false)
 		{
 			LogEX("A group named \"%s\" does not exist.", groupName.c_str());
 			return; 
@@ -47,9 +47,9 @@ namespace cg
 		m_objectGroupDict.clear();
 	}
 
-	Scene::ManagedGroupNameList Scene::createManagedGroupNameList() const
+	Scene::ManagedObjectGroupNameList Scene::createManagedObjectGroupNameList() const
 	{
-		ManagedGroupNameList list;
+		ManagedObjectGroupNameList list;
 		for (auto pair : m_objectGroupDict)
 		{
 			list.emplace_back(pair.first);
@@ -57,9 +57,9 @@ namespace cg
 		return list;
 	}
 
-	DrawableObjectGroup::DrawableObjectDict Scene::getObjectDict(const std::string& groupName) const
+	std::shared_ptr<DrawableObjectGroup> Scene::getObjectGroup(const std::string& groupName) const
 	{
-		return m_objectGroupDict.at(groupName)->getObjectDict();
+		return m_objectGroupDict.at(groupName);
 	}
 
 	void Scene::addLight(const std::shared_ptr<Light>& light)
@@ -111,7 +111,7 @@ namespace cg
 		m_lightGroupDictSearchWithType.clear();
 	}
 
-	Scene::LightDict Scene::getLightDict() const
+	Scene::LightDict Scene::createLightDict() const
 	{
 		return m_lightDict;
 	}

@@ -13,17 +13,17 @@ namespace cg
 	class Scene
 	{
 	public:
-		using ManagedGroupNameList = std::vector<std::string>;
+		using ManagedObjectGroupNameList = std::vector<std::string>;
 
-		using DrawableObjectGroupDict = std::unordered_map<std::string, DrawableObjectGroup>;
-		using DrawableObjectGroupRefDict = std::unordered_map<std::string, std::shared_ptr<DrawableObjectGroup>>;
+		using DrawableObjectGroupDict = std::unordered_map<std::string, std::shared_ptr<DrawableObjectGroup>>;
 
 		using LightDict = std::unordered_map<std::string, std::shared_ptr<Light>>;
 		using LightGroup = std::unordered_map<std::string, std::shared_ptr<Light>>;
+	private:
 		using LightGroupDictSearchWithType = std::unordered_map<Light::Type, std::shared_ptr<LightGroup>>;
 		using LightGroupDictSearchWithName = std::unordered_map<std::string, std::shared_ptr<LightGroup>>;
 	private:
-		DrawableObjectGroupRefDict m_objectGroupDict;
+		DrawableObjectGroupDict m_objectGroupDict;
 
 		LightDict m_lightDict;
 		LightGroupDictSearchWithType m_lightGroupDictSearchWithType;
@@ -38,14 +38,15 @@ namespace cg
 
 		[[nodiscard]] std::string getName() const noexcept;
 
-		[[nodiscard]] bool objectExists(const std::string& name) const noexcept;
 
+
+		[[nodiscard]] bool objectGroupExists(const std::string& name) const noexcept;
 		void addObjectGroup(const std::shared_ptr<DrawableObjectGroup>& group);
 		void removeObjectGroup(const std::string& groupName);
 		void removeAllObjectGroups();
 
-		ManagedGroupNameList createManagedGroupNameList() const;
-		DrawableObjectGroup::DrawableObjectDict getObjectDict(const std::string& groupName) const;
+		ManagedObjectGroupNameList createManagedObjectGroupNameList() const;
+		std::shared_ptr<DrawableObjectGroup> getObjectGroup(const std::string& groupName) const;
 
 
 
@@ -54,13 +55,12 @@ namespace cg
 		void removeLight(const std::string& name);
 		void removeAllLights();
 		
-
-		[[nodiscard]] LightDict getLightDict() const;
+		[[nodiscard]] LightDict createLightDict() const;
 		[[nodiscard]] LightGroup getLights(const Light::Type& type) const;
 		template <typename Light_>
 		[[nodiscard]] std::shared_ptr<Light_> getLight(const std::string& name) const
 		{
-			return std::dynamic_pointer_cast<Light_>(m_lightGroupDictSearchWithName.at(name)->at(name));
+			return std::dynamic_pointer_cast<Light_>(m_lightDict.at(name));
 		}
 
 
