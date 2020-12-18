@@ -442,9 +442,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\AlphaBlender.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -1048,9 +1045,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">

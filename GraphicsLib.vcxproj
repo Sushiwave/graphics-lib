@@ -262,7 +262,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineSRT.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Camera.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\Base\Light.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\Base\PositionableLight.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\DirectionalLight.hpp" />
@@ -481,7 +480,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineSRT.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Camera\Base\Camera.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Projection\Projection.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Scene.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\Components\D3D11ShaderReflection.cpp" />
