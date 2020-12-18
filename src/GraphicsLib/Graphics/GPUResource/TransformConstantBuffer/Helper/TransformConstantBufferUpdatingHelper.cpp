@@ -23,7 +23,8 @@ namespace cg
 
 	void TransformConstantBufferHelper::storeW(DirectX::XMFLOAT4X4* w, const Transform& transform)
 	{
-		DirectX::XMStoreFloat4x4(w, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&transform.createWorldMatrix())));
+		const auto mat = transform.createWorldMatrix();
+		DirectX::XMStoreFloat4x4(w, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&mat)));
 	}
 
 	void TransformConstantBufferHelper::storeInvW(DirectX::XMFLOAT4X4* invW, const Transform& transform)
@@ -40,12 +41,14 @@ namespace cg
 
 	void TransformConstantBufferHelper::storeInvV(DirectX::XMFLOAT4X4* invV, const Camera& camera)
 	{
-		DirectX::XMStoreFloat4x4(invV, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&camera.transform->createWorldMatrix())));
+		const auto mat = camera.transform->createWorldMatrix();
+		DirectX::XMStoreFloat4x4(invV, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&mat)));
 	}
 
 	void TransformConstantBufferHelper::storeP(DirectX::XMFLOAT4X4* p, const Camera& camera)
 	{
-		DirectX::XMStoreFloat4x4(p, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&camera.projection.createMatrix())));
+		const auto mat = camera.projection.createMatrix();
+		DirectX::XMStoreFloat4x4(p, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&mat)));
 	}
 
 	void TransformConstantBufferHelper::storeInvP(DirectX::XMFLOAT4X4* invP, const Camera& camera)
@@ -71,6 +74,7 @@ namespace cg
 
 	void TransformConstantBufferHelper::storeN(DirectX::XMFLOAT4X4* n, const Transform& transform)
 	{
-		DirectX::XMStoreFloat4x4(n, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&transform.createWorldMatrix())))));
+		const auto mat = transform.createWorldMatrix();
+		DirectX::XMStoreFloat4x4(n, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&mat)))));
 	}
 }
