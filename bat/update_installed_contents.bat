@@ -21,10 +21,10 @@ del self_process_id.txt
 
 
 
-start /min "Building: Debug x86"   %MSBUILD_PATH% GraphicsLib.sln /m /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
-start /min "Building: Release x84" %MSBUILD_PATH% GraphicsLib.sln /m /p:BuildInParallel=true;Configuration=Release;Platform="x86"
-start /min "Building: Debug x64"   %MSBUILD_PATH% GraphicsLib.sln /m /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
-start /min "Building: Release x64" %MSBUILD_PATH% GraphicsLib.sln /m /p:BuildInParallel=true;Configuration=Release;Platform="x64"
+start /min "Building: Debug x86"   %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
+start /min "Building: Release x84" %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x86"
+start /min "Building: Debug x64"   %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
+start /min "Building: Release x64" %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x64"
 
 
 
