@@ -177,7 +177,8 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertices.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\API\IGraphicsAPI.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\CoordinateSystem.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\RotationMethod.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp" />
@@ -389,6 +390,7 @@
     <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\WINAPIWindowSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\ImGui\ImGuiImage.cpp" />

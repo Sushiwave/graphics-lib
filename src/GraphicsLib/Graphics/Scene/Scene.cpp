@@ -261,14 +261,15 @@ namespace cg
 
 			operationPerObject(object);
 
-			for (const auto& pair : object->parts)
+			const auto partNameList = object->geometry.parts.makePartNameList();
+			for (const auto& name : partNameList)
 			{
-				const auto& part = pair.second;
+				const auto& part = object->geometry.parts.get(name);;
 				const auto geometryBuffer = part.getGeometryBuffer();
 
 				operationPerObjectPart(part);
 
-				geometryBuffer->draw(object->primitiveTopology, object->instanceCount);
+				geometryBuffer->draw(part.primitiveTopology, object->instanceCount);
 			}
 		}
 	}

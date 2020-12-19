@@ -18,7 +18,7 @@ namespace cg
 		{
 		public:
 			using OperationPerObject = std::function<void(std::shared_ptr<DrawableObject>)>;
-			using OperationPerObjectPart = std::function<void(const DrawableObject::Part&)>;
+			using OperationPerObjectPart = std::function<void(const Geometry::Part&)>;
 			using DrawableObjectDict = std::unordered_map<ID::Type, std::shared_ptr<DrawableObject>>;
 		private:
 			using RenderingGroup = std::shared_ptr<DrawableObjectDict>;

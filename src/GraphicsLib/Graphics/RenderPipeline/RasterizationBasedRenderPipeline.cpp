@@ -137,7 +137,7 @@ namespace cg
 					{
 						m_transformConstantBuffer->update(scene, *object->transform, customCamera);
 					},
-					[&](const DrawableObject::Part& part)
+					[&](const Geometry::Part& part)
 					{
 						for (const auto& materialLocation : materialLocations)
 						{

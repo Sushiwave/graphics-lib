@@ -636,9 +636,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Components\CPUAccessType.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\DrawableObject.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -691,6 +688,10 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Math\Math.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.hpp">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1085,6 +1086,7 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">
