@@ -6,11 +6,14 @@
 
 namespace cg
 {
-	DrawableObject::DrawableObject(const std::string& name, const std::shared_ptr<Shape>& shape, const Parts& parts)
-		: Transformable(shape),
-		  m_name(name),
-		  m_shape(shape),
-		  parts(parts)
+	DrawableObject::DrawableObject(const std::string& name, const Geometry& geometry)
+		: m_name(name),
+		  geometry(geometry)
+	{
+	}
+
+	DrawableObject::DrawableObject(const std::string& name)
+		: DrawableObject(name, Geometry())
 	{
 	}
 
@@ -25,11 +28,6 @@ namespace cg
 		return m_renderingGroupName;
 	}
 	
-	void DrawableObject::tweakTransform(const std::function<void(Transform&)>& operation) const
-	{
-		operation(*transform);
-	}
-	
 	ID DrawableObject::getID() const noexcept
 	{
 		return m_id;
@@ -38,28 +36,5 @@ namespace cg
 	std::string DrawableObject::getName() const noexcept
 	{
 		return m_name;
-	}
-
-	DrawableObject::Part::Part(const std::string& name, std::shared_ptr<IGeometryBuffer> geometryBuffer)
-		: m_name(name),
-		  m_geometryBuffer(geometryBuffer)
-	{
-	}
-
-	DrawableObject::Part::Part(const std::string& name, const Material& material, std::shared_ptr<IGeometryBuffer> geometryBuffer)
-		: m_name(name),
-		  material(material),
-		  m_geometryBuffer(geometryBuffer)
-	{
-	}
-
-	std::string DrawableObject::Part::getName() const noexcept
-	{
-		return m_name;
-	}
-
-	std::shared_ptr<IGeometryBuffer> DrawableObject::Part::getGeometryBuffer() const noexcept
-	{
-		return m_geometryBuffer;
 	}
 }

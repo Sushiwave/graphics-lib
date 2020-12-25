@@ -23,38 +23,38 @@ namespace cg
 
 	void Box::changeSize(const cpp::Vector3D<float>& size) const noexcept
 	{
-		m_notifySizeChanged(size.x, size.y, size.z);
+		notifySizeChanged(size.x, size.y, size.z);
 	}
 
 	void Box::changeSize(float width, float height, float depth) const noexcept
 	{
-		m_notifySizeChanged(width, height, depth);
+		notifySizeChanged(width, height, depth);
 	}
 
 	void Box::changeWidth(float width) const noexcept
 	{
-		m_notifySizeXChanged(width);
+		notifySizeXChanged(width);
 	}
 
 	void Box::changeHeight(float height) const noexcept
 	{
-		m_notifySizeYChanged(height);
+		notifySizeYChanged(height);
 	}
 
 	void Box::changeDepth(float depth) const noexcept
 	{
-		m_notifySizeZChanged(depth);
+		notifySizeZChanged(depth);
 	}
 	float Box::getWidth() const noexcept
 	{
-		return m_getSizeX();
+		return getSize().x;
 	}
 	float Box::getHeight() const noexcept
 	{
-		return m_getSizeY();
+		return getSize().y;
 	}
 	float Box::getDepth() const noexcept
 	{
-		return m_getSizeZ();
+		return getSize().z;
 	}
 }

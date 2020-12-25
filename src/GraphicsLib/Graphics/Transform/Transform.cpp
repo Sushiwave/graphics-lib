@@ -85,7 +85,6 @@ namespace cg
 		m_localS = other.m_localS;
 		m_localR = other.m_localR;
 		m_localT = other.m_localT;
-		m_isAddedSelfToSubject = other.m_isAddedSelfToSubject;
 		m_isLocalRTUpdated = other.m_isLocalRTUpdated;
 		m_isLocalRUpdated = other.m_isLocalRUpdated;
 		m_isLocalTUpdated = other.m_isLocalTUpdated;
@@ -166,7 +165,9 @@ namespace cg
 	{
 		if (m_isLocalRTUpdated)
 		{
-			DirectX::XMStoreFloat4x4(&m_localRT, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&createRotationMatrixLocal()), DirectX::XMLoadFloat4x4(&createTranslationMatrixLocal())));
+			const auto rmat = createRotationMatrixLocal();
+			const auto tmat = createTranslationMatrixLocal();
+			DirectX::XMStoreFloat4x4(&m_localRT, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&rmat), DirectX::XMLoadFloat4x4(&tmat)));
 			m_isLocalRTUpdated = false;
 		}
 
@@ -231,38 +232,8 @@ namespace cg
 
 
 
-	void Transform::update(cpp::Subject* pSubject)
-	{
-		auto pShape = dynamic_cast<Shape*>(pSubject);
-		if (pShape == nullptr) { return; }
-		m_shapeSize = pShape->getSize();
-		m_isShapeSizeChanged = true;
-	}
-
-
-
-
-
-
-
-
-
-
 	Transform::Transform()
 	{
-	}
-	Transform::Transform(std::shared_ptr<Shape> shape)
-	{
-		if (shape)
-		{
-			m_observedShape = shape;
-			m_addSelfToSubjectDelay = [&]()
-			{
-				addSelfToSubject(m_observedShape.get());
-				m_shapeSize = m_observedShape->getSize();
-			};
-			m_isShapeSizeChanged = true;
-		}
 	}
 
 
@@ -1084,12 +1055,6 @@ namespace cg
 	{
 		if (m_isLocalSUpdated || m_isShapeSizeChanged)
 		{
-			if (m_isAddedSelfToSubject == false)
-			{
-				m_addSelfToSubjectDelay();
-				m_isAddedSelfToSubject = true;
-			}
-
 			DirectX::XMStoreFloat4x4(&m_localS, DirectX::XMMatrixScaling(m_scaleLocal.x*m_shapeSize.x, m_scaleLocal.y*m_shapeSize.y, m_scaleLocal.z*m_shapeSize.z));
 			
 			m_isLocalSUpdated = false;
@@ -1218,7 +1183,10 @@ namespace cg
 	{
 		if (m_isLocalUpdated)
 		{
-			DirectX::XMStoreFloat4x4(&m_local, DirectX::XMMatrixMultiply(DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&createScalingMatrixLocal()), DirectX::XMLoadFloat4x4(&createRotationMatrixLocal())), DirectX::XMLoadFloat4x4(&createTranslationMatrixLocal())));
+			const auto smat = createScalingMatrixLocal();
+			const auto rmat = createRotationMatrixLocal();
+			const auto tmat = createTranslationMatrixLocal();
+			DirectX::XMStoreFloat4x4(&m_local, DirectX::XMMatrixMultiply(DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&smat), DirectX::XMLoadFloat4x4(&rmat)), DirectX::XMLoadFloat4x4(&tmat)));
 
 			m_isLocalUpdated = false;
 		}
@@ -1231,7 +1199,8 @@ namespace cg
 
 		if (m_isWorldUpdated || m_isShapeSizeChanged)
 		{
-			DirectX::XMStoreFloat4x4(&m_world, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&createScalingMatrixLocal()), DirectX::XMLoadFloat4x4(&m_worldRT)));
+			const auto smat = createScalingMatrixLocal();
+			DirectX::XMStoreFloat4x4(&m_world, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&smat), DirectX::XMLoadFloat4x4(&m_worldRT)));
 
 			m_isWorldUpdated = false;
 		}

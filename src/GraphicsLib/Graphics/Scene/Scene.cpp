@@ -16,50 +16,50 @@ namespace cg
 		return m_name;
 	}
 
-	bool Scene::objectExists(const std::string& name) const noexcept
+	bool Scene::groupExists(const std::string& name) const noexcept
 	{
-		return m_objectGroupDict.count(name) == 1;
+		return m_groupDict.count(name) == 1;
 	}
 
-	void Scene::addObjectGroup(const std::shared_ptr<DrawableObjectGroup>& group)
+	void Scene::addGroup(const std::shared_ptr<Scene::Group>& group)
 	{
 		const auto& name = group->name();
-		if (objectExists(name)) 
+		if (groupExists(name)) 
 		{
 			LogEX("A group named \"%s\" already exists.", name.c_str());
 			return; 
 		}
 
-		m_objectGroupDict.emplace(name, group);
+		m_groupDict.emplace(name, group);
 	}
-	void Scene::removeObjectGroup(const std::string& groupName)
+	void Scene::removeGroup(const std::string& groupName)
 	{
-		if (objectExists(groupName) == false) 
+		if (groupExists(groupName) == false)
 		{
 			LogEX("A group named \"%s\" does not exist.", groupName.c_str());
 			return; 
 		}
 
-		m_objectGroupDict.erase(groupName);
+		m_groupDict.erase(groupName);
 	}
-	void Scene::removeAllObjectGroups()
+	void Scene::removeAllGroups()
 	{
-		m_objectGroupDict.clear();
+		m_groupDict.clear();
 	}
 
-	Scene::ManagedGroupNameList Scene::createManagedGroupNameList() const
+	Scene::GroupNameList Scene::makeGroupNameList() const
 	{
-		ManagedGroupNameList list;
-		for (auto pair : m_objectGroupDict)
+		GroupNameList list;
+		for (auto pair : m_groupDict)
 		{
 			list.emplace_back(pair.first);
 		}
 		return list;
 	}
 
-	DrawableObjectGroup::DrawableObjectDict Scene::getObjectDict(const std::string& groupName) const
+	std::shared_ptr<Scene::Group> Scene::getGroup(const std::string& groupName) const
 	{
-		return m_objectGroupDict.at(groupName)->getObjectDict();
+		return m_groupDict.at(groupName);
 	}
 
 	void Scene::addLight(const std::shared_ptr<Light>& light)
@@ -111,7 +111,7 @@ namespace cg
 		m_lightGroupDictSearchWithType.clear();
 	}
 
-	Scene::LightDict Scene::getLightDict() const
+	Scene::LightDict Scene::makeLightDict() const
 	{
 		return m_lightDict;
 	}
@@ -130,11 +130,147 @@ namespace cg
 		return m_lightGroupDictSearchWithName.count(name) == 1;
 	}
 
-	void Scene::draw(const std::string renderingGroupName, const DrawableObjectGroup::OperationPerObject& operationPerObject, const DrawableObjectGroup::OperationPerObjectPart& operationPerObjectPart) const
+	void Scene::draw(const std::string renderingGroupName, const Scene::Group::OperationPerObject& operationPerObject, const Scene::Group::OperationPerObjectPart& operationPerObjectPart) const
 	{
-		for (const auto& pair : m_objectGroupDict)
+		for (const auto& pair : m_groupDict)
 		{
 			pair.second->draw(renderingGroupName, operationPerObject, operationPerObjectPart);
+		}
+	}
+
+
+
+
+
+
+
+
+
+	Scene::Group::Group(const std::string& name)
+		: m_name(name)
+	{
+	}
+
+
+	std::string Scene::Group::name() const noexcept
+	{
+		return m_name;
+	}
+
+
+	bool Scene::Group::m_renderingGroupExists(const std::string& groupName) const noexcept
+	{
+		return m_renderingGroupDictSearchWithRenderPipelineName.count(groupName) == 1;
+	}
+	void Scene::Group::update(cpp::Subject* pSubject)
+	{
+		const auto pObject = static_cast<DrawableObject*>(pSubject);
+
+		const auto& objectID = pObject->getID();
+		if (objectExists(objectID) == false) { return; }
+
+		const auto objectIDSTR = objectID.get();
+		const auto renderingGroup = m_renderingGroupDictSearchWithObjectID.at(objectIDSTR);
+		const auto managedObject = renderingGroup->at(objectIDSTR);
+		renderingGroup->erase(objectIDSTR);
+		add(managedObject);
+	}
+	bool Scene::Group::objectExists(const cg::ID& objectID) const noexcept
+	{
+		return m_renderingGroupDictSearchWithObjectID.count(objectID.get()) == 1;
+	}
+
+
+
+	void Scene::Group::add(std::shared_ptr<DrawableObject> objectRef)
+	{
+		if (objectRef == nullptr) { return; }
+
+		const auto objectID = objectRef->getID();
+		const auto objectIDSTR = objectID.get();
+
+		if (objectExists(objectID))
+		{
+			LogEX("An object \"ID: %s\" already exists.", objectIDSTR.c_str());
+			return;
+		}
+
+		const auto& groupName = objectRef->whichRenderingGroupBelongTo();
+		if (m_renderingGroupExists(groupName) == false)
+		{
+			m_renderingGroupDictSearchWithRenderPipelineName.emplace(groupName, std::make_shared<DrawableObjectDict>());
+		}
+
+		m_renderingGroupDictSearchWithRenderPipelineName.at(groupName)->emplace(objectIDSTR, objectRef);
+		m_renderingGroupDictSearchWithObjectID.emplace(objectIDSTR, m_renderingGroupDictSearchWithRenderPipelineName.at(groupName));
+		m_objectDict.emplace(objectIDSTR, objectRef);
+		addSelfToSubject(objectRef.get());
+	}
+	void Scene::Group::remove(const cg::ID& objectID)
+	{
+		auto objectIDString = objectID.get();
+		auto objectIDCSTR = objectIDString.c_str();
+		if (objectExists(objectID) == false)
+		{
+			LogEX("An object \"ID: %s\" does not exist.", objectIDSTR);
+			return;
+		}
+
+		const auto& renderingGroup = m_renderingGroupDictSearchWithObjectID.at(objectIDCSTR);
+
+		removeSelfFromSubject(renderingGroup->at(objectIDCSTR).get());
+
+		m_renderingGroupDictSearchWithObjectID.erase(objectIDCSTR);
+		renderingGroup->erase(objectIDCSTR);
+		m_objectDict.erase(objectIDCSTR);
+	}
+	void Scene::Group::removeAll()
+	{
+		for (auto& pair : m_renderingGroupDictSearchWithRenderPipelineName)
+		{
+			auto& renderingGroup = *pair.second;
+			for (auto& managedObject : renderingGroup)
+			{
+				removeSelfFromSubject(managedObject.second.get());
+			}
+		}
+
+		m_renderingGroupDictSearchWithObjectID.clear();
+		m_renderingGroupDictSearchWithRenderPipelineName.clear();
+		m_objectDict.clear();
+	}
+
+	Scene::Group::DrawableObjectDict Scene::Group::makeObjectDict() const
+	{
+		return m_objectDict;
+	}
+
+
+
+
+	void Scene::Group::draw(const std::string& renderingGroupName, const OperationPerObject& operationPerObject, const OperationPerObjectPart& operationPerObjectPart) const
+	{
+		if (m_renderingGroupExists(renderingGroupName) == false) { return; }
+		const auto& group = *m_renderingGroupDictSearchWithRenderPipelineName.at(renderingGroupName);
+		if (group.empty()) { return; }
+
+		for (auto pair : group)
+		{
+			auto object = pair.second;
+			if (object == nullptr) { continue; }
+
+			operationPerObject(object);
+
+			const auto partNameList = object->geometry.parts.makePartNameList();
+			for (const auto& name : partNameList)
+			{
+				const auto& part = object->geometry.parts.get(name);;
+				const auto geometryBuffer = part.getGeometryBuffer();
+
+				operationPerObjectPart(part);
+
+				geometryBuffer->draw(part.primitiveTopology, object->instanceCount);
+			}
 		}
 	}
 }

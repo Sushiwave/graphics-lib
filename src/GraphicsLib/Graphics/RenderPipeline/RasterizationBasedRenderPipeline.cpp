@@ -135,9 +135,19 @@ namespace cg
 				scene.draw(targetRenderingGroupName,
 					[&](const std::shared_ptr<DrawableObject> object)
 					{
-						m_transformConstantBuffer->update(scene, *object->transform, customCamera);
+						if (object->geometry.empty()) { return; }
+					
+						const auto transform = object->transform;
+						if (auto shape = object->geometry.shape)
+						{
+							m_transformConstantBuffer->update(scene, *transform, *shape, customCamera);
+						}
+						else
+						{
+							m_transformConstantBuffer->update(scene, *transform, cg::Shape(), customCamera);
+						}
 					},
-					[&](const DrawableObject::Part& part)
+					[&](const Geometry::Part& part)
 					{
 						for (const auto& materialLocation : materialLocations)
 						{
@@ -161,7 +171,7 @@ namespace cg
 		}
 		else
 		{
-			m_transformConstantBuffer->update(scene, cg::Transform(), scene.camera);
+			m_transformConstantBuffer->update(scene, cg::Transform(), cg::Shape(), scene.camera);
 		}
 
 		additionalDrawCall();

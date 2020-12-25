@@ -177,7 +177,8 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertices.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\API\IGraphicsAPI.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\CoordinateSystem.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\RotationMethod.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp" />
@@ -262,7 +263,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineSRT.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Camera\Camera.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\Base\Light.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\Base\PositionableLight.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\DirectionalLight.hpp" />
@@ -390,6 +390,7 @@
     <ClInclude Include="src\GraphicsLib\Window\System\WINAPI\WINAPIWindowSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\ImGui\ImGuiImage.cpp" />
@@ -411,7 +412,7 @@
     <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\API\D3D11\D3D11GraphicsAPI.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transform.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\DrawableObject.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.cpp" />
@@ -481,7 +482,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineSRT.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Camera\Base\Camera.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\DrawableObjectGroup.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Projection\Projection.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Scene.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\Components\D3D11ShaderReflection.cpp" />

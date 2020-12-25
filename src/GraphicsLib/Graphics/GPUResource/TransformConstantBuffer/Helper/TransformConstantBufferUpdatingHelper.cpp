@@ -1,4 +1,5 @@
 #include <GraphicsLib/Graphics/GPUResource/TransformConstantBuffer/Helper/TransformConstantBufferUpdatingHelper.hpp>
+#include <GraphicsLib/Context.hpp>
 
 
 
@@ -6,53 +7,119 @@
 
 namespace cg
 {
+#ifdef CONTEXT_D3D11
+	#define TRANSPOSE(mat) DirectX::XMStoreFloat4x4(mat, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(mat)))
+#else
+	#define TRANSPOSE(mat)
+#endif
+	void TransformConstantBufferHelper::storeInvMat(DirectX::XMFLOAT4X4* invMat, const DirectX::XMFLOAT4X4& mat)
+	{
+		DirectX::XMStoreFloat4x4(invMat, DirectX::XMMatrixInverse(nullptr, DirectX::XMLoadFloat4x4(&mat)));
+	}
+	
+
+
+
+
+
+
+
+
+	void TransformConstantBufferHelper::storeWVP(DirectX::XMFLOAT4X4* wvp, const Transform& transform, const Shape& shape, const Camera& camera)
+	{
+		DirectX::XMFLOAT4X4 w;
+		storeW(&w, transform, shape);
+		DirectX::XMFLOAT4X4 vp;
+		storeVP(&vp, camera);
+		DirectX::XMStoreFloat4x4(wvp, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&vp), DirectX::XMLoadFloat4x4(&w)));
+	}
 	void TransformConstantBufferHelper::storeWVP(DirectX::XMFLOAT4X4* wvp, const Transform& transform, const Camera& camera)
 	{
 		DirectX::XMFLOAT4X4 w;
 		storeW(&w, transform);
 		DirectX::XMFLOAT4X4 vp;
 		storeVP(&vp, camera);
-		DirectX::XMStoreFloat4x4(wvp, DirectX::XMMatrixTranspose(DirectX::XMMatrixMultiply(DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&w)), DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&vp)))));
+		DirectX::XMStoreFloat4x4(wvp, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&vp), DirectX::XMLoadFloat4x4(&w)));
 	}
 
+
+	
+	void TransformConstantBufferHelper::storeInvWVP(DirectX::XMFLOAT4X4* invWVP, const Transform& transform, const Shape& shape, const Camera& camera)
+	{
+		storeWVP(invWVP, transform, shape, camera);
+		storeInvMat(invWVP, *invWVP);
+	}
 	void TransformConstantBufferHelper::storeInvWVP(DirectX::XMFLOAT4X4* invWVP, const Transform& transform, const Camera& camera)
 	{
 		storeWVP(invWVP, transform, camera);
-		DirectX::XMStoreFloat4x4(invWVP, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(invWVP)))));
+		storeInvMat(invWVP, *invWVP);
 	}
 
+
+
+	void TransformConstantBufferHelper::storeW(DirectX::XMFLOAT4X4* w, const Transform& transform, const Shape& shape)
+	{
+		const auto smat = shape.createMatrix();
+		const auto tmat = transform.createWorldMatrix();
+		DirectX::XMStoreFloat4x4(w, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&smat), DirectX::XMLoadFloat4x4(&tmat)));
+	
+		TRANSPOSE(w);
+	}
 	void TransformConstantBufferHelper::storeW(DirectX::XMFLOAT4X4* w, const Transform& transform)
 	{
-		DirectX::XMStoreFloat4x4(w, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&transform.createWorldMatrix())));
+		*w = transform.createWorldMatrix();	
+	
+		TRANSPOSE(w);
 	}
 
+
+
+	void TransformConstantBufferHelper::storeInvW(DirectX::XMFLOAT4X4* invW, const Transform& transform, const Shape& shape)
+	{
+		storeW(invW, transform, shape);
+		storeInvMat(invW, *invW);
+	}
 	void TransformConstantBufferHelper::storeInvW(DirectX::XMFLOAT4X4* invW, const Transform& transform)
 	{
 		storeW(invW, transform);
-		DirectX::XMStoreFloat4x4(invW, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(invW)))));
+		storeInvMat(invW, *invW);
 	}
+
+
 
 	void TransformConstantBufferHelper::storeV(DirectX::XMFLOAT4X4* v, const Camera& camera)
 	{
 		storeInvV(v, camera);
-		DirectX::XMStoreFloat4x4(v, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(v)))));
+		DirectX::XMStoreFloat4x4(v, DirectX::XMMatrixInverse(nullptr, DirectX::XMLoadFloat4x4(v)));
 	}
+
+
 
 	void TransformConstantBufferHelper::storeInvV(DirectX::XMFLOAT4X4* invV, const Camera& camera)
 	{
-		DirectX::XMStoreFloat4x4(invV, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&camera.transform->createWorldMatrix())));
+		*invV = camera.transform->createWorldMatrix();
+	
+		TRANSPOSE(invV);
 	}
+
+
 
 	void TransformConstantBufferHelper::storeP(DirectX::XMFLOAT4X4* p, const Camera& camera)
 	{
-		DirectX::XMStoreFloat4x4(p, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&camera.projection.createMatrix())));
+		*p = camera.projection.createMatrix();
+
+		TRANSPOSE(p);
 	}
+
+
 
 	void TransformConstantBufferHelper::storeInvP(DirectX::XMFLOAT4X4* invP, const Camera& camera)
 	{
 		storeP(invP, camera);
-		DirectX::XMStoreFloat4x4(invP, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(invP)))));
+		DirectX::XMStoreFloat4x4(invP, DirectX::XMMatrixInverse(nullptr, DirectX::XMLoadFloat4x4(invP)));
 	}
+
+
 
 	void TransformConstantBufferHelper::storeVP(DirectX::XMFLOAT4X4* vp, const Camera& camera)
 	{
@@ -60,17 +127,25 @@ namespace cg
 		storeV(&v, camera);
 		DirectX::XMFLOAT4X4 p;
 		storeP(&p, camera);
-		DirectX::XMStoreFloat4x4(vp, DirectX::XMMatrixTranspose(DirectX::XMMatrixMultiply(DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&v)), DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&p)))));
+		DirectX::XMStoreFloat4x4(vp, DirectX::XMMatrixMultiply(DirectX::XMLoadFloat4x4(&p), DirectX::XMLoadFloat4x4(&v)));
 	}
+
+
 
 	void TransformConstantBufferHelper::storeInvVP(DirectX::XMFLOAT4X4* invVP, const Camera& camera)
 	{
 		storeVP(invVP, camera);
-		DirectX::XMStoreFloat4x4(invVP, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(invVP)))));
+		storeInvMat(invVP, *invVP);
 	}
 
-	void TransformConstantBufferHelper::storeN(DirectX::XMFLOAT4X4* n, const Transform& transform)
+
+
+	void TransformConstantBufferHelper::storeN(DirectX::XMFLOAT4X4* n, const Transform& transform, const Shape& shape)
 	{
-		DirectX::XMStoreFloat4x4(n, DirectX::XMMatrixTranspose(DirectX::XMMatrixInverse(nullptr, DirectX::XMMatrixTranspose(DirectX::XMLoadFloat4x4(&transform.createWorldMatrix())))));
+		DirectX::XMFLOAT4X4 mat;
+		storeW(&mat, transform, shape);
+		DirectX::XMStoreFloat4x4(n, DirectX::XMMatrixInverse(nullptr, DirectX::XMLoadFloat4x4(&mat)));
+
+		TRANSPOSE(n);
 	}
 }

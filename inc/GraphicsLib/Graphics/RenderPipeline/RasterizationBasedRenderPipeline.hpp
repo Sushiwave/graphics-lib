@@ -11,6 +11,7 @@
 #include <GraphicsLib/Graphics/GPUResource/Shader/VertexShader/IVertexShader.hpp>
 #include <GraphicsLib/Graphics/GPUResource/LightConstantBuffer/LightConstantBuffer.hpp>
 #include <GraphicsLib/Graphics/GPUResource/TransformConstantBuffer/TransformConstantBuffer.hpp>
+#include <GraphicsLib/Graphics/GPUResource/MaterialConstantBuffer/MaterialConstantBuffer.hpp>
 
 #include <memory>
 #include <list>

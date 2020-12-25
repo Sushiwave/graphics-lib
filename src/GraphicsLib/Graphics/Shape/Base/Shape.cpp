@@ -8,48 +8,45 @@
 
 namespace cg
 {
-	void Shape::m_notifySizeChanged(float x, float y, float z) const
+	void Shape::notifySizeChanged(float x, float y, float z) const
 	{
+		m_isSizeChanged = true;
 		m_size.x = x;
 		m_size.y = y;
 		m_size.z = z;
-		notify();
 	}
-	void Shape::m_notifySizeXChanged(float x) const
+	void Shape::notifySizeXChanged(float x) const
 	{
-		m_size.x = x;
-		notify();
+		notifySizeChanged(x, m_size.y, m_size.z);
 	}
-	void Shape::m_notifySizeYChanged(float y) const
+	void Shape::notifySizeYChanged(float y) const
 	{
-		m_size.y = y;	
-		notify();
+		notifySizeChanged(m_size.x, y, m_size.z);
 	}
-	void Shape::m_notifySizeZChanged(float z) const
+	void Shape::notifySizeZChanged(float z) const
 	{
-		m_size.z = z;
-		notify();
+		notifySizeChanged(m_size.x, m_size.y, z);
 	}
-	float Shape::m_getSizeX() const noexcept
+	Shape::Shape()
+		: Shape(cpp::Vector3D<float>(1.0, 1.0, 1.0))
 	{
-		return m_size.x;
-	}
-	float Shape::m_getSizeY() const noexcept
-	{
-		return m_size.y;
-	}
-	float Shape::m_getSizeZ() const noexcept
-	{
-		return m_size.z;
 	}
 	Shape::Shape(const cpp::Vector3D<float>& size)
 	{
-		m_size = size;
-		notify();
+		notifySizeChanged(size.x, size.y, size.z);
 	}
 
 	cpp::Vector3D<float> Shape::getSize() const
 	{
 		return m_size;
+	}
+	DirectX::XMFLOAT4X4 Shape::createMatrix() const
+	{
+		if (m_isSizeChanged)
+		{
+			DirectX::XMStoreFloat4x4(&m_matrix, DirectX::XMMatrixScaling(m_size.x, m_size.y, m_size.z));
+			m_isSizeChanged = false;
+		}
+		return m_matrix;
 	}
 }

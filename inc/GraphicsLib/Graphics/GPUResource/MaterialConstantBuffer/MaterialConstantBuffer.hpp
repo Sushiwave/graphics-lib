@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/API/API.hpp>
-#include <GraphicsLib/Graphics/DrawableObject/Components/Material/Material.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Material/Material.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Base/ShaderResource.hpp>
 
 
