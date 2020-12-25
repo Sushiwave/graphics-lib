@@ -18,7 +18,6 @@ namespace cg
 {
 	class Transform
 		: public IIDHolder,
-		  public cpp::Observer,
 		  public cpp::HierarchicalTreeStructure<Transform>
 	{
 	private:
@@ -104,15 +103,6 @@ namespace cg
 
 
 	private:
-		//Subject
-		mutable std::shared_ptr<Shape> m_observedShape;
-
-		mutable bool m_isAddedSelfToSubject = false;
-		mutable std::function<void()> m_addSelfToSubjectDelay = []() {};
-
-
-
-	private:
 		std::shared_ptr<Transform> m_getLocalRTUpdatedParent() const;
 
 		void m_updateWorldRT() const;
@@ -122,8 +112,6 @@ namespace cg
 		void m_notifyRotationChanged() const;
 		void m_notifyPositionChanged() const;
 		void m_notifyScaleChanged() const;
-	private:
-		void update(cpp::Subject* pSubject) override;
 
 
 
@@ -131,7 +119,6 @@ namespace cg
 
 	public:
 		Transform();
-		Transform(std::shared_ptr<Shape> shape);
 		virtual ~Transform() = default;
 
 		

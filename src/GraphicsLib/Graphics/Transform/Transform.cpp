@@ -85,7 +85,6 @@ namespace cg
 		m_localS = other.m_localS;
 		m_localR = other.m_localR;
 		m_localT = other.m_localT;
-		m_isAddedSelfToSubject = other.m_isAddedSelfToSubject;
 		m_isLocalRTUpdated = other.m_isLocalRTUpdated;
 		m_isLocalRUpdated = other.m_isLocalRUpdated;
 		m_isLocalTUpdated = other.m_isLocalTUpdated;
@@ -233,38 +232,8 @@ namespace cg
 
 
 
-	void Transform::update(cpp::Subject* pSubject)
-	{
-		auto pShape = dynamic_cast<Shape*>(pSubject);
-		if (pShape == nullptr) { return; }
-		m_shapeSize = pShape->getSize();
-		m_isShapeSizeChanged = true;
-	}
-
-
-
-
-
-
-
-
-
-
 	Transform::Transform()
 	{
-	}
-	Transform::Transform(std::shared_ptr<Shape> shape)
-	{
-		if (shape)
-		{
-			m_observedShape = shape;
-			m_addSelfToSubjectDelay = [&]()
-			{
-				addSelfToSubject(m_observedShape.get());
-				m_shapeSize = m_observedShape->getSize();
-			};
-			m_isShapeSizeChanged = true;
-		}
 	}
 
 
@@ -1086,12 +1055,6 @@ namespace cg
 	{
 		if (m_isLocalSUpdated || m_isShapeSizeChanged)
 		{
-			if (m_isAddedSelfToSubject == false)
-			{
-				m_addSelfToSubjectDelay();
-				m_isAddedSelfToSubject = true;
-			}
-
 			DirectX::XMStoreFloat4x4(&m_localS, DirectX::XMMatrixScaling(m_scaleLocal.x*m_shapeSize.x, m_scaleLocal.y*m_shapeSize.y, m_scaleLocal.z*m_shapeSize.z));
 			
 			m_isLocalSUpdated = false;

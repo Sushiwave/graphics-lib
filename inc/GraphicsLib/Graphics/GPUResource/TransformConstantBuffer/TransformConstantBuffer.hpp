@@ -20,11 +20,11 @@ namespace cg
 		{
 		public:
 			template <typename Data_>
-			using DataUpdater = std::function<void(Data_&, const Scene&, const Transform&, const Camera&)>;
+			using DataUpdater = std::function<void(Data_&, const Scene&, const Transform&, const Shape&, const Camera&)>;
 		private:
-			using UBUpdater = std::function<void(const Scene&, const Transform&, const Camera&)>;
+			using UBUpdater = std::function<void(const Scene&, const Transform&, const Shape&, const Camera&)>;
 		private:
-			UBUpdater m_update = [](const Scene&, const Transform&, const Camera&) {};
+			UBUpdater m_update = [](const Scene&, const Transform&, const Shape&, const Camera&) {};
 		private:
 			std::shared_ptr<IDynamicConstantBuffer> m_constantBuffer;
 		public:
@@ -41,9 +41,9 @@ namespace cg
 				m_constantBuffer = API::shared.graphics()->createDynamicConstantBuffer(sizeof(Data_));
 				auto constantBuffer = m_constantBuffer;
 
-				m_update = [=](const Scene& s, const Transform& t, const Camera& c)
+				m_update = [=](const Scene& s, const Transform& t, const Shape& sh, const Camera& c)
 				{
-					dataUpdater(*std::reinterpret_pointer_cast<Data_>(constant_.getP()), s, t, c);
+					dataUpdater(*std::reinterpret_pointer_cast<Data_>(constant_.getP()), s, t, sh, c);
 					constantBuffer->update(constant_);
 				};
 			}
@@ -51,7 +51,7 @@ namespace cg
 			ElementBuffer();
 			virtual ~ElementBuffer();
 
-			void update(const Scene& scene, const Transform& transform, const Camera& camera);
+			void update(const Scene& scene, const Transform& transform, const Shape& shape, const Camera& camera);
 			void set(ShaderStage stage, int unit);
 
 			[[nodiscard]] BoundedBufferLocationList getBoundedBufferLocationList() const override;
@@ -66,7 +66,7 @@ namespace cg
 		TransformConstantBuffer(const BufferDict& bufferForEachShaderStage);
 		virtual ~TransformConstantBuffer() = default;
 
-		void update(const Scene& scene, const Transform& transform, const Camera& camera) const;
+		void update(const Scene& scene, const Transform& transform, const Shape& shape, const Camera& camera) const;
 		void set(ShaderStage stage, int unit) const;
 	};
 }

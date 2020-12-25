@@ -40,22 +40,22 @@ namespace cg
 
 	void Sphere::changeRadius(float x, float y, float z) const noexcept
 	{
-		m_notifySizeChanged(calcSizeFromRadius(x), calcSizeFromRadius(y), calcSizeFromRadius(z));
+		notifySizeChanged(calcSizeFromRadius(x), calcSizeFromRadius(y), calcSizeFromRadius(z));
 	}
 
 	void Sphere::changeRadiusX(float x) const noexcept
 	{
-		m_notifySizeXChanged(calcSizeFromRadius(x));
+		notifySizeXChanged(calcSizeFromRadius(x));
 	}
 
 	void Sphere::changeRadiusY(float y) const noexcept
 	{
-		m_notifySizeYChanged(calcSizeFromRadius(y));
+		notifySizeYChanged(calcSizeFromRadius(y));
 	}
 
 	void Sphere::changeRadiusZ(float z) const noexcept
 	{
-		m_notifySizeZChanged(calcSizeFromRadius(z));
+		notifySizeZChanged(calcSizeFromRadius(z));
 	}
 	cpp::Vector3D<float> Sphere::getRadius() const noexcept
 	{
@@ -63,14 +63,14 @@ namespace cg
 	}
 	float Sphere::getRadiusX() const noexcept
 	{
-		return calcRadiusFromSize(m_getSizeX());
+		return calcRadiusFromSize(getSize().x);
 	}
 	float Sphere::getRadiusY() const noexcept
 	{
-		return calcRadiusFromSize(m_getSizeY());
+		return calcRadiusFromSize(getSize().y);
 	}
 	float Sphere::getRadiusZ() const noexcept
 	{
-		return calcRadiusFromSize(m_getSizeZ());
+		return calcRadiusFromSize(getSize().z);
 	}
 }

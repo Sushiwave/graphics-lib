@@ -15,7 +15,6 @@ namespace cg
 		Transform* const transform;
 	public:
 		Transformable();
-		Transformable(std::shared_ptr<cg::Shape> shape);
 		virtual ~Transformable();
 	};
 }

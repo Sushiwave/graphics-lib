@@ -21,7 +21,7 @@ namespace cg
 
 	void Plane::changeSize(float width, float height) const noexcept
 	{
-		m_notifySizeChanged(width, height, 1.0f);
+		notifySizeChanged(width, height, 1.0f);
 	}
 
 	void Plane::changeSize(const cpp::Vector2D<float>& size) const noexcept
@@ -31,23 +31,24 @@ namespace cg
 
 	void Plane::changeWidth(float width) const noexcept
 	{
-		m_notifySizeXChanged(width);
+		notifySizeXChanged(width);
 	}
 
 	void Plane::changeHeight(float height) const noexcept
 	{
-		m_notifySizeYChanged(height);
+		notifySizeYChanged(height);
 	}
 	cpp::Vector2D<float> Plane::getSizeXY() const noexcept
 	{
-		return cpp::Vector2D<float>(m_getSizeX(), m_getSizeY());
+		const auto size = getSize();
+		return cpp::Vector2D<float>(size.x, size.y);
 	}
 	float Plane::getWidth() const noexcept
 	{
-		return m_getSizeX();
+		return getSize().x;
 	}
 	float Plane::getHeight() const noexcept
 	{
-		return m_getSizeY();
+		return getSize().y;
 	}
 }

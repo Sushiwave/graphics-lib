@@ -23,11 +23,11 @@ namespace cg
 		};
 	}
 
-	void TransformConstantBuffer::update(const Scene& scene, const Transform& transform, const Camera& camera) const
+	void TransformConstantBuffer::update(const Scene& scene, const Transform& transform, const Shape& shape, const Camera& camera) const
 	{
 		for (auto transformBuffer : m_bufferDict)
 		{
-			transformBuffer.second->update(scene, transform, camera);
+			transformBuffer.second->update(scene, transform, shape, camera);
 		}
 	}
 
@@ -50,9 +50,9 @@ namespace cg
 	{
 	}
 
-	void TransformConstantBuffer::ElementBuffer::update(const Scene& scene, const Transform& transform, const Camera& camera)
+	void TransformConstantBuffer::ElementBuffer::update(const Scene& scene, const Transform& transform, const Shape& shape, const Camera& camera)
 	{
-		m_update(scene, transform, camera);
+		m_update(scene, transform, shape, camera);
 	}
 	void TransformConstantBuffer::ElementBuffer::set(ShaderStage stage, int unit)
 	{
