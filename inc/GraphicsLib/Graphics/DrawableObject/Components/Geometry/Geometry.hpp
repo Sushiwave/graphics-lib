@@ -43,28 +43,15 @@ namespace cg
 			PartNameList makePartNameList() const;
 		};
 	private:
-		std::shared_ptr<Shape> m_shape;
+		bool m_empty;
 	public:
-		const Parts parts;
+		std::shared_ptr<Shape> shape;
+		Parts parts;
 	public:
 		Geometry();
 		Geometry(std::shared_ptr<Shape> shape, const Parts parts);
 		virtual ~Geometry() = default;
 
-		template <typename Shape_>
-		void tweakShape(const std::function<void(const Shape_&)>& operation)
-		{
-			operation(*std::dynamic_pointer_cast<Shape_>(m_shape));
-		}
-		template <typename Shape_>
-		[[nodiscard]] Shape_ getShape() const
-		{
-			return *std::dynamic_pointer_cast<Shape_>(m_shape);
-		}
-		template <typename T>
-		[[nodiscard]] std::shared_ptr<T> getShapeP() const
-		{
-			return std::dynamic_pointer_cast<T>(m_shape);
-		}
+		[[nodiscard]] bool empty() const;
 	};
 }

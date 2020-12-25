@@ -726,9 +726,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Material\Material.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\DrawableObject.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1086,7 +1083,10 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">

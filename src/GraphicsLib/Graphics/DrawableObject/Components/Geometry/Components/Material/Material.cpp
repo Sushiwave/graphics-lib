@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/DrawableObject/Components/Material/Material.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Material/Material.hpp>
 
 
 

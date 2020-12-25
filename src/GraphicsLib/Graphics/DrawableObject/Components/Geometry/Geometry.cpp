@@ -1,4 +1,4 @@
-#include "Geometry.hpp"
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Geometry.hpp>
 
 
 
@@ -31,13 +31,19 @@ namespace cg
 		return m_geometryBuffer;
 	}
 	Geometry::Geometry()
-		: parts({ {} })
+		: m_empty(true),
+		  parts({ {} })
 	{
 	}
 	Geometry::Geometry(std::shared_ptr<Shape> shape, const Parts parts)
-		: m_shape(shape),
+		: m_empty(false),
+		  shape(shape),
 		  parts(parts)
 	{
+	}
+	bool Geometry::empty() const
+	{
+		return m_empty;
 	}
 	Geometry::Parts::Parts(const PartDict& partDict)
 		: m_partDict(partDict)

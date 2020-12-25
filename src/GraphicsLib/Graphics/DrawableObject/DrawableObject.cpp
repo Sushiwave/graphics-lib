@@ -7,14 +7,13 @@
 namespace cg
 {
 	DrawableObject::DrawableObject(const std::string& name, const Geometry& geometry)
-		: Transformable(geometry.getShapeP<Shape>()),
-		  m_name(name),
+		: m_name(name),
 		  geometry(geometry)
 	{
 	}
 
 	DrawableObject::DrawableObject(const std::string& name)
-		: m_name(name)
+		: DrawableObject(name, Geometry())
 	{
 	}
 
