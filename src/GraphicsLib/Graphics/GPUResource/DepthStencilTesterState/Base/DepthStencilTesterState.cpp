@@ -46,23 +46,23 @@ namespace cg
 
 	void DepthStencilTesterState::release()
 	{
-		if (GPUStateViewer::view().depthStencilTester.isEmpty) { return; }
+		if (GPUStateViewer::view().depthStencilTesterState.isEmpty) { return; }
 
 #ifdef CONTEXT_D3D11
 		d3d11::Device::getDeviceContext()->OMSetDepthStencilState(nullptr, 0);
 #endif
 
-		GPUStateRecorder::main.depthStencilTesterReleased();
+		GPUStateRecorder::main.depthStencilTesterStateReleased();
 	}
 
 	void DepthStencilTesterState::set() const
 	{
 		auto selfID = getID();
-		if (selfID != GPUStateViewer::view().depthStencilTester.id)
+		if (selfID != GPUStateViewer::view().depthStencilTesterState.id)
 		{
 			m_setCall();
 		}
 
-		GPUStateRecorder::main.depthStencilTesterSet(selfID);
+		GPUStateRecorder::main.depthStencilTesterStateSet(selfID);
 	}
 }

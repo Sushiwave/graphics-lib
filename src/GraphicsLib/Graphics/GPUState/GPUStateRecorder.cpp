@@ -30,41 +30,41 @@ namespace cg
 
 
 
-	void GPUStateRecorder::rasterizerSet(const ID& id) const noexcept
+	void GPUStateRecorder::rasterizerStateSet(const ID& id) const noexcept
 	{
 		for (auto& record : m_records)
 		{
-			auto& state = record.second.rasterizer;
+			auto& state = record.second.rasterizerState;
 			state.isEmpty = false;
 			state.id = id;
 		}
 	}
 
-	void GPUStateRecorder::rasterizerReleased() const noexcept
+	void GPUStateRecorder::rasterizerStateReleased() const noexcept
 	{
 		for (auto& record : m_records)
 		{
-			auto& state = record.second.rasterizer;
+			auto& state = record.second.rasterizerState;
 			state.isEmpty = true;
 			state.id = ID();
 		}
 	}
 
-	void GPUStateRecorder::depthStencilTesterSet(const ID& id) const noexcept
+	void GPUStateRecorder::depthStencilTesterStateSet(const ID& id) const noexcept
 	{
 		for (auto& record : m_records)
 		{
-			auto& state = record.second.depthStencilTester;
+			auto& state = record.second.depthStencilTesterState;
 			state.isEmpty = false;
 			state.id = id;
 		}
 	}
 
-	void GPUStateRecorder::depthStencilTesterReleased() const noexcept
+	void GPUStateRecorder::depthStencilTesterStateReleased() const noexcept
 	{
 		for (auto& record : m_records)
 		{
-			auto& state = record.second.depthStencilTester;
+			auto& state = record.second.depthStencilTesterState;
 			state.isEmpty = true;
 			state.id = ID();
 		}

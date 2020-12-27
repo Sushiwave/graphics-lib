@@ -85,9 +85,9 @@ namespace cg
 		MainGPUStateRecorder::createNewRecordingThread(recordingThreadName);
 
 
-		if (m_rasterizer)         { m_rasterizer->set();         }
-		if (m_alphaBlender)       { m_alphaBlender->set();       }
-		if (m_depthStencilTester) { m_depthStencilTester->set(); }
+		if (m_rasterizerState)         { m_rasterizerState->set();         }
+		if (m_alphaBlendState)       { m_alphaBlendState->set();       }
+		if (m_depthStencilTesterState) { m_depthStencilTesterState->set(); }
 		for (auto pair : m_dictOfShadersSetInPipeline)
 		{
 			const auto shader = pair.second;
@@ -182,11 +182,11 @@ namespace cg
 	}
 	std::shared_ptr<IRasterizerState> RasterizationBasedRenderPipeline::accessToRasterizerState() const
 	{
-		return m_rasterizer;
+		return m_rasterizerState;
 	}
 	std::shared_ptr<IAlphaBlendState> RasterizationBasedRenderPipeline::accessToAlphaBlendState() const
 	{
-		return m_alphaBlender;
+		return m_alphaBlendState;
 	}
 	RasterizationBasedRenderPipeline::ShaderDict RasterizationBasedRenderPipeline::getDictOfShadersSetInPipeline() const
 	{
@@ -197,9 +197,9 @@ namespace cg
 		static const std::string recordingThreadName = ID().get();
 		MainGPUStateRecorder::createNewRecordingThread(recordingThreadName);
 
-		if (m_rasterizer)         { m_rasterizer->set();         }
-		if (m_alphaBlender)       { m_alphaBlender->set();       }
-		if (m_depthStencilTester) { m_depthStencilTester->set(); }
+		if (m_rasterizerState)         { m_rasterizerState->set();         }
+		if (m_alphaBlendState)       { m_alphaBlendState->set();       }
+		if (m_depthStencilTesterState) { m_depthStencilTesterState->set(); }
 		for (auto pair : m_dictOfShadersSetInPipeline)
 		{
 			const auto shader = pair.second;
@@ -214,17 +214,17 @@ namespace cg
 
 		additionalDrawCall();
 	}
-	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTesterState> depthStencilTester, std::shared_ptr<IRasterizerState> rasterizer, std::shared_ptr<IAlphaBlendState> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
+	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTesterState> depthStencilTesterState, std::shared_ptr<IRasterizerState> rasterizerState, std::shared_ptr<IAlphaBlendState> alphaBlendState, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
 		: RenderPipeline(name),
 		  m_targetRenderingGroupNameList(targetRenderingGroupNameList),
 		  m_dictOfShadersSetInPipeline(shaders),
 		  m_materialConstantBuffer(materialConstantBuffer),
 		  m_transformConstantBuffer(transformConstantBuffer),
 		  m_lightConstantBuffer(lightConstantBuffer),
-		  m_depthStencilTester(depthStencilTester),
+		  m_depthStencilTesterState(depthStencilTesterState),
 		  m_depthStencilBuffer(depthStencilBuffer),
-		  m_rasterizer(rasterizer),
-		  m_alphaBlender(alphaBlender)
+		  m_rasterizerState(rasterizerState),
+		  m_alphaBlendState(alphaBlendState)
 	{
 	}
 }
