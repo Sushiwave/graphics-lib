@@ -18,9 +18,6 @@
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\GeometryBuffer\D3D11\D3D11GeometryBuffer.hpp">
       <Filter>src</Filter>
     </ClInclude>
@@ -432,15 +429,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\IGPUResource.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Components\ComparisonFunction.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\DepthStencilTester.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\IDepthStencilTester.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -694,6 +682,18 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\AlphaBlendDescriptor.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\Components\ComparisonFunction.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\DepthStencilTesterState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\IDepthStencilTesterState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">
@@ -739,12 +739,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Base\DepthStencilTester.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.cpp">
@@ -1085,6 +1079,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\D3D11\D3D11AlphaBlendState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\Base\DepthStencilTesterState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

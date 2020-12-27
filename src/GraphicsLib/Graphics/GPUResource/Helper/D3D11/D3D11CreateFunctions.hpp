@@ -9,7 +9,7 @@
 #include <Graphics/GPUResource/ShaderResource/Buffer/Components/D3D11/RawBuffer/Components/RawBufferType.hpp>
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Components/RawTexture/Components/D3D11RawTexture2DType.hpp>
 #include <Graphics/GPUResource/ShaderResource/Texture/Components/D3D/D3DTexturePrecision.hpp>
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/Components/ComparisonFunction.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/Components/ComparisonFunction.hpp>
 
 #include <assert.h>
 #include <d3d11.h>

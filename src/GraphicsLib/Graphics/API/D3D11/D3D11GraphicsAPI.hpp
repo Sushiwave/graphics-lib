@@ -31,7 +31,7 @@ namespace cg
 
 			[[nodiscard]] std::shared_ptr<IAlphaBlendState> createAlphaBlendState(const AlphaBlendDescriptor& descriptor) override;
 
-			[[nodiscard]] std::shared_ptr<IDepthStencilTester> createDepthStencilTester(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled) override;
+			[[nodiscard]] std::shared_ptr<IDepthStencilTesterState> createDepthStencilTesterState(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled) override;
 
 			[[nodiscard]] std::shared_ptr<IDynamicTexture2D>   createDynamicTexture2D(const std::string& filename);
 			[[nodiscard]] std::shared_ptr<IDefaultTexture2D>   createDefaultTexture2D(const std::string& filename);

@@ -6,7 +6,7 @@
 #include <Graphics/GPUResource/MultipleRenderTargets/D3D11/D3D11MultipleRenderTargets.hpp>
 
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Base/D3D11Texture2D.hpp>
-#include <Graphics/GPUResource/DepthStencilTester/D3D11/D3D11DepthStencilTester.hpp>
+#include <Graphics/GPUResource/DepthStencilTesterState/D3D11/D3D11DepthStencilTesterState.hpp>
 #include <Graphics/GPUResource/RasterizerState/D3D11/D3D11RasterizerState.hpp>
 #include <Graphics/GPUResource/AlphaBlendState/D3D11/D3D11AlphaBlendState.hpp>
 
@@ -102,9 +102,9 @@ namespace cg
 			return std::make_shared<AlphaBlendState>(descriptor);
 		}
 
-		std::shared_ptr<IDepthStencilTester> GraphicsAPI::createDepthStencilTester(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
+		std::shared_ptr<IDepthStencilTesterState> GraphicsAPI::createDepthStencilTesterState(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
 		{
-			return std::make_shared<DepthStencilTester>(depthFunction, stencilFunction, isDepthTestEnabled, isStencilTestEnabled, isDepthBufferWritingOperationEnabled);
+			return std::make_shared<DepthStencilTesterState>(depthFunction, stencilFunction, isDepthTestEnabled, isStencilTestEnabled, isDepthBufferWritingOperationEnabled);
 		}
 
 		std::shared_ptr<IDynamicTexture2D> GraphicsAPI::createDynamicTexture2D(const std::string& filename)

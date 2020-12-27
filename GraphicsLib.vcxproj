@@ -193,9 +193,9 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\IGPUResource.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\DepthStencilBuffer.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\IDepthStencilBuffer.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Components\ComparisonFunction.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\DepthStencilTester.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\IDepthStencilTester.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\Components\ComparisonFunction.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\DepthStencilTesterState.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\IDepthStencilTesterState.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\GeometryBuffer\IGeometryBuffer.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\IndexBuffer\IIndexBuffer.hpp" />
@@ -338,7 +338,7 @@
     <ClInclude Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\D3D11\D3D11AlphaBlendState.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.hpp" />
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.hpp" />
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\GeometryBuffer\D3D11\D3D11GeometryBuffer.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Helper\D3D11\D3D11CreateFunctions.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.hpp" />
@@ -422,8 +422,8 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Base\Components\BoundedBufferLocation.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Base\GPUResource.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Base\DepthStencilTester.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\Base\DepthStencilTesterState.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\GeometryBuffer\D3D11\D3D11GeometryBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Helper\D3D11\D3D11CreateFunctions.cpp" />

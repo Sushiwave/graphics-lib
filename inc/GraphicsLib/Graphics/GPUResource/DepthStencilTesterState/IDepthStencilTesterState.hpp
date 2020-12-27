@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/Graphics/GPUResource/Base/IGPUResource.hpp>
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/Components/ComparisonFunction.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/Components/ComparisonFunction.hpp>
 
 
 
@@ -8,7 +8,7 @@
 
 namespace cg
 {
-	class IDepthStencilTester
+	class IDepthStencilTesterState
 		: public virtual IGPUResource
 	{
 	public:

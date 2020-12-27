@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/DepthStencilTester.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/DepthStencilTesterState.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateViewer.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateRecorder.hpp>
@@ -9,7 +9,7 @@
 
 namespace cg
 {
-	DepthStencilTester::DepthStencilTester(const SetCall& setCall, ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
+	DepthStencilTesterState::DepthStencilTesterState(const SetCall& setCall, ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
 		: m_depthFunction(depthFunction),
 		  m_stencilFunction(stencilFunction),
 		  m_isDepthTestEnabled(isDepthTestEnabled),
@@ -19,32 +19,32 @@ namespace cg
 	{
 	}
 
-	ComparisonFunction DepthStencilTester::getDepthFunction() const noexcept
+	ComparisonFunction DepthStencilTesterState::getDepthFunction() const noexcept
 	{
 		return m_depthFunction;
 	}
 
-	ComparisonFunction DepthStencilTester::getStencilFunction() const noexcept
+	ComparisonFunction DepthStencilTesterState::getStencilFunction() const noexcept
 	{
 		return m_stencilFunction;
 	}
 
-	bool DepthStencilTester::isDepthTestEnabled() const noexcept
+	bool DepthStencilTesterState::isDepthTestEnabled() const noexcept
 	{
 		return m_isDepthTestEnabled;
 	}
 
-	bool DepthStencilTester::isStencilTestEnabled() const noexcept
+	bool DepthStencilTesterState::isStencilTestEnabled() const noexcept
 	{
 		return m_isStencilTestEnabled;
 	}
 
-	bool DepthStencilTester::isDepthBufferWritingOperationEnabled() const noexcept
+	bool DepthStencilTesterState::isDepthBufferWritingOperationEnabled() const noexcept
 	{
 		return m_isDepthBufferWritingOperationEnabled;
 	}
 
-	void DepthStencilTester::release()
+	void DepthStencilTesterState::release()
 	{
 		if (GPUStateViewer::view().depthStencilTester.isEmpty) { return; }
 
@@ -55,7 +55,7 @@ namespace cg
 		GPUStateRecorder::main.depthStencilTesterReleased();
 	}
 
-	void DepthStencilTester::set() const
+	void DepthStencilTesterState::set() const
 	{
 		auto selfID = getID();
 		if (selfID != GPUStateViewer::view().depthStencilTester.id)

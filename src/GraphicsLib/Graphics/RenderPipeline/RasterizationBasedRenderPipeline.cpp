@@ -2,7 +2,7 @@
 #include <GraphicsLib/Graphics/RenderPipeline/RasterizationBasedRenderPipeline.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RasterizerState/RasterizerState.hpp>
 #include <GraphicsLib/Graphics/GPUResource/AlphaBlendState/AlphaBlendState.hpp>
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/DepthStencilTester.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/DepthStencilTesterState.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RenderTarget/RenderTarget.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Shader/Base/Shader.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateViewer.hpp>
@@ -214,7 +214,7 @@ namespace cg
 
 		additionalDrawCall();
 	}
-	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, std::shared_ptr<IRasterizerState> rasterizer, std::shared_ptr<IAlphaBlendState> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
+	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTesterState> depthStencilTester, std::shared_ptr<IRasterizerState> rasterizer, std::shared_ptr<IAlphaBlendState> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
 		: RenderPipeline(name),
 		  m_targetRenderingGroupNameList(targetRenderingGroupNameList),
 		  m_dictOfShadersSetInPipeline(shaders),

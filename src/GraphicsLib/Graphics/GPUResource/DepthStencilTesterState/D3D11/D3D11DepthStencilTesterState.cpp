@@ -1,4 +1,4 @@
-#include <Graphics/GPUResource/DepthStencilTester/D3D11/D3D11DepthStencilTester.hpp>
+#include <Graphics/GPUResource/DepthStencilTesterState/D3D11/D3D11DepthStencilTesterState.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <Graphics/GPUResource/Helper/D3D11/D3D11CreateFunctions.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateRecorder.hpp>
@@ -14,8 +14,8 @@ namespace cg
 {
 	namespace d3d11
 	{
-		DepthStencilTester::DepthStencilTester(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
-			: cg::DepthStencilTester(
+		DepthStencilTesterState::DepthStencilTesterState(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
+			: cg::DepthStencilTesterState(
 				[&]()
 				{
 					Device::getDeviceContext()->OMSetDepthStencilState(m_depthStencilState.Get(), 0);

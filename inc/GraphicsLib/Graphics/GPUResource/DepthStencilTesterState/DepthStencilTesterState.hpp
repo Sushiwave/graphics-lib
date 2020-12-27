@@ -1,5 +1,5 @@
 #pragma once
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/IDepthStencilTester.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/IDepthStencilTesterState.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Base/GPUResource.hpp>
 
 #include <functional>
@@ -10,9 +10,9 @@
 
 namespace cg
 {
-	class DepthStencilTester
+	class DepthStencilTesterState
 		: public GPUResource,
-		  public IDepthStencilTester
+		  public IDepthStencilTesterState
 	{
 	public:
 		using SetCall = std::function<void()>;
@@ -27,8 +27,8 @@ namespace cg
 
 		SetCall m_setCall;
 	public:
-		DepthStencilTester(const SetCall& setCall, ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled);
-		virtual ~DepthStencilTester() = default;
+		DepthStencilTesterState(const SetCall& setCall, ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled);
+		virtual ~DepthStencilTesterState() = default;
 
 		[[nodiscard]] ComparisonFunction getDepthFunction() const noexcept override;
 		[[nodiscard]] ComparisonFunction getStencilFunction() const noexcept override;

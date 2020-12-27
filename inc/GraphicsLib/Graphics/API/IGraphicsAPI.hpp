@@ -11,7 +11,7 @@
 #include <GraphicsLib/Graphics/GPUResource/Shader/Components/ShaderStage.hpp>
 
 #include <GraphicsLib/Graphics/GPUResource/DepthStencilBuffer/IDepthStencilBuffer.hpp>
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/IDepthStencilTester.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/IDepthStencilTesterState.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RenderTarget/IRenderTarget.hpp>
 #include <GraphicsLib/Graphics/GPUResource/MultipleRenderTargets/IMultipleRenderTargets.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RasterizerState/IRasterizerState.hpp>
@@ -61,7 +61,7 @@ namespace cg
 
 		[[nodiscard]] virtual std::shared_ptr<IAlphaBlendState> createAlphaBlendState(const AlphaBlendDescriptor& descriptor = AlphaBlendDescriptor()) = 0;
 
-		[[nodiscard]] virtual std::shared_ptr<IDepthStencilTester> createDepthStencilTester(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IDepthStencilTesterState> createDepthStencilTesterState(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IDynamicTexture2D>   createDynamicTexture2D(const std::string& filename) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IDefaultTexture2D>   createDefaultTexture2D(const std::string& filename) = 0;
