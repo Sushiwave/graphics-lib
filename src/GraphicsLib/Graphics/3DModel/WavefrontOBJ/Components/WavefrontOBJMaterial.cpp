@@ -1,5 +1,5 @@
 #include <GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJMaterial.hpp>
-#include <GraphicsLib\Graphics\DrawableObject\Components\Material\Material.hpp>
+#include <GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.hpp>
 
 
 
