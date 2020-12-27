@@ -1,6 +1,6 @@
 
 #include <GraphicsLib/Graphics/RenderPipeline/RasterizationBasedRenderPipeline.hpp>
-#include <GraphicsLib/Graphics/GPUResource/Rasterizer/Rasterizer.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RasterizerState/RasterizerState.hpp>
 #include <GraphicsLib/Graphics/GPUResource/AlphaBlender/AlphaBlender.hpp>
 #include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/DepthStencilTester.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RenderTarget/RenderTarget.hpp>
@@ -180,7 +180,7 @@ namespace cg
 	{
 		return m_depthStencilBuffer;
 	}
-	std::shared_ptr<IRasterizer> RasterizationBasedRenderPipeline::accessToRasterizer() const
+	std::shared_ptr<IRasterizerState> RasterizationBasedRenderPipeline::accessToRasterizerState() const
 	{
 		return m_rasterizer;
 	}
@@ -214,7 +214,7 @@ namespace cg
 
 		additionalDrawCall();
 	}
-	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, std::shared_ptr<IRasterizer> rasterizer, std::shared_ptr<IAlphaBlender> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
+	RasterizationBasedRenderPipeline::RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTester> depthStencilTester, std::shared_ptr<IRasterizerState> rasterizer, std::shared_ptr<IAlphaBlender> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept
 		: RenderPipeline(name),
 		  m_targetRenderingGroupNameList(targetRenderingGroupNameList),
 		  m_dictOfShadersSetInPipeline(shaders),

@@ -4,7 +4,7 @@
 #include <GraphicsLib/ID/ID.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/TextureSampler/Components/TextureSamplerDescriptor.hpp>
-#include <GraphicsLib/Graphics/GPUResource/Rasterizer/Components/CullMode.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RasterizerState/Components/CullMode.hpp>
 #include <GraphicsLib/Graphics/GPUResource/AlphaBlender/Components/AlphaBlenderDescriptor.hpp>
 #include <Graphics/GPUResource/ShaderResource/Buffer/Components/D3D11/RawBuffer/Components/RawBufferType.hpp>
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Components/RawTexture/Components/D3D11RawTexture2DType.hpp>

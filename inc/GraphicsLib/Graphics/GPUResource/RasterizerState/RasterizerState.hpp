@@ -1,5 +1,5 @@
 #pragma once
-#include <GraphicsLib/Graphics/GPUResource/Rasterizer/IRasterizer.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RasterizerState/IRasterizerState.hpp>
 #include <GraphicsLib/ID/ID.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Base/GPUResource.hpp>
 
@@ -11,17 +11,17 @@
 
 namespace cg
 {
-	class Rasterizer
+	class RasterizerState
 		: public GPUResource,
-		  public IRasterizer
+		  public IRasterizerState
 	{
 	public:
 		using SetCall = std::function<void()>;
 	private:
 		SetCall m_setCall;
 	public:
-		Rasterizer(const SetCall& setCall);
-		virtual ~Rasterizer() = default;
+		RasterizerState(const SetCall& setCall);
+		virtual ~RasterizerState() = default;
 
 		void set() override;
 		static void release();

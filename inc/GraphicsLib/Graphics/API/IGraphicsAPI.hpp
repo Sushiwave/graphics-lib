@@ -4,7 +4,7 @@
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/TextureSampler/Components/TextureSamplerDescriptor.hpp>
 
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Texture/Texture2D/Components/TextureFormat.hpp>
-#include <GraphicsLib/Graphics/GPUResource/Rasterizer/Components/CullMode.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RasterizerState/Components/CullMode.hpp>
 
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/CPUAccessType.hpp>
 
@@ -14,7 +14,7 @@
 #include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/IDepthStencilTester.hpp>
 #include <GraphicsLib/Graphics/GPUResource/RenderTarget/IRenderTarget.hpp>
 #include <GraphicsLib/Graphics/GPUResource/MultipleRenderTargets/IMultipleRenderTargets.hpp>
-#include <GraphicsLib/Graphics/GPUResource/Rasterizer/IRasterizer.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RasterizerState/IRasterizerState.hpp>
 #include <GraphicsLib/Graphics/GPUResource/AlphaBlender/IAlphaBlender.hpp>
 
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Texture/Texture2D/IDynamicTexture2D.hpp>
@@ -57,7 +57,7 @@ namespace cg
 		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(int width, int height, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) = 0;
 		[[nodiscard]] virtual std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) = 0;
 
-		[[nodiscard]] virtual std::shared_ptr<IRasterizer> createRasterizer(CullMode cullMode = CullMode::none, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) = 0;
+		[[nodiscard]] virtual std::shared_ptr<IRasterizerState> createRasterizerState(CullMode cullMode = CullMode::none, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) = 0;
 
 		[[nodiscard]] virtual std::shared_ptr<IAlphaBlender> createAlphaBlender(const AlphaBlenderDescriptor& descriptor = AlphaBlenderDescriptor()) = 0;
 

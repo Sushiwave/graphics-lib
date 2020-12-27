@@ -203,9 +203,9 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MaterialConstantBuffer\MaterialConstantBuffer.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\IMultipleRenderTargets.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\MultipleRenderTargets.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Components\CullMode.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\IRasterizer.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Rasterizer.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\Components\CullMode.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\IRasterizerState.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\RasterizerState.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\IRenderTarget.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\RenderTarget.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\Components\ShaderResourceBufferLocation.hpp" />
@@ -343,7 +343,7 @@
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Helper\D3D11\D3D11CreateFunctions.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\D3D11\D3D11MultipleRenderTargets.hpp" />
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.hpp" />
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\D3D11\D3D11RenderTarget.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11ConstantBufferView.hpp" />
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\D3D11\D3D11ShaderResourceView.hpp" />
@@ -431,8 +431,8 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MaterialConstantBuffer\MaterialConstantBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\Base\MultipleRenderTargets.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\MultipleRenderTargets\D3D11\D3D11MultipleRenderTargets.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\Base\Rasterizer.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\Base\RasterizerState.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\Base\RenderTarget.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\D3D11\D3D11RenderTarget.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\ShaderResourceMemoryAccessor\Base\ShaderResourceMemoryAccessor.cpp" />

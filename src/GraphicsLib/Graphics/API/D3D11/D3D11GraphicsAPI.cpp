@@ -7,7 +7,7 @@
 
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Base/D3D11Texture2D.hpp>
 #include <Graphics/GPUResource/DepthStencilTester/D3D11/D3D11DepthStencilTester.hpp>
-#include <Graphics/GPUResource/Rasterizer/D3D11/D3D11Rasterizer.hpp>
+#include <Graphics/GPUResource/RasterizerState/D3D11/D3D11RasterizerState.hpp>
 #include <Graphics/GPUResource/AlphaBlender/D3D11/D3D11AlphaBlender.hpp>
 
 #include <Graphics/GPUResource/Shader/D3D11/PixelShader/D3D11PixelShader.hpp>
@@ -92,9 +92,9 @@ namespace cg
 			return createMultipleRenderTargets(size.x, size.y, renderTargetFormatList, sampleCount);
 		}
 
-		std::shared_ptr<IRasterizer> GraphicsAPI::createRasterizer(CullMode cullMode, bool isWireFrameMode, bool multisampleEnable, bool antialiassedLineEnable, bool frontCounterClockwise, bool depthClipEnable, bool scissorEnable)
+		std::shared_ptr<IRasterizerState> GraphicsAPI::createRasterizerState(CullMode cullMode, bool isWireFrameMode, bool multisampleEnable, bool antialiassedLineEnable, bool frontCounterClockwise, bool depthClipEnable, bool scissorEnable)
 		{
-			return std::make_shared<Rasterizer>(cullMode, isWireFrameMode, multisampleEnable, antialiassedLineEnable, frontCounterClockwise, depthClipEnable, scissorEnable);
+			return std::make_shared<RasterizerState>(cullMode, isWireFrameMode, multisampleEnable, antialiassedLineEnable, frontCounterClockwise, depthClipEnable, scissorEnable);
 		}
 
 		std::shared_ptr<IAlphaBlender> GraphicsAPI::createAlphaBlender(const AlphaBlenderDescriptor& descriptor)

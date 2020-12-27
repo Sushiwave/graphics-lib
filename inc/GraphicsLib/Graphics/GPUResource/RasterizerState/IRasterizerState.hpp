@@ -7,7 +7,7 @@
 
 namespace cg
 {
-	class IRasterizer
+	class IRasterizerState
 		: public virtual IGPUResource
 	{
 	public:

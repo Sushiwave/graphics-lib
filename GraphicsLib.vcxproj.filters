@@ -33,9 +33,6 @@
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\D3D11\D3D11RenderTarget.hpp">
       <Filter>src</Filter>
     </ClInclude>
@@ -513,15 +510,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\VertexShader\IVertexShader.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Components\CullMode.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\IRasterizer.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Rasterizer.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Base\IShaderResource.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -694,6 +682,18 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\Components\CullMode.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\IRasterizerState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\RasterizerState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">
@@ -766,12 +766,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\Base\Rasterizer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\Base\RenderTarget.cpp">
@@ -1087,6 +1081,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\Base\RasterizerState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">
