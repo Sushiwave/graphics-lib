@@ -1,5 +1,5 @@
 #pragma once
-#include <GraphicsLib/Graphics/GPUResource/AlphaBlender/IAlphaBlender.hpp>
+#include <GraphicsLib/Graphics/GPUResource/AlphaBlendState/IAlphaBlendState.hpp>
 #include <GraphicsLib/ID/ID.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Base/GPUResource.hpp>
 
@@ -11,17 +11,17 @@
 
 namespace cg
 {
-	class AlphaBlender
+	class AlphaBlendState
 		: public GPUResource,
-		  public IAlphaBlender
+		  public IAlphaBlendState
 	{
 	public:
 		using SetCall = std::function<void()>;
 	private:
 		SetCall m_setCall;
 	public:
-		AlphaBlender(const SetCall& setCall);
-		virtual ~AlphaBlender() = default;
+		AlphaBlendState(const SetCall& setCall);
+		virtual ~AlphaBlendState() = default;
 
 		static void release();
 

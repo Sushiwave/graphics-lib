@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/GPUResource/AlphaBlender/AlphaBlender.hpp>
+#include <GraphicsLib/Graphics/GPUResource/AlphaBlendState/AlphaBlendState.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateViewer.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateRecorder.hpp>
@@ -9,12 +9,12 @@
 
 namespace cg
 {
-	AlphaBlender::AlphaBlender(const SetCall& setCall)
+	AlphaBlendState::AlphaBlendState(const SetCall& setCall)
 		: m_setCall(setCall)
 	{
 	}
 
-	void AlphaBlender::release()
+	void AlphaBlendState::release()
 	{
 		if (GPUStateViewer::view().blender.isEmpty) { return; }
 
@@ -25,7 +25,7 @@ namespace cg
 		GPUStateRecorder::main.blenderReleased();
 	}
 
-	void AlphaBlender::set()
+	void AlphaBlendState::set()
 	{
 		auto selfID = getID();
 		if (selfID != GPUStateViewer::view().blender.id)

@@ -7,7 +7,7 @@
 
 namespace cg
 {
-	class IAlphaBlender
+	class IAlphaBlendState
 		: public virtual IGPUResource
 	{
 	public:

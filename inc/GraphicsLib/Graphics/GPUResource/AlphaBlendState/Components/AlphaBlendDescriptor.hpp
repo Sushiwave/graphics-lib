@@ -12,7 +12,7 @@
 
 namespace cg
 {
-	class AlphaBlenderDescriptorPerRenderTarget
+	class AlphaBlendDescriptorPerRenderTarget
 	{
 	public:
 		bool isEnabled;
@@ -24,19 +24,19 @@ namespace cg
 		BlendOperator blendAlphaOperator;
 		BlendFactor   blendFactor;
 	public:
-		AlphaBlenderDescriptorPerRenderTarget(bool isEnabled = false) noexcept;
-		virtual ~AlphaBlenderDescriptorPerRenderTarget() = default;
+		AlphaBlendDescriptorPerRenderTarget(bool isEnabled = false) noexcept;
+		virtual ~AlphaBlendDescriptorPerRenderTarget() = default;
 	};
-	class AlphaBlenderDescriptor
+	class AlphaBlendDescriptor
 	{
 	private:
-		using Elements = std::unordered_map<int, AlphaBlenderDescriptorPerRenderTarget>;
+		using Elements = std::unordered_map<int, AlphaBlendDescriptorPerRenderTarget>;
 	private:
 		Elements m_elements;
 		cpp::Vector4D<float> m_blendFactor;
 	public:
-		AlphaBlenderDescriptor() noexcept;
-		virtual ~AlphaBlenderDescriptor() = default;
+		AlphaBlendDescriptor() noexcept;
+		virtual ~AlphaBlendDescriptor() = default;
 
 		void enableBlending(int renderTargetIndex, bool isEnabled);
 		void setSrcBlendFactor(int renderTargetIndex, BlendFactor fact);
@@ -47,7 +47,7 @@ namespace cg
 		void setBlendAlphaOperator(int renderTargetIndex, BlendOperator op);
 		void setBlendFactor(cpp::Vector4D<float> blendFactor) noexcept;
 
-		[[nodiscard]] AlphaBlenderDescriptorPerRenderTarget getElement(int renderTargetIndex) const;
+		[[nodiscard]] AlphaBlendDescriptorPerRenderTarget getElement(int renderTargetIndex) const;
 		[[nodiscard]] cpp::Vector4D<float> getBlendFactor() const  noexcept;
 	};
 }

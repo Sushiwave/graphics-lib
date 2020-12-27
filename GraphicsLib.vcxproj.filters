@@ -15,9 +15,6 @@
     <ClInclude Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\D3D11\D3D11AlphaBlender.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.hpp">
       <Filter>src</Filter>
     </ClInclude>
@@ -429,21 +426,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\AlphaBlender.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\AlphaBlenderDescriptor.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\BlendFactor.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\BlendOperator.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\IAlphaBlender.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\GPUResource.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -694,6 +676,24 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\RasterizerState.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\D3D11\D3D11AlphaBlendState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\BlendFactor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\BlendOperator.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\AlphaBlendState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\IAlphaBlendState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\AlphaBlendDescriptor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">
@@ -730,15 +730,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Base\AlphaBlender.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\AlphaBlenderDescriptor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\D3D11\D3D11AlphaBlender.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Base\Components\BoundedBufferLocation.cpp">
@@ -1085,6 +1076,15 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Base\AlphaBlendState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\AlphaBlendDescriptor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\D3D11\D3D11AlphaBlendState.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

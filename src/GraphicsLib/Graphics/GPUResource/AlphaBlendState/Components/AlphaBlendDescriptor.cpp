@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/GPUResource/AlphaBlender/Components/AlphaBlenderDescriptor.hpp>
+#include <GraphicsLib/Graphics/GPUResource/AlphaBlendState/Components/AlphaBlendDescriptor.hpp>
 #include <ThirdParty/CPPLib/Assert/Assert.hpp>
 
 
@@ -6,7 +6,7 @@
 
 namespace cg
 {
-	AlphaBlenderDescriptorPerRenderTarget::AlphaBlenderDescriptorPerRenderTarget(bool isEnabled) noexcept
+	AlphaBlendDescriptorPerRenderTarget::AlphaBlendDescriptorPerRenderTarget(bool isEnabled) noexcept
 	{
 		this->isEnabled = isEnabled;
 
@@ -22,14 +22,14 @@ namespace cg
 
 
 
-	AlphaBlenderDescriptor::AlphaBlenderDescriptor() noexcept
+	AlphaBlendDescriptor::AlphaBlendDescriptor() noexcept
 	{
 		m_blendFactor = cpp::Vector4D<float>(0.0f, 0.0f, 0.0f, 0.0f);
 
-		m_elements.emplace(0, AlphaBlenderDescriptorPerRenderTarget(true));
+		m_elements.emplace(0, AlphaBlendDescriptorPerRenderTarget(true));
 		for (int i = 1; i < D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT; ++i)
 		{
-			m_elements.emplace(i, AlphaBlenderDescriptorPerRenderTarget());
+			m_elements.emplace(i, AlphaBlendDescriptorPerRenderTarget());
 		}
 	}
 
@@ -38,51 +38,51 @@ namespace cg
 	{ 
 		Assert(0 <= renderTargetIndex && renderTargetIndex < D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT, "The renderTargetIndex must be between 0 adn %d", D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT);
 	};
-	void AlphaBlenderDescriptor::enableBlending(int renderTargetIndex, bool isEnabled)
+	void AlphaBlendDescriptor::enableBlending(int renderTargetIndex, bool isEnabled)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).isEnabled = isEnabled;
 	}
-	void AlphaBlenderDescriptor::setSrcBlendFactor(int renderTargetIndex, BlendFactor factor)
+	void AlphaBlendDescriptor::setSrcBlendFactor(int renderTargetIndex, BlendFactor factor)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).srcBlendFactor = factor;
 	}
-	void AlphaBlenderDescriptor::setDestBlendFactor(int renderTargetIndex, BlendFactor factor)
+	void AlphaBlendDescriptor::setDestBlendFactor(int renderTargetIndex, BlendFactor factor)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).destBlendFactor = factor;
 	}
-	void AlphaBlenderDescriptor::setBlendOperator(int renderTargetIndex, BlendOperator op)
+	void AlphaBlendDescriptor::setBlendOperator(int renderTargetIndex, BlendOperator op)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).blendOperator = op;
 	}
-	void AlphaBlenderDescriptor::setSrcBlendAlphaFactor(int renderTargetIndex, BlendFactor factor)
+	void AlphaBlendDescriptor::setSrcBlendAlphaFactor(int renderTargetIndex, BlendFactor factor)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).srcBlendAlphaFactor = factor;
 	}
-	void AlphaBlenderDescriptor::setDestBlendAlphaFactor(int renderTargetIndex, BlendFactor factor)
+	void AlphaBlendDescriptor::setDestBlendAlphaFactor(int renderTargetIndex, BlendFactor factor)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).destBlendAlphaFactor = factor;
 	}
-	void AlphaBlenderDescriptor::setBlendAlphaOperator(int renderTargetIndex, BlendOperator op)
+	void AlphaBlendDescriptor::setBlendAlphaOperator(int renderTargetIndex, BlendOperator op)
 	{
 		assert_(renderTargetIndex);
 		m_elements.at(renderTargetIndex).blendAlphaOperator = op;
 	}
-	void AlphaBlenderDescriptor::setBlendFactor(cpp::Vector4D<float> blendFactor) noexcept
+	void AlphaBlendDescriptor::setBlendFactor(cpp::Vector4D<float> blendFactor) noexcept
 	{
 		m_blendFactor = blendFactor;
 	}
-	AlphaBlenderDescriptorPerRenderTarget AlphaBlenderDescriptor::getElement(int renderTargetIndex) const
+	AlphaBlendDescriptorPerRenderTarget AlphaBlendDescriptor::getElement(int renderTargetIndex) const
 	{
 		assert_(renderTargetIndex);
 		return m_elements.at(renderTargetIndex);
 	}
-	cpp::Vector4D<float> AlphaBlenderDescriptor::getBlendFactor() const noexcept
+	cpp::Vector4D<float> AlphaBlendDescriptor::getBlendFactor() const noexcept
 	{
 		return m_blendFactor;
 	}

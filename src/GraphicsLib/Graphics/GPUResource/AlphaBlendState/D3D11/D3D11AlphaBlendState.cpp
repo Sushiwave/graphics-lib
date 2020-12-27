@@ -1,4 +1,4 @@
-#include <Graphics/GPUResource/AlphaBlender/D3D11/D3D11AlphaBlender.hpp>
+#include <Graphics/GPUResource/AlphaBlendState/D3D11/D3D11AlphaBlendState.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateRecorder.hpp>
 #include <Graphics/GPUResource/Helper/D3D11/D3D11CreateFunctions.hpp>
@@ -12,8 +12,8 @@ namespace cg
 {
 	namespace d3d11
 	{
-		AlphaBlender::AlphaBlender(const AlphaBlenderDescriptor& descriptor)
-			: cg::AlphaBlender(
+		AlphaBlendState::AlphaBlendState(const AlphaBlendDescriptor& descriptor)
+			: cg::AlphaBlendState(
 			  [&]()
 			  {
 				  Device::getDeviceContext()->OMSetBlendState(m_blendState.Get(), m_blendFactor, 0xffffffff);

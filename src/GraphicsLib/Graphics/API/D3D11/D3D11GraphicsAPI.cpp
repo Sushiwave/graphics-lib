@@ -8,7 +8,7 @@
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Base/D3D11Texture2D.hpp>
 #include <Graphics/GPUResource/DepthStencilTester/D3D11/D3D11DepthStencilTester.hpp>
 #include <Graphics/GPUResource/RasterizerState/D3D11/D3D11RasterizerState.hpp>
-#include <Graphics/GPUResource/AlphaBlender/D3D11/D3D11AlphaBlender.hpp>
+#include <Graphics/GPUResource/AlphaBlendState/D3D11/D3D11AlphaBlendState.hpp>
 
 #include <Graphics/GPUResource/Shader/D3D11/PixelShader/D3D11PixelShader.hpp>
 #include <Graphics/GPUResource/Shader/D3D11/HullShader/D3D11HullShader.hpp>
@@ -97,9 +97,9 @@ namespace cg
 			return std::make_shared<RasterizerState>(cullMode, isWireFrameMode, multisampleEnable, antialiassedLineEnable, frontCounterClockwise, depthClipEnable, scissorEnable);
 		}
 
-		std::shared_ptr<IAlphaBlender> GraphicsAPI::createAlphaBlender(const AlphaBlenderDescriptor& descriptor)
+		std::shared_ptr<IAlphaBlendState> GraphicsAPI::createAlphaBlendState(const AlphaBlendDescriptor& descriptor)
 		{
-			return std::make_shared<AlphaBlender>(descriptor);
+			return std::make_shared<AlphaBlendState>(descriptor);
 		}
 
 		std::shared_ptr<IDepthStencilTester> GraphicsAPI::createDepthStencilTester(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled)
