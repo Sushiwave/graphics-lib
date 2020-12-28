@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/Shape/Sphere.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Sphere.hpp>
 
 
 

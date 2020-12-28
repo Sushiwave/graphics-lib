@@ -1,5 +1,5 @@
-#include <GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/WavefrontOBJModelLoader.hpp>
-#include <GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/WavefrontOBJMaterialLoader.hpp>
+#include <GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/WavefrontOBJModelLoader.hpp>
+#include <GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/WavefrontOBJMaterialLoader.hpp>
 #include <ThirdParty/CPPLib/Assert/Assert.hpp>
 #include <ThirdParty/CPPLib/Exception/RuntimeError/Base/RuntimeError.hpp>
 

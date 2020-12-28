@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/Shape/Box.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Box.hpp>
 
 
 

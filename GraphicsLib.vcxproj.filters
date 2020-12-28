@@ -333,15 +333,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\API\IGraphicsAPI.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -358,9 +349,6 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.hpp">
@@ -391,15 +379,6 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\System\IGraphicsSystem.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\PrimitiveTopology.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Shape.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Scene.hpp">
@@ -603,9 +582,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\AnyModel.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\CoordinateSystem.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -694,6 +670,30 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\IDepthStencilTesterState.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Components\PrimitiveTopology.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Components\ShapeTracker.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Shape.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\AnyModel.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\MainRenderTarget\MainRenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJModelLoader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">
@@ -709,15 +709,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\API\D3D11\D3D11GraphicsAPI.cpp">
@@ -876,9 +867,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -907,18 +895,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderPool\ShaderPool.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Shape.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Plane.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Sphere.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11GraphicsSystemComponents.cpp">
@@ -979,9 +955,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Projection\Projection.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Box.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ThirdParty\CPPLib\DesignPattern\Observer\Observer.cpp">
@@ -1047,9 +1020,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transform.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\AnyModel.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1085,6 +1055,33 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Shape.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\AnyModel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Box.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Plane.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Sphere.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\MainRenderTarget\MainRenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJModelLoader.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

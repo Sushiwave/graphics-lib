@@ -16,22 +16,22 @@ namespace cg
 
 	void RasterizerState::release()
 	{
-		if (GPUStateViewer::view().rasterizer.isEmpty) { return; }
+		if (GPUStateViewer::view().rasterizerState.isEmpty) { return; }
 
 #ifdef CONTEXT_D3D11
 		d3d11::Device::getDeviceContext()->RSSetState(nullptr);
 #endif
 
-		GPUStateRecorder::main.rasterizerReleased();
+		GPUStateRecorder::main.rasterizerStateReleased();
 	}
 	void RasterizerState::set()
 	{
 		auto selfID = getID();
-		if (selfID != GPUStateViewer::view().rasterizer.id)
+		if (selfID != GPUStateViewer::view().rasterizerState.id)
 		{
 			m_setCall();
 		}
 
-		GPUStateRecorder::main.rasterizerSet(selfID);
+		GPUStateRecorder::main.rasterizerStateSet(selfID);
 	}
 }

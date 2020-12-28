@@ -1,5 +1,5 @@
 #include <GraphicsLib/Graphics/Transform/Transform.hpp>
-#include <GraphicsLib/Graphics/Shape/Base/Shape.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Base/Shape.hpp>
 
 
 

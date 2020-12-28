@@ -1,7 +1,7 @@
 #include "D3D11GraphicsSystem.hpp"
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <Graphics/System/D3D11/Components/D3D11ScreenUpdater.hpp>
-#include <GraphicsLib/Graphics/MainRenderTarget/MainRenderTarget.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RenderTarget/MainRenderTarget/MainRenderTarget.hpp>
 #include <Graphics/System/D3D11/Components/D3D11GraphicsSystemComponents.hpp>
 #include <Window/Components/WINAPI/WindowHandle/WINAPIWindowHandle.hpp>
 #include <Window/System/WINAPI/Components/WINAPIWindowComponents.hpp>

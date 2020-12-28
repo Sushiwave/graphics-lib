@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/MainRenderTarget/MainRenderTarget.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RenderTarget/MainRenderTarget/MainRenderTarget.hpp>
 #include <Graphics/GPUResource/RenderTarget/D3D11/D3D11RenderTarget.hpp>
 #include <Graphics/System/D3D11/Components/D3D11GraphicsSystemComponents.hpp>
 

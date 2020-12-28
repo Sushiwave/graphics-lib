@@ -38,11 +38,11 @@ namespace cg
 		std::shared_ptr<TransformConstantBuffer> m_transformConstantBuffer;
 		std::shared_ptr<LightConstantBuffer>     m_lightConstantBuffer;
 
-		std::shared_ptr<IDepthStencilTesterState> m_depthStencilTester;
+		std::shared_ptr<IDepthStencilTesterState> m_depthStencilTesterState;
 		std::shared_ptr<IDepthStencilBuffer> m_depthStencilBuffer;
 		
-		std::shared_ptr<IRasterizerState>   m_rasterizer;
-		std::shared_ptr<IAlphaBlendState> m_alphaBlender;
+		std::shared_ptr<IRasterizerState>   m_rasterizerState;
+		std::shared_ptr<IAlphaBlendState> m_alphaBlendState;
 	protected:
 		[[nodiscard]] std::shared_ptr<IDepthStencilBuffer> accessToDepthStencilBuffer() const;
 		[[nodiscard]] std::shared_ptr<IRasterizerState> accessToRasterizerState() const;
@@ -55,7 +55,7 @@ namespace cg
 		void renderDefault(const Scene& scene, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall = [](const Scene&){}, const AdditionalDrawCall& additionalDrawCall = [](){});
 		void renderDefault(const Scene& scene, const Camera& customCamera, bool drawSceneObjects, const AdditionalSetCallScene& additionalSetCall = [](const Scene&){}, const AdditionalDrawCall& additionalDrawCall = [](){});
 	public:
-		RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTesterState> depthStencilTester, std::shared_ptr<IRasterizerState> rasterizer, std::shared_ptr<IAlphaBlendState> alphaBlender, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept;
+		RasterizationBasedRenderPipeline(const std::string& name, const TargetRenderingGroupNameList& targetRenderingGroupNameList, std::shared_ptr<IDepthStencilBuffer> depthStencilBuffer, std::shared_ptr<IDepthStencilTesterState> depthStencilTesterState, std::shared_ptr<IRasterizerState> rasterizerState, std::shared_ptr<IAlphaBlendState> alphaBlendState, const ShaderDict& shaders, std::shared_ptr<MaterialConstantBuffer> materialConstantBuffer, std::shared_ptr<TransformConstantBuffer> transformConstantBuffer, std::shared_ptr<LightConstantBuffer> lightConstantBuffer) noexcept;
 		virtual ~RasterizationBasedRenderPipeline() = default;
 	};
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include <ThirdParty/CPPLib/COM/com_ptr.hpp>
-#include <GraphicsLib/Graphics/Shape/Base/Components/PrimitiveTopology.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Base/Components/PrimitiveTopology.hpp>
 #include <GraphicsLib/Graphics/GPUResource/VertexBuffer/IVertexBuffer.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Base/GPUResource.hpp>
 

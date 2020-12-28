@@ -159,9 +159,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJModelLoader.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Components\Face.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Components\Triangle.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Components\Triangles.hpp" />
@@ -257,7 +257,7 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\GPUStateRecorder.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\GPUStateViewer.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\MainRenderTarget\MainRenderTarget.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipeline.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.hpp" />
@@ -274,10 +274,10 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\ShaderCodeParser\Components\ShaderResourceLocationDict.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\ShaderCodeParser\IShaderCodeParser.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\ShaderPool\ShaderPool.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\AnyModel.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\PrimitiveTopology.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.hpp" />
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Shape.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\AnyModel.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Components\PrimitiveTopology.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Components\ShapeTracker.hpp" />
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Shape.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\System\Components\IGraphicsSystemComponents.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\System\Components\IScreenUpdater.hpp" />
     <ClInclude Include="inc\GraphicsLib\Graphics\System\IGraphicsSystem.hpp" />
@@ -394,7 +394,7 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transformable.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\ImGui\ImGuiImage.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\AnyModel.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\AnyModel.cpp" />
     <ClCompile Include="src\GraphicsLib\ImGui\imgui_impl_graphicslib.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\LightConstantBuffer\LightConstantBuffer.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\Base\PositionableLight.cpp" />
@@ -403,9 +403,9 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\PointLight.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.cpp" />
     <ClCompile Include="src\GraphicsLib\API\API.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJModelLoader.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJIndex.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJMaterial.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\Components\WavefrontOBJVertex.cpp" />
@@ -476,7 +476,7 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GPUState\GPUStateRecorder.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUState\GPUStateViewer.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\MainRenderTarget\MainRenderTarget.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipeline.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RenderPipelineMRT.cpp" />
@@ -488,11 +488,10 @@
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderCodeParser\D3D11\D3D11ShaderCodeParser.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderCompiler\HLSL\D3D11\D3D11ShaderCompiler.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderPool\ShaderPool.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Shape.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Box.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Plane.cpp" />
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Sphere.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Shape.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Box.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Plane.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Sphere.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11GraphicsSystemComponents.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11ScreenUpdater.cpp" />
     <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\D3D11GraphicsSystem.cpp" />

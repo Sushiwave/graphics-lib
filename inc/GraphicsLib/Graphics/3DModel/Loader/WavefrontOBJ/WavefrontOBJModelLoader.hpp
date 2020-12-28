@@ -4,7 +4,7 @@
 #include <GraphicsLib/Graphics/3DModel/WavefrontOBJ/Components/WavefrontOBJIndex.hpp>
 #include <GraphicsLib/Graphics/3DModel/WavefrontOBJ/Components/WavefrontOBJFace.hpp>
 #include <ThirdParty/CPPLib/File/FileStream.hpp>
-#include <GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/Helper/WavefrontOBJLoadingHelper.hpp>
+#include <GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/Helper/WavefrontOBJLoadingHelper.hpp>
 #include <GraphicsLib/Graphics/3DModel/WavefrontOBJ/Components/WavefrontOBJTriangle.hpp>
 
 #include <memory>

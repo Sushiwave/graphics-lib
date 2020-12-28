@@ -1,5 +1,5 @@
 #pragma once
-#include <GraphicsLib/Graphics/Shape/Base/Shape.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Base/Shape.hpp>
 #include <ThirdParty/CPPLib/Math/Vector/Vector2D.hpp>
 
 

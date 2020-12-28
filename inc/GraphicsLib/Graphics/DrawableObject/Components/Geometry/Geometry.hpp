@@ -1,7 +1,7 @@
 #pragma once
 #include <GraphicsLib/Graphics/GPUResource/GeometryBuffer/IGeometryBuffer.hpp>
 #include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Material/Material.hpp>
-#include <GraphicsLib/Graphics/Shape/Base/Shape.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Base/Shape.hpp>
 
 
 

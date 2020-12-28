@@ -2,7 +2,7 @@
 #include <GraphicsLib/Context.hpp>
 #include <Graphics/Components/D3D11/Device/D3D11Device.hpp>
 #include <Window/Components/WINAPI/WindowHandle/WINAPIWindowHandle.hpp>
-#include <GraphicsLib/Graphics/MainRenderTarget/MainRenderTarget.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RenderTarget/MainRenderTarget/MainRenderTarget.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateViewer.hpp>
 #include <ThirdParty/ExtendedImGui/ImGui/imgui_impl_dx11.h>
 #include <ThirdParty/ExtendedImGui/ImGui/imgui_impl_win32.h>

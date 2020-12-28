@@ -1,4 +1,4 @@
-#include <GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/Helper/WavefrontOBJLoadingHelper.hpp>
+#include <GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/Helper/WavefrontOBJLoadingHelper.hpp>
 
 
 

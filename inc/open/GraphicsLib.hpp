@@ -1,10 +1,10 @@
 #pragma once
-#include "../GraphicsLib/Graphics/Shape/Box.hpp"
-#include "../GraphicsLib/Graphics/Shape/Plane.hpp"
-#include "../GraphicsLib/Graphics/Shape/Sphere.hpp"
-#include "../GraphicsLib/Graphics/Shape/AnyModel.hpp"
+#include "../GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Box.hpp"
+#include "../GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Plane.hpp"
+#include "../GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Sphere.hpp"
+#include "../GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/AnyModel.hpp"
 
-#include "../GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/WavefrontOBJModelLoader.hpp"
+#include "../GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/WavefrontOBJModelLoader.hpp"
 
 #include "../GraphicsLib/Graphics/GPUResource/TransformConstantBuffer/Helper/TransformConstantBufferUpdatingHelper.hpp"
 
@@ -23,7 +23,7 @@
 
 #include "../GraphicsLib/Graphics/ShaderPool/ShaderPool.hpp"
 
-#include "../GraphicsLib/Graphics/MainRenderTarget/MainRenderTarget.hpp"
+#include "../GraphicsLib/Graphics/GPUResource/RenderTarget/MainRenderTarget/MainRenderTarget.hpp"
 
 #include "../GraphicsLib/Graphics/GPUState/MainGPUStateRecorder.hpp"
 

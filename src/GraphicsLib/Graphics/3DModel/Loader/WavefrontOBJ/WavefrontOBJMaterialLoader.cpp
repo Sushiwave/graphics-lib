@@ -1,6 +1,6 @@
-#include <GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/WavefrontOBJMaterialLoader.hpp>
+#include <GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/WavefrontOBJMaterialLoader.hpp>
 #include <ThirdParty/CPPLib/File/FileStream.hpp>
-#include <GraphicsLib/Graphics/3DModelLoader/WavefrontOBJ/Helper/WavefrontOBJLoadingHelper.hpp>
+#include <GraphicsLib/Graphics/3DModel/Loader/WavefrontOBJ/Helper/WavefrontOBJLoadingHelper.hpp>
 
 
 
