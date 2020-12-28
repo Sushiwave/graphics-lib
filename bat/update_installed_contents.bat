@@ -21,8 +21,12 @@ del self_process_id.txt
 
 
 
+start /min "Building DirectXTex:  Debug x86"   %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:build /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
+start /min "Building DirectXTex:  Release x86" %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x86"
+start /min "Building DirectXTex:  Debug x64"   %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:build /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
+start /min "Building DirectXTex:  Release x64" %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x64"
 start /min "Building: Debug x86"   %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
-start /min "Building: Release x84" %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x86"
+start /min "Building: Release x86" %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x86"
 start /min "Building: Debug x64"   %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
 start /min "Building: Release x64" %MSBUILD_PATH% GraphicsLib.sln /m /t:build /p:BuildInParallel=true;Configuration=Release;Platform="x64"
 

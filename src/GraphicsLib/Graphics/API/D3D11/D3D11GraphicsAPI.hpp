@@ -27,11 +27,11 @@ namespace cg
 			[[nodiscard]] std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(int width, int height, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) override;
 			[[nodiscard]] std::shared_ptr<IMultipleRenderTargets> createMultipleRenderTargets(const cpp::Vector2D<int>& size, const std::vector<TextureFormat> renderTargetFormatList, int sampleCount = 1) override;
 
-			[[nodiscard]] std::shared_ptr<IRasterizer> createRasterizer(CullMode cullMode, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) override;
+			[[nodiscard]] std::shared_ptr<IRasterizerState> createRasterizerState(CullMode cullMode, bool isWireFrameMode = false, bool multisampleEnable = false, bool antialiassedLineEnable = false, bool frontCounterClockwise = false, bool depthClipEnable = false, bool scissorEnable = false) override;
 
-			[[nodiscard]] std::shared_ptr<IAlphaBlender> createAlphaBlender(const AlphaBlenderDescriptor& descriptor) override;
+			[[nodiscard]] std::shared_ptr<IAlphaBlendState> createAlphaBlendState(const AlphaBlendDescriptor& descriptor) override;
 
-			[[nodiscard]] std::shared_ptr<IDepthStencilTester> createDepthStencilTester(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled) override;
+			[[nodiscard]] std::shared_ptr<IDepthStencilTesterState> createDepthStencilTesterState(ComparisonFunction depthFunction, ComparisonFunction stencilFunction, bool isDepthTestEnabled, bool isStencilTestEnabled, bool isDepthBufferWritingOperationEnabled) override;
 
 			[[nodiscard]] std::shared_ptr<IDynamicTexture2D>   createDynamicTexture2D(const std::string& filename);
 			[[nodiscard]] std::shared_ptr<IDefaultTexture2D>   createDefaultTexture2D(const std::string& filename);

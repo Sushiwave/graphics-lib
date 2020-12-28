@@ -1,6 +1,6 @@
 #pragma once
 #include <GraphicsLib/Context.hpp>
-#include <GraphicsLib/Graphics/Shape/Base/Components/PrimitiveTopology.hpp>
+#include <GraphicsLib/Graphics/DrawableObject/Components/Geometry/Components/Shape/Base/Components/PrimitiveTopology.hpp>
 #include <GraphicsLib/Graphics/GPUResource/Base/IGPUResource.hpp>
 
 

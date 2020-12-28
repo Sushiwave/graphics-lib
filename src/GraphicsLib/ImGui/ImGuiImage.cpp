@@ -3,7 +3,7 @@
 #include <Graphics/GPUResource/ShaderResourceMemoryAccessor/D3D11/D3D11ShaderResourceView.hpp>
 #include <Graphics/GPUResource/RenderTarget/D3D11/D3D11RenderTarget.hpp>
 #include <GraphicsLib/Graphics/GPUState/GPUStateViewer.hpp>
-#include <GraphicsLib/Graphics/MainRenderTarget/MainRenderTarget.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RenderTarget/MainRenderTarget/MainRenderTarget.hpp>
 #include <GraphicsLib/API/API.hpp>
 #include <GraphicsLib/ImGui/ImGuiImage.hpp>
 #include <Graphics/GPUResource/DepthStencilBuffer/D3D11/D3D11DepthStencilBuffer.hpp>

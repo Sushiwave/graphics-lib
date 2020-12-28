@@ -4,12 +4,12 @@
 #include <GraphicsLib/ID/ID.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/Components/GPUAccessType.hpp>
 #include <GraphicsLib/Graphics/GPUResource/ShaderResource/TextureSampler/Components/TextureSamplerDescriptor.hpp>
-#include <GraphicsLib/Graphics/GPUResource/Rasterizer/Components/CullMode.hpp>
-#include <GraphicsLib/Graphics/GPUResource/AlphaBlender/Components/AlphaBlenderDescriptor.hpp>
+#include <GraphicsLib/Graphics/GPUResource/RasterizerState/Components/CullMode.hpp>
+#include <GraphicsLib/Graphics/GPUResource/AlphaBlendState/Components/AlphaBlendDescriptor.hpp>
 #include <Graphics/GPUResource/ShaderResource/Buffer/Components/D3D11/RawBuffer/Components/RawBufferType.hpp>
 #include <Graphics/GPUResource/ShaderResource/Texture/Texture2D/D3D11/Components/RawTexture/Components/D3D11RawTexture2DType.hpp>
 #include <Graphics/GPUResource/ShaderResource/Texture/Components/D3D/D3DTexturePrecision.hpp>
-#include <GraphicsLib/Graphics/GPUResource/DepthStencilTester/Components/ComparisonFunction.hpp>
+#include <GraphicsLib/Graphics/GPUResource/DepthStencilTesterState/Components/ComparisonFunction.hpp>
 
 #include <assert.h>
 #include <d3d11.h>
@@ -66,7 +66,7 @@ namespace cg
 
 
 
-			static HRESULT createBlendState(ID3D11Device* pDevice, const AlphaBlenderDescriptor& descriptor, ID3D11BlendState** out);
+			static HRESULT createBlendState(ID3D11Device* pDevice, const AlphaBlendDescriptor& descriptor, ID3D11BlendState** out);
 
 
 

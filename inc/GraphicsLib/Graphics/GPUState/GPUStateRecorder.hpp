@@ -24,10 +24,10 @@ namespace cg
 
 
 
-		void rasterizerSet(const ID& id) const noexcept;
-		void rasterizerReleased() const noexcept;
-		void depthStencilTesterSet(const ID& id) const noexcept;
-		void depthStencilTesterReleased() const noexcept;
+		void rasterizerStateSet(const ID& id) const noexcept;
+		void rasterizerStateReleased() const noexcept;
+		void depthStencilTesterStateSet(const ID& id) const noexcept;
+		void depthStencilTesterStateReleased() const noexcept;
 		void blenderSet(const ID& id) const noexcept;
 		void blenderReleased() const noexcept;
 		void multipleRenderTargetsSet(const cg::IMultipleRenderTargets* multipleRenderTargets) const noexcept;

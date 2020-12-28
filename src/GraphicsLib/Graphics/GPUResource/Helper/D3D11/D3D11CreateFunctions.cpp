@@ -159,7 +159,7 @@ namespace cg
 			return pDevice->CreateSamplerState(&d3d11Desc, out);
 		}
 
-		HRESULT D3D11CreateFunctions::createBlendState(ID3D11Device* pDevice, const AlphaBlenderDescriptor& descriptor, ID3D11BlendState** out)
+		HRESULT D3D11CreateFunctions::createBlendState(ID3D11Device* pDevice, const AlphaBlendDescriptor& descriptor, ID3D11BlendState** out)
 		{
 			D3D11_BLEND_DESC d3dBlendDesc;
 			for (int i = 0; i < D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT; ++i)

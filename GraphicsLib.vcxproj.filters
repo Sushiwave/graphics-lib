@@ -15,13 +15,7 @@
     <ClInclude Include="src\GraphicsLib\Graphics\Components\D3D11\Device\D3D11Device.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\D3D11\D3D11AlphaBlender.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\GeometryBuffer\D3D11\D3D11GeometryBuffer.hpp">
@@ -31,9 +25,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\D3D11\D3D11RenderTarget.hpp">
@@ -342,15 +333,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\API\IGraphicsAPI.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -367,9 +349,6 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.hpp">
@@ -402,15 +381,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\System\IGraphicsSystem.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\PrimitiveTopology.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\Base\Shape.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Scene.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -432,34 +402,10 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Scene\Components\Light\SpotLight.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\AlphaBlender.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\AlphaBlenderDescriptor.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\BlendFactor.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\BlendOperator.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlender\IAlphaBlender.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\GPUResource.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Base\IGPUResource.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Components\ComparisonFunction.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\DepthStencilTester.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTester\IDepthStencilTester.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.hpp">
@@ -511,15 +457,6 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Shader\VertexShader\IVertexShader.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Components\CullMode.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\IRasterizer.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\Rasterizer\Rasterizer.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\ShaderResource\Base\IShaderResource.hpp">
@@ -645,9 +582,6 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Transform.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\GraphicsLib\Graphics\Shape\AnyModel.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GraphicsLib\Graphics\Transform\Components\CoordinateSystem.hpp">
       <Filter>inc</Filter>
     </ClInclude>
@@ -694,6 +628,72 @@
     <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Material\Material.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\Components\CullMode.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\IRasterizerState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RasterizerState\RasterizerState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\D3D11\D3D11AlphaBlendState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\BlendFactor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\BlendOperator.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\AlphaBlendState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\IAlphaBlendState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\AlphaBlendDescriptor.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\Components\ComparisonFunction.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\DepthStencilTesterState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\IDepthStencilTesterState.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Components\PrimitiveTopology.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Components\ShapeTracker.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Shape.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\AnyModel.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\GPUResource\RenderTarget\MainRenderTarget\MainRenderTarget.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJMaterialLoader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJModelLoader.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GraphicsLib\API\API.cpp">
@@ -711,15 +711,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\3DModel\WavefrontOBJ\WavefrontOBJModel.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\3DModelLoader\WavefrontOBJ\WavefrontOBJModelLoader.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\API\D3D11\D3D11GraphicsAPI.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -732,15 +723,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GeometryCalculator\GeometryCalculator.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Base\AlphaBlender.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\Components\AlphaBlenderDescriptor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlender\D3D11\D3D11AlphaBlender.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Base\Components\BoundedBufferLocation.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -748,12 +730,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\D3D11\D3D11DepthStencilBuffer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\Base\DepthStencilTester.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTester\D3D11\D3D11DepthStencilTester.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\GBuffer\GBuffer.cpp">
@@ -766,12 +742,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\IndexBuffer\D3D11\D3D11IndexBuffer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\Base\Rasterizer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\Rasterizer\D3D11\D3D11Rasterizer.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\Base\RenderTarget.cpp">
@@ -897,9 +867,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\GPUState\MainGPUStateRecorder.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\MainRenderTarget\MainRenderTarget.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\RenderPipeline\RasterizationBasedRenderPipeline.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -928,18 +895,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\ShaderPool\ShaderPool.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Components\ShapeTracker.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Base\Shape.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Plane.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Sphere.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\System\D3D11\Components\D3D11GraphicsSystemComponents.cpp">
@@ -1000,9 +955,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\Scene\Components\Projection\Projection.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\Box.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ThirdParty\CPPLib\DesignPattern\Observer\Observer.cpp">
@@ -1068,9 +1020,6 @@
     <ClCompile Include="src\GraphicsLib\Graphics\Transform\Transform.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsLib\Graphics\Shape\AnyModel.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilBuffer\Base\DepthStencilBuffer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1087,6 +1036,54 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Geometry.cpp" />
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\Base\RasterizerState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RasterizerState\D3D11\D3D11RasterizerState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Base\AlphaBlendState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\Components\AlphaBlendDescriptor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\AlphaBlendState\D3D11\D3D11AlphaBlendState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\Base\DepthStencilTesterState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\DepthStencilTesterState\D3D11\D3D11DepthStencilTesterState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Base\Shape.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\AnyModel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Box.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Plane.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\DrawableObject\Components\Geometry\Components\Shape\Sphere.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\GPUResource\RenderTarget\MainRenderTarget\MainRenderTarget.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\Helper\WavefrontOBJLoadingHelper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJMaterialLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsLib\Graphics\3DModel\Loader\WavefrontOBJ\WavefrontOBJModelLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\ThirdParty\DirectXTex\DirectXTex.inl">

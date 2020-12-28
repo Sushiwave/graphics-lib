@@ -75,8 +75,8 @@ namespace cg
 	private:
 		std::unordered_map<ShaderStage, ShaderBufferState> m_shader;
 	public:
-		State rasterizer;
-		State depthStencilTester;
+		State rasterizerState;
+		State depthStencilTesterState;
 		State blender;
 
 		RenderTargetBufferState renderTarget;
