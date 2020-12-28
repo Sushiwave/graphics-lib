@@ -75,14 +75,14 @@ del self_process_id.txt
 
 
 
-start /min "Building DirectXTex:  Debug x86"   %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
-start /min "Building DirectXTex:  Release x84" %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Release;Platform="x86"
-start /min "Building DirectXTex:  Debug x64"   %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
-start /min "Building DirectXTex:  Release x64" %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Release;Platform="x64"
-start /min "Building GraphicsLib: Debug x86"   %MSBUILD_PATH% GraphicsLib.sln /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
-start /min "Building GraphicsLib: Release x84" %MSBUILD_PATH% GraphicsLib.sln /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Release;Platform="x86"
-start /min "Building GraphicsLib: Debug x64"   %MSBUILD_PATH% GraphicsLib.sln /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
-start /min "Building GraphicsLib: Release x64" %MSBUILD_PATH% GraphicsLib.sln /t:clean;rebuild /m /p:BuildInParallel=true;Configuration=Release;Platform="x64"
+start /min "Building DirectXTex: Debug x86"    %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
+start /min "Building DirectXTex: Release x86"  %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Release;Platform="x86"
+start /min "Building DirectXTex: Debug x64"    %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
+start /min "Building DirectXTex: Release x64"  %MSBUILD_PATH% ThirdParty\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Release;Platform="x64"
+start /min "Building GraphicsLib: Debug x86"   %MSBUILD_PATH% GraphicsLib.sln /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Debug;Platform="x86"
+start /min "Building GraphicsLib: Release x86" %MSBUILD_PATH% GraphicsLib.sln /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Release;Platform="x86"
+start /min "Building GraphicsLib: Debug x64"   %MSBUILD_PATH% GraphicsLib.sln /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Debug;Platform="x64"
+start /min "Building GraphicsLib: Release x64" %MSBUILD_PATH% GraphicsLib.sln /m /t:clean;rebuild /p:BuildInParallel=true;Configuration=Release;Platform="x64"
 
 call :monitoring
 
