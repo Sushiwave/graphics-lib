@@ -26,21 +26,21 @@ namespace cg
 	{
 		return m_pool.at(stage).count(name) == 1;
 	}
-	std::shared_ptr<IShader> ShaderPool::createFromSourceCodeAndAdd(ShaderStage stage, const std::string& name, const std::string& sourceCode, const std::string& entryPoint, const std::string& model)
+	std::shared_ptr<IShader> ShaderPool::createShaderFromSourceCodeAndPool(ShaderStage stage, const std::string& name, const std::string& sourceCode, const std::string& entryPoint, const std::string& model)
 	{
 		if (exists(stage, name)) { return get(stage, name); }
 		auto shader = API::shared.graphics()->createShaderFromSourceCode(stage, sourceCode, entryPoint, model);
 		m_pool[stage].emplace(name, shader);
 		return shader;
 	}
-	std::shared_ptr<IShader> ShaderPool::createFromFileAndAdd(ShaderStage stage, const std::string& name, const std::string& filename, const std::string& entryPoint, const std::string& model)
+	std::shared_ptr<IShader> ShaderPool::createShaderFromFileAndPool(ShaderStage stage, const std::string& name, const std::string& filename, const std::string& entryPoint, const std::string& model)
 	{
 		if (exists(stage, name)) { return get(stage, name); }
 		auto shader = API::shared.graphics()->createShaderFromFile(stage, filename, entryPoint, model);
 		m_pool[stage].emplace(name, shader);
 		return shader;
 	}
-	void ShaderPool::add(const std::string& name, std::shared_ptr<IShader> shader)
+	void ShaderPool::pool(const std::string& name, std::shared_ptr<IShader> shader)
 	{
 		auto stage = shader->getShaderStage();
 		if (exists(stage, name)) 

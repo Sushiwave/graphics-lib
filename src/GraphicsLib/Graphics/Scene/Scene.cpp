@@ -195,7 +195,7 @@ namespace cg
 			return;
 		}
 
-		const auto& groupName = objectRef->whichRenderingGroupBelongTo();
+		const auto& groupName = objectRef->getNameOfRenderingGroupToWhichThisBelongs();
 		if (m_renderingGroupExists(groupName) == false)
 		{
 			m_renderingGroupDictSearchWithRenderPipelineName.emplace(groupName, std::make_shared<DrawableObjectDict>());

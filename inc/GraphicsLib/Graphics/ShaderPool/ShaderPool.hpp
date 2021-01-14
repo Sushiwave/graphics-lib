@@ -27,9 +27,9 @@ namespace cg
 	
 		[[nodiscard]] bool exists(ShaderStage stage, const std::string& nameKey) const noexcept;
 
-		[[nodiscard]] std::shared_ptr<IShader> createFromSourceCodeAndAdd(ShaderStage stage, const std::string& nameKey, const std::string& sourceCode, const std::string& entryPoint, const std::string& model);
-		[[nodiscard]] std::shared_ptr<IShader> createFromFileAndAdd(ShaderStage stage, const std::string& nameKey, const std::string& filename, const std::string& entryPoint, const std::string& model);
-		void add(const std::string& nameKey, std::shared_ptr<IShader> shader);
+		[[nodiscard]] std::shared_ptr<IShader> createShaderFromSourceCodeAndPool(ShaderStage stage, const std::string& nameKey, const std::string& sourceCode, const std::string& entryPoint, const std::string& model);
+		[[nodiscard]] std::shared_ptr<IShader> createShaderFromFileAndPool(ShaderStage stage, const std::string& nameKey, const std::string& filename, const std::string& entryPoint, const std::string& model);
+		void pool(const std::string& nameKey, std::shared_ptr<IShader> shader);
 		void update(const std::string& nameKey, std::shared_ptr<IShader> shader);
 
 		void remove(ShaderStage stage, const std::string& nameKey);

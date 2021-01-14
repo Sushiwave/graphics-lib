@@ -17,13 +17,13 @@ namespace cg
 	{
 	}
 
-	void DrawableObject::moveTo(const std::string& renderingGroupName)
+	void DrawableObject::moveToAnotherRenderingGroup(const std::string& renderingGroupName)
 	{
 		m_renderingGroupName = renderingGroupName;
 		notify();
 	}
 
-	std::string DrawableObject::whichRenderingGroupBelongTo() const noexcept
+	std::string DrawableObject::getNameOfRenderingGroupToWhichThisBelongs() const noexcept
 	{
 		return m_renderingGroupName;
 	}

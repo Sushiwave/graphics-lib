@@ -31,8 +31,8 @@ namespace cg
 
 
 
-		void moveTo(const std::string& renderingGroupName);
-		[[nodiscard]] std::string whichRenderingGroupBelongTo() const noexcept;
+		void moveToAnotherRenderingGroup(const std::string& renderingGroupName);
+		[[nodiscard]] std::string getNameOfRenderingGroupToWhichThisBelongs() const noexcept;
 
 
 
